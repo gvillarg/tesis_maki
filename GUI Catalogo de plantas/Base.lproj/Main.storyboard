@@ -17,8 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="na1-g0-g04">
-                                <rect key="frame" x="0.0" y="64" width="600" height="88"/>
+                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="na1-g0-g04">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="r2O-XX-deK"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
                                     <string>Title</string>
@@ -28,10 +31,10 @@
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
-                                <rect key="frame" x="0.0" y="152" width="600" height="399"/>
+                                <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="NIn-bi-7lX" detailTextLabel="RfB-xy-r3V" style="IBUITableViewCellStyleValue1" id="PsO-d4-hF1">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewCell" textLabel="NIn-bi-7lX" detailTextLabel="RfB-xy-r3V" style="IBUITableViewCellStyleValue1" id="PsO-d4-hF1">
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PsO-d4-hF1" id="CKU-iQ-mpu">
                                             <autoresizingMask key="autoresizingMask"/>
@@ -69,6 +72,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="owr-uX-7cw"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="barHeight" destination="r2O-XX-deK" id="OgX-sc-Paz"/>
                         <outlet property="searchDisplayController" destination="Pe0-Pl-jO3" id="6tf-hn-Y02"/>
                     </connections>
                 </viewController>
@@ -84,45 +88,15 @@
             </objects>
             <point key="canvasLocation" x="2910" y="240"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="tiT-6B-Pth">
-            <objects>
-                <tableViewController id="CGl-0n-QjD" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="szJ-tR-pDs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="F7c-Vx-Txp">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="F7c-Vx-Txp" id="mgh-YP-4fW">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="CGl-0n-QjD" id="4mB-G5-vJt"/>
-                            <outlet property="delegate" destination="CGl-0n-QjD" id="an2-5M-WvS"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="l55-cY-sQC"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lw4-1D-Ree" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2926" y="956"/>
-        </scene>
-        <!--Camera-->
+        <!--Navigation Controller-->
         <scene sceneID="RAX-fi-2hL">
             <objects>
                 <navigationController id="sYP-kH-shZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Camera" badgeValue="20" id="5Hn-Tp-But"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="5Hn-Tp-But"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9lx-eX-0UH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
-                    <connections>
-                        <segue destination="CGl-0n-QjD" kind="relationship" relationship="rootViewController" id="lSp-Z3-sGo"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EZ-jp-4UN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

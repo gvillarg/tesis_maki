@@ -10,6 +10,9 @@
 
 @interface ViewController ()
 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
+
 @end
 
 @implementation ViewController
@@ -22,6 +25,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.barHeight setConstant:88];
 }
 
 @end
