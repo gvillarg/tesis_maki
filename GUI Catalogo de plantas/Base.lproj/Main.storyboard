@@ -8,7 +8,7 @@
         <!--Familias-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="FamiliesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -24,10 +24,9 @@
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                    <string>Title</string>
-                                    <string>Title</string>
+                                    <string>Todos</string>
+                                    <string>Generos</string>
+                                    <string>Especies</string>
                                 </scopeButtonTitles>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
@@ -55,6 +54,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="pBd-sj-zGX"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Mtp-au-Qkb"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -102,11 +105,11 @@
             </objects>
             <point key="canvasLocation" x="2106" y="956"/>
         </scene>
-        <!--Browse-->
+        <!--Explorador-->
         <scene sceneID="PDg-jm-XvZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5ap-jN-X9A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Browse" id="wje-MC-FkU"/>
+                    <tabBarItem key="tabBarItem" title="Explorador" id="wje-MC-FkU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5e-nT-NSX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
