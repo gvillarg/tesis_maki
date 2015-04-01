@@ -10,7 +10,7 @@
 
 @implementation Family
 
-@synthesize name = _name;
+// @synthesize name = _name;
 
 
 @end
