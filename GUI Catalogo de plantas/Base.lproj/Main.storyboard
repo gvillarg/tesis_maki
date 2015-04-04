@@ -52,6 +52,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="RXF-nw-hqp" kind="show" id="z6Y-Tt-rW3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -71,9 +74,7 @@
                             <constraint firstItem="NF7-Gr-FjP" firstAttribute="top" secondItem="na1-g0-g04" secondAttribute="bottom" id="nj0-xY-vfB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Familias" id="izd-nz-vi4">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="owr-uX-7cw"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Familias" id="izd-nz-vi4"/>
                     <connections>
                         <outlet property="barHeight" destination="r2O-XX-deK" id="OgX-sc-Paz"/>
                         <outlet property="searchDisplayController" destination="Pe0-Pl-jO3" id="6tf-hn-Y02"/>
@@ -89,13 +90,32 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2910" y="240"/>
+            <point key="canvasLocation" x="2924" y="240"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Generos-->
+        <scene sceneID="9wG-Ia-0k7">
+            <objects>
+                <viewController id="gV7-El-UP8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ybc-E2-h4P"/>
+                        <viewControllerLayoutGuide type="bottom" id="WHe-Fk-Oxc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qcj-wS-iMq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Generos" id="oyf-rR-ehy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eOJ-bo-Ze6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4528" y="254"/>
+        </scene>
+        <!--Campus PUCP-->
         <scene sceneID="RAX-fi-2hL">
             <objects>
                 <navigationController id="sYP-kH-shZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="5Hn-Tp-But"/>
+                    <tabBarItem key="tabBarItem" title="Campus PUCP" image="MapTabBar" id="5Hn-Tp-But"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="9lx-eX-0UH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -109,7 +129,7 @@
         <scene sceneID="PDg-jm-XvZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5ap-jN-X9A" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explorador" id="wje-MC-FkU"/>
+                    <tabBarItem key="tabBarItem" title="Explorador" image="SearchTabBar" id="wje-MC-FkU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5e-nT-NSX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -129,6 +149,7 @@
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="evw-rf-byo" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="qfP-3d-IMX"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="NaC-vI-pN0">
                         <autoresizingMask key="autoresizingMask"/>
@@ -137,11 +158,65 @@
                     <connections>
                         <segue destination="5ap-jN-X9A" kind="relationship" relationship="viewControllers" id="oVo-Tv-s52"/>
                         <segue destination="sYP-kH-shZ" kind="relationship" relationship="viewControllers" id="kw8-eE-eWF"/>
+                        <segue destination="c2h-Dc-bp4" kind="relationship" relationship="viewControllers" id="zmH-J2-kJ6"/>
+                        <segue destination="mOE-Qa-gSc" kind="relationship" relationship="viewControllers" id="wEv-BP-z2i"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lU7-SL-69b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1286" y="240"/>
+            <point key="canvasLocation" x="1166" y="146"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="LDn-X1-krO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RXF-nw-hqp" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Bxd-mk-mGQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gV7-El-UP8" kind="relationship" relationship="rootViewController" id="3MP-Lp-JhK"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EQg-U6-4XC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3716" y="254"/>
+        </scene>
+        <!--Descubre hojas-->
+        <scene sceneID="dIq-5W-Z76">
+            <objects>
+                <navigationController id="c2h-Dc-bp4" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Descubre hojas" image="LeafTabBar" id="NhC-j2-gMc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hwv-LD-gJp">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uws-ew-1KM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1657" y="1385"/>
+        </scene>
+        <!--Manual de Usuario-->
+        <scene sceneID="Ab9-8L-3cI">
+            <objects>
+                <navigationController id="mOE-Qa-gSc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Manual de Usuario" image="ManualTabBar" id="471-CA-Usy"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="fsF-mO-tv2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S4P-f8-Zuv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1256" y="2066"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="LeafTabBar" width="26" height="26"/>
+        <image name="ManualTabBar" width="25" height="25"/>
+        <image name="MapTabBar" width="26" height="26"/>
+        <image name="SearchTabBar" width="26" height="26"/>
+    </resources>
 </document>
