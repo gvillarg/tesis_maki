@@ -10,6 +10,7 @@
 		122A03F41ACA220F0086A2E4 /* FamiliesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A03F31ACA220F0086A2E4 /* FamiliesViewController.m */; };
 		122A03F81ACA27AC0086A2E4 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A03F71ACA27AC0086A2E4 /* Family.m */; };
 		202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202DF9351ACBA265002FABB4 /* GendersViewController.m */; };
+		205121C81AD0E5AE00D2FCD3 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 205121C71AD0E5AE00D2FCD3 /* Gender.m */; };
 		CCE740251A9FE8ED007374C4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE740241A9FE8ED007374C4 /* main.m */; };
 		CCE740281A9FE8ED007374C4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE740271A9FE8ED007374C4 /* AppDelegate.m */; };
 		CCE7402B1A9FE8ED007374C4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CCE7402A1A9FE8ED007374C4 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 		122A03F71ACA27AC0086A2E4 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
 		202DF9341ACBA265002FABB4 /* GendersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GendersViewController.h; sourceTree = "<group>"; };
 		202DF9351ACBA265002FABB4 /* GendersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GendersViewController.m; sourceTree = "<group>"; };
+		205121C61AD0E5AE00D2FCD3 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
+		205121C71AD0E5AE00D2FCD3 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
 		CCE7401F1A9FE8EC007374C4 /* GUI Catalogo de plantas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GUI Catalogo de plantas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCE740231A9FE8ED007374C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCE740241A9FE8ED007374C4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -74,6 +77,8 @@
 			children = (
 				122A03F61ACA27AC0086A2E4 /* Family.h */,
 				122A03F71ACA27AC0086A2E4 /* Family.m */,
+				205121C61AD0E5AE00D2FCD3 /* Gender.h */,
+				205121C71AD0E5AE00D2FCD3 /* Gender.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				205121C81AD0E5AE00D2FCD3 /* Gender.m in Sources */,
 				122A03F41ACA220F0086A2E4 /* FamiliesViewController.m in Sources */,
 				CCE7402B1A9FE8ED007374C4 /* ViewController.m in Sources */,
 				122A03F81ACA27AC0086A2E4 /* Family.m in Sources */,

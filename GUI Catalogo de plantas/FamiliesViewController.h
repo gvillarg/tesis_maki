@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FamiliesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FamiliesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *FamilyTableView;
+
 
 @end

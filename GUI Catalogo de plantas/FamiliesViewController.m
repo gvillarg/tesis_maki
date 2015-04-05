@@ -8,6 +8,8 @@
 
 #import "FamiliesViewController.h"
 #import "Family.h"
+#import "GendersViewController.h"
+#import "Gender.h"
 
 @interface FamiliesViewController ()
 
@@ -30,8 +32,26 @@
 
 // metodo para crear data inicial, luego cuando cargue de la BD puedo borrar esto
 -(void) loadInitialData {
+    NSMutableArray *genders = [[NSMutableArray alloc] init];
+    
+    Gender *gender1 = [[Gender alloc] init];
+    gender1.name = @"Anisacanthus quadrifidus";
+    [genders addObject:gender1];
+    Gender *gender2 = [[Gender alloc] init];
+    gender2.name = @"Aphelandra deppeana";
+    [genders addObject:gender2];
+    Gender *gender3 = [[Gender alloc] init];
+    gender3.name = @"Aphelandra scabra";
+    [genders addObject:gender3];
+    Gender *gender4 = [[Gender alloc] init];
+    gender4.name = @"Carlowrightia parvifolia";
+    [genders addObject:gender4];
+    
+    
     Family *family1 = [[Family alloc] init];
     family1.name = @"Acanthaceae";
+    //family1.genders = genders;
+    family1.genders = [[NSMutableArray alloc] initWithArray:genders];
     [self.families addObject: family1];
     Family *family2 = [[Family alloc] init];
     family2.name = @"Achariaceae";
@@ -98,14 +118,17 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    NSIndexPath *path = [self.FamilyTableView indexPathForSelectedRow];
+    GendersViewController *GenderViewController = [segue destinationViewController];
+    GenderViewController.familySelected = [self.families objectAtIndex:path.row];
 }
-*/
+
 
 @end

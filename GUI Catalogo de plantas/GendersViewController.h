@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Family.h"
 
-@interface GendersViewController : UIViewController
-
+@interface GendersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *familyNameLabel;
+@property Family *familySelected;
 @end
