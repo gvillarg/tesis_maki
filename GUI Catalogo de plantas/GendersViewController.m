@@ -8,6 +8,7 @@
 
 #import "GendersViewController.h"
 #import "Family.h"
+#import "SpeciesViewController.h"
 
 @interface GendersViewController ()
 
@@ -54,14 +55,16 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
+    SpeciesViewController *SpeciesViewController = [segue destinationViewController];
+    SpeciesViewController.familySelected = self.familySelected;
+    SpeciesViewController.genderSelected = [self.familySelected.genders objectAtIndex:path.row];
 }
-*/
+
 
 @end
