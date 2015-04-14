@@ -15,6 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
 @property NSMutableArray *families;
+
 @end
 
 @implementation FamiliesViewController
@@ -107,7 +108,10 @@
     //return nil;
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewCell" forIndexPath:indexPath];
     //Family *family = [self.families objectAtIndex:indexPath.row];
+    
     cell.textLabel.text = [[self.families objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.families objectAtIndex:indexPath.row] objectForKey:@"cantGen"], @"generos"];
+    
     return cell;
     
 }

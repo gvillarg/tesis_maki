@@ -79,6 +79,7 @@
     //cell.textLabel.text = gender.name;
     //Family *family = [self.families objectAtIndex:indexPath.row];
     cell.textLabel.text = [[self.genders objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.genders objectAtIndex:indexPath.row] objectForKey:@"COUNT"], @"especies"];
     return cell;
     
 }

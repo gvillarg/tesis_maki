@@ -13,7 +13,7 @@
 @end
 
 @implementation CampusMapViewController
-    GMSMapView *mapView_;
+ GMSMapView *mapView_;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -25,11 +25,11 @@
     self.view = mapView_;
     
     // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.map = mapView_;
+  //  GMSMarker *marker = [[GMSMarker alloc] init];
+  //  marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
+  //  marker.title = @"Sydney";
+  //  marker.snippet = @"Australia";
+  //  marker.map = mapView_;
     
 }
 
@@ -47,5 +47,6 @@
     // Pass the selected object to the new view controller.
 }
 */
+
 
 @end
