@@ -10,12 +10,11 @@
 #import "Family.h"
 #import "GendersViewController.h"
 #import "Gender.h"
-
+#import "AFNetworking.h"
 @interface FamiliesViewController ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
 @property NSMutableArray *families;
-
 @end
 
 @implementation FamiliesViewController
@@ -25,9 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     self.families = [[NSMutableArray alloc] init];
-    [self loadInitialData];
+    [self getFamily];
+    //[self loadInitialData];
 }
 
 // metodo para crear data inicial, luego cuando cargue de la BD puedo borrar esto
@@ -107,8 +106,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return nil;
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewCell" forIndexPath:indexPath];
-    Family *family = [self.families objectAtIndex:indexPath.row];
-    cell.textLabel.text = family.name;
+    //Family *family = [self.families objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[self.families objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
     return cell;
     
 }
@@ -117,7 +116,30 @@
     return alphabet;
 }
 
-
+-(void)getFamily{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    
+    [manager GET:@"http://inform.pucp.edu.pe/~a20090212/servicioFamilia.php" parameters:nil success:^(AFHTTPRequestOperation *task, id responseObject) {
+        NSMutableDictionary * respuesta = [[NSMutableDictionary alloc] init];
+        respuesta = responseObject;
+        self.families  = [respuesta objectForKey:@"result"];
+        
+        NSLog(@"JSON: %@", responseObject);
+        [self.FamilyTableView reloadData];
+        
+        
+    } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No se pudo acceder al servidor"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+}
 
 #pragma mark - Navigation
 
@@ -127,6 +149,7 @@
     // Pass the selected object to the new view controller.
     NSIndexPath *path = [self.FamilyTableView indexPathForSelectedRow];
     GendersViewController *GenderViewController = [segue destinationViewController];
+    //GenderViewController.idFamilySelected = [self.families objectAtIndex:path.row];
     GenderViewController.familySelected = [self.families objectAtIndex:path.row];
 }
 

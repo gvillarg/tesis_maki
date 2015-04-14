@@ -11,7 +11,8 @@
 
 @interface GendersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *familyNameLabel;
-@property Family *familySelected;
+//@property Family *familySelected;
+@property NSMutableDictionary *familySelected;
 @property (weak, nonatomic) IBOutlet UITableView *GenderTableView;
 
 @end
