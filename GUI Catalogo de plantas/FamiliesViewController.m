@@ -225,7 +225,15 @@
     NSIndexPath *path = [self.FamilyTableView indexPathForSelectedRow];
     GendersViewController *GenderViewController = [segue destinationViewController];
     //GenderViewController.idFamilySelected = [self.families objectAtIndex:path.row];
-    GenderViewController.familySelected = [self.families objectAtIndex:path.row];
+  
+    // RECIEN COMENTADO
+    //GenderViewController.familySelected = [self.families objectAtIndex:path.row];
+    
+    NSString *sectionTitle = [self.familySectionTitles objectAtIndex:path.section];
+    NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
+    Family *familyToSend = [sectionFamilies objectAtIndex:path.row];
+    GenderViewController.familySelected = familyToSend;
+    
 }
 
 

@@ -14,6 +14,7 @@
 @interface GendersViewController ()
 
 @property NSMutableArray *genders;
+@property NSMutableArray *nuevosGeneros;
 @end
 
 @implementation GendersViewController
@@ -22,9 +23,11 @@
       [super viewDidLoad];
     [self getGenders];
     // Do any additional setup after loading the view.
-    self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", [self.familySelected objectForKey:@"Nombre"]];
+   
+    //RECIEN COMENTADO
+    //self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", [self.familySelected objectForKey:@"Nombre"]];
     
-    
+    self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", [self.familySelected name]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,7 +36,10 @@
 }
 
 -(void)getGenders{
-    NSMutableDictionary *diccionarioAMandar = [[NSMutableDictionary alloc]initWithObjectsAndKeys: [self.familySelected objectForKey:@"Id"],@"id",nil];
+  // RECIEN COMENTADO
+  //  NSMutableDictionary *diccionarioAMandar = [[NSMutableDictionary alloc]initWithObjectsAndKeys: [self.familySelected objectForKey:@"Id"],@"id",nil];
+    NSNumber *numberObject = [NSNumber numberWithInteger:[self.familySelected id]];
+    NSMutableDictionary *diccionarioAMandar = [[NSMutableDictionary alloc]initWithObjectsAndKeys:numberObject,@"id",nil];
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
@@ -67,8 +73,11 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //return [self.familySelected.genders count];
-    return ((NSNumber *)[self.familySelected objectForKey:@"cantGen"]).intValue;
+    return [self.familySelected cantgen];
+    
+    //RECIEN COMENTADO
+    //return ((NSNumber *)[self.familySelected objectForKey:@"cantGen"]).intValue;
+    
     //return  0;
 }
 
@@ -88,8 +97,47 @@
     return alphabet;
 }
 
+/*-(void)getGenderNames{
+    self.nuevosGeneros = [[NSMutableArray alloc]init];
+    Gender *newGender;
+    for (NSMutableDictionary *ObjetoDiccionario in self.genders){
+        //nameFam = [ObjetoDiccionario objectForKey:@"Nombre"];
+        newFamily = [Family initWithJson:ObjetoDiccionario];
+        [self.nuevasFamilias addObject:newFamily];
+    }
+    
+    NSString * plantaAux = ((Family *)[self.nuevasFamilias objectAtIndex: 0]).name; // Se obtiene el nombre de la primera planta
+    NSString * primLetraAnt = [plantaAux substringToIndex:1]; // Se obtiene la primera letra del nombre
+    
+    NSMutableArray * arrLetraFamilias = [[NSMutableArray alloc] init]; //Este es el arreglo que tiene los objetos familia con una letra
+    [arrLetraFamilias addObject:[self.nuevasFamilias objectAtIndex:0]];
+    //NSMutableDictionary * PlantasDic = [[NSMutableDictionary alloc] init]; //Este es el diccionario que tiene las letras y el arreglo de nombres
+    [self.plantasDiccionario setObject:arrLetraFamilias forKey: primLetraAnt];
+    
+    for(int i=1; i< [self.nuevasFamilias count]; i++){
+        NSString * planta = ((Family *)[self.nuevasFamilias objectAtIndex: i]).name;
+        NSString * primLetra = [planta substringToIndex:1];
+        
+        if([primLetraAnt isEqualToString:primLetra]){//Si es igual a la letra anterior solo se agrega al arreglo
+            [arrLetraFamilias addObject: [self.nuevasFamilias objectAtIndex:i]];
+            
+        }else{ // Si son diferentes se agrega el arreglo al diccionario ya que ya se acabo una letra, luego se reinicia el arreglo y se agrega la palabra
+            [self.plantasDiccionario setObject:arrLetraFamilias forKey:primLetraAnt]; //agrego el anterior arreglo
+            arrLetraFamilias = [[NSMutableArray alloc] init];
+            [arrLetraFamilias addObject: [self.nuevasFamilias objectAtIndex:i]];
+            primLetraAnt = primLetra; // Se actualiza el primLetra
+            
+        }
+        
+        if (i == [self.nuevasFamilias count]-1){ //Si es que es el ùltimo del arreglo se agrega al dicionario de todas maneras
+            [self.plantasDiccionario setObject:arrLetraFamilias forKey:primLetraAnt];
+        }
+    }
+    
+    self.familySectionTitles = [[self.plantasDiccionario allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+}
 
-
+*/
 
 #pragma mark - Navigation
 

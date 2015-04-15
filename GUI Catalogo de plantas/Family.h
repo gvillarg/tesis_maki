@@ -17,4 +17,5 @@
 @property NSMutableArray *genders;
 
 + (Family *) initWithJson: (NSMutableDictionary *) ObjetoJason;
++ (NSInteger) getID;
 @end
