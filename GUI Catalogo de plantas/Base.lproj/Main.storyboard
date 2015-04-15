@@ -17,10 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="na1-g0-g04">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-wY-zLv">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xCu-hZ-JTv">
                                 <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="r2O-XX-deK"/>
+                                    <constraint firstAttribute="height" constant="44" id="Occ-Bz-r0v"/>
                                 </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
@@ -28,6 +33,9 @@
                                     <string>Generos</string>
                                     <string>Especies</string>
                                 </scopeButtonTitles>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="x8Z-qx-N5H"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
@@ -62,28 +70,35 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Mtp-au-Qkb"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0tg-wY-zLv">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NF7-Gr-FjP" secondAttribute="bottom" id="3Ko-OL-MJB"/>
-                            <constraint firstItem="na1-g0-g04" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="JnT-Mz-dlb"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="na1-g0-g04" secondAttribute="trailing" constant="-16" id="W2c-WS-E2x"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="NF7-Gr-FjP" secondAttribute="trailing" constant="-16" id="h8f-9j-RgD"/>
-                            <constraint firstItem="na1-g0-g04" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="iev-H5-u6w"/>
-                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="ijK-MI-3D2"/>
-                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="top" secondItem="na1-g0-g04" secondAttribute="bottom" id="nj0-xY-vfB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NF7-Gr-FjP" secondAttribute="bottom" constant="52" id="3Ko-OL-MJB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xCu-hZ-JTv" secondAttribute="trailing" constant="-16" id="A5q-5x-RXP"/>
+                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="JW0-YJ-5QR"/>
+                            <constraint firstItem="xCu-hZ-JTv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Rcb-18-Skf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NF7-Gr-FjP" secondAttribute="trailing" constant="-21" id="h8f-9j-RgD"/>
+                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-11" id="ijK-MI-3D2"/>
+                            <constraint firstItem="xCu-hZ-JTv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="kkS-NP-btL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NF7-Gr-FjP" secondAttribute="bottom" id="leP-CW-ZZh"/>
+                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="top" secondItem="xCu-hZ-JTv" secondAttribute="bottom" constant="-52" id="qIb-c4-Icz"/>
+                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="top" secondItem="xCu-hZ-JTv" secondAttribute="bottom" id="rLw-Q4-kHY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NF7-Gr-FjP" secondAttribute="trailing" constant="-16" id="t5E-dK-RCT"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="h8f-9j-RgD"/>
+                                <exclude reference="ijK-MI-3D2"/>
+                                <exclude reference="qIb-c4-Icz"/>
+                                <exclude reference="3Ko-OL-MJB"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Familias" id="izd-nz-vi4"/>
                     <connections>
                         <outlet property="FamilyTableView" destination="NF7-Gr-FjP" id="COB-dq-9Z6"/>
-                        <outlet property="barHeight" destination="r2O-XX-deK" id="OgX-sc-Paz"/>
-                        <outlet property="searchDisplayController" destination="Pe0-Pl-jO3" id="6tf-hn-Y02"/>
+                        <outlet property="barHeight" destination="Occ-Bz-r0v" id="mWW-MO-F3b"/>
+                        <outlet property="familySearchBar" destination="xCu-hZ-JTv" id="nPc-ip-pnY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

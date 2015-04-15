@@ -19,10 +19,15 @@
 @property NSMutableArray *nuevasFamilias;
 @property NSMutableDictionary *plantasDiccionario; //Este es el diccionario que tiene las letras y el arreglo de nombres
 @property NSArray *familySectionTitles;
+
 @end
+
+
 
 @implementation FamiliesViewController
 
+@synthesize filteredFamilyArray;
+@synthesize familySearchBar;
 
 # pragma mark - View Controller Life Cicle
 - (void)viewDidLoad {

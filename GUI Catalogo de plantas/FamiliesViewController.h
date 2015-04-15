@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FamiliesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface FamiliesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate >
 @property (weak, nonatomic) IBOutlet UITableView *FamilyTableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *familySearchBar;
 
-
+@property (strong, nonatomic) NSMutableArray *filteredFamilyArray;
 
 @end
