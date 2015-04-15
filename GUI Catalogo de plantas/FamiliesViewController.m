@@ -199,11 +199,17 @@
         
         if([primLetraAnt isEqualToString:primLetra]){//Si es igual a la letra anterior solo se agrega al arreglo
             [arrLetraFamilias addObject: [self.nuevasFamilias objectAtIndex:i]];
+              
         }else{ // Si son diferentes se agrega el arreglo al diccionario ya que ya se acabo una letra, luego se reinicia el arreglo y se agrega la palabra
-            [self.plantasDiccionario setObject:arrLetraFamilias forKey:primLetraAnt];
+            [self.plantasDiccionario setObject:arrLetraFamilias forKey:primLetraAnt]; //agrego el anterior arreglo
             arrLetraFamilias = [[NSMutableArray alloc] init];
             [arrLetraFamilias addObject: [self.nuevasFamilias objectAtIndex:i]];
             primLetraAnt = primLetra; // Se actualiza el primLetra
+           
+        }
+        
+        if (i == [self.nuevasFamilias count]-1){ //Si es que es el ùltimo del arreglo se agrega al dicionario de todas maneras
+            [self.plantasDiccionario setObject:arrLetraFamilias forKey:primLetraAnt];
         }
     }
     
