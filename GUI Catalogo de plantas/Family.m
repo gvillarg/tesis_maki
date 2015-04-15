@@ -10,7 +10,13 @@
 
 @implementation Family
 
-// @synthesize name = _name;
-
++ (Family *) initWithJson: (NSMutableDictionary *) ObjetoJason{
+    Family *newfamily = [[Family alloc] init];
+    newfamily.name = [ObjetoJason objectForKey:@"Nombre"];
+    newfamily.id = ((NSNumber *)[ObjetoJason objectForKey:@"Id"]).integerValue;
+    newfamily.cantgen = ((NSNumber *)[ObjetoJason objectForKey:@"cantGen"]).integerValue;
+    
+    return newfamily;
+}
 
 @end

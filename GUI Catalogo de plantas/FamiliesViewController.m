@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
 @property NSMutableArray *families;
 
+@property NSMutableArray *nuevasFamilias;
+@property NSMutableDictionary *plantasDiccionario; //Este es el diccionario que tiene las letras y el arreglo de nombres
+@property NSArray *familySectionTitles;
 @end
 
 @implementation FamiliesViewController
@@ -25,8 +28,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.families = [[NSMutableArray alloc] init];
+    
+   
+    self.plantasDiccionario = [[NSMutableDictionary alloc] init];
+    self.familySectionTitles = [[NSArray alloc] init];
     [self getFamily];
+    
     //[self loadInitialData];
 }
 
@@ -96,12 +103,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 1;
+    return [self.familySectionTitles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.families count];
+    //return [self.families count];
     //return  0;
+    NSString *sectionTitle = [self.familySectionTitles objectAtIndex:section];
+    NSArray *sectionFamily = [self.plantasDiccionario objectForKey:sectionTitle];
+    return [sectionFamily count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -109,15 +119,30 @@
      UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewCell" forIndexPath:indexPath];
     //Family *family = [self.families objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [[self.families objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.families objectAtIndex:indexPath.row] objectForKey:@"cantGen"], @"generos"];
-    
+    //cell.textLabel.text = [[self.families objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.families objectAtIndex:indexPath.row] objectForKey:@"cantGen"], @"generos"];
+    NSString *sectionTitle = [self.familySectionTitles objectAtIndex:indexPath.section];
+    NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
+    Family *familyToShow = [sectionFamilies objectAtIndex:indexPath.row];
+    cell.textLabel.text = familyToShow.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"generos"];
     return cell;
     
 }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return [self.familySectionTitles objectAtIndex:section];
+}
+
+
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
     NSArray *alphabet = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L" , @"M", @"N", @"O", @"P", @"Q", @"R",  @"S", @"T", @"U" , @"V", @"W", @"X" , @"Y", @"Z",  nil] ;
     return alphabet;
+    
+}
+
+- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
+    return [self.familySectionTitles indexOfObject:title];
 }
 
 -(void)getFamily{
@@ -131,6 +156,7 @@
         respuesta = responseObject;
         self.families  = [respuesta objectForKey:@"result"];
         
+        [self getFamilyNames];
         NSLog(@"JSON: %@", responseObject);
         [self.FamilyTableView reloadData];
         
@@ -143,6 +169,40 @@
                                                   otherButtonTitles:nil];
         [alertView show];
     }];
+}
+
+-(void)getFamilyNames{
+    self.nuevasFamilias = [[NSMutableArray alloc]init];
+    Family *newFamily;
+    for (NSMutableDictionary *ObjetoDiccionario in self.families){
+        //nameFam = [ObjetoDiccionario objectForKey:@"Nombre"];
+        newFamily = [Family initWithJson:ObjetoDiccionario];
+        [self.nuevasFamilias addObject:newFamily];
+    }
+    
+    NSString * plantaAux = ((Family *)[self.nuevasFamilias objectAtIndex: 0]).name; // Se obtiene el nombre de la primera planta
+    NSString * primLetraAnt = [plantaAux substringToIndex:1]; // Se obtiene la primera letra del nombre
+    
+    NSMutableArray * arrLetraFamilias = [[NSMutableArray alloc] init]; //Este es el arreglo que tiene los objetos familia con una letra
+    [arrLetraFamilias addObject:[self.nuevasFamilias objectAtIndex:0]];
+    //NSMutableDictionary * PlantasDic = [[NSMutableDictionary alloc] init]; //Este es el diccionario que tiene las letras y el arreglo de nombres
+    [self.plantasDiccionario setObject:arrLetraFamilias forKey: primLetraAnt];
+    
+    for(int i=1; i< [self.nuevasFamilias count]; i++){
+        NSString * planta = ((Family *)[self.nuevasFamilias objectAtIndex: i]).name;
+        NSString * primLetra = [planta substringToIndex:1];
+        
+        if([primLetraAnt isEqualToString:primLetra]){//Si es igual a la letra anterior solo se agrega al arreglo
+            [arrLetraFamilias addObject: [self.nuevasFamilias objectAtIndex:i]];
+        }else{ // Si son diferentes se agrega el arreglo al diccionario ya que ya se acabo una letra, luego se reinicia el arreglo y se agrega la palabra
+            [self.plantasDiccionario setObject:arrLetraFamilias forKey:primLetraAnt];
+            arrLetraFamilias = [[NSMutableArray alloc] init];
+            [arrLetraFamilias addObject: [self.nuevasFamilias objectAtIndex:i]];
+            primLetraAnt = primLetra; // Se actualiza el primLetra
+        }
+    }
+    
+    self.familySectionTitles = [[self.plantasDiccionario allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
 #pragma mark - Navigation

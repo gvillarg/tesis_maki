@@ -12,6 +12,9 @@
 @interface Family : NSObject
 
 @property NSString *name;
+@property NSInteger id;
+@property NSInteger cantgen;
 @property NSMutableArray *genders;
 
++ (Family *) initWithJson: (NSMutableDictionary *) ObjetoJason;
 @end
