@@ -11,4 +11,9 @@
 @interface Gender : NSObject
 
 @property NSString *name;
+@property NSInteger id;
+@property NSInteger cantEsp;
+
++ (Gender *) initWithJson: (NSMutableDictionary *) ObjetoJason;
+
 @end

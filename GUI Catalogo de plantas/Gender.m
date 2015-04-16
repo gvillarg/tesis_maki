@@ -10,4 +10,13 @@
 
 @implementation Gender
 
++ (Gender *) initWithJson: (NSMutableDictionary *) ObjetoJason{
+    Gender *newgender = [[Gender alloc] init];
+    newgender.name = [ObjetoJason objectForKey:@"Nombre"];
+    newgender.id = ((NSNumber *)[ObjetoJason objectForKey:@"Id"]).integerValue;
+    newgender.cantEsp = ((NSNumber *)[ObjetoJason objectForKey:@"COUNT"]).integerValue;
+    
+    return newgender;
+}
+
 @end
