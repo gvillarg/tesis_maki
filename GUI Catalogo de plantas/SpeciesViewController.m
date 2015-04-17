@@ -7,8 +7,13 @@
 //
 
 #import "SpeciesViewController.h"
+#import "AFNetworking.h"
+#import "Specie.h"
 
 @interface SpeciesViewController ()
+
+@property NSMutableArray *species;
+@property NSMutableArray *nuevasEspecies;
 
 @end
 
@@ -29,6 +34,49 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)getSpecies{
+    // RECIEN COMENTADO
+    //  NSMutableDictionary *diccionarioAMandar = [[NSMutableDictionary alloc]initWithObjectsAndKeys: [self.familySelected objectForKey:@"Id"],@"id",nil];
+    NSNumber *numberObject = [NSNumber numberWithInteger:[self.genderSelected id]];
+    NSMutableDictionary *diccionarioAMandar = [[NSMutableDictionary alloc]initWithObjectsAndKeys:numberObject,@"id",nil];
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    
+    [manager POST:@"http://inform.pucp.edu.pe/~a20090212/servicioEspecie.php" parameters:diccionarioAMandar success:^(AFHTTPRequestOperation *task, id responseObject) {
+        NSMutableDictionary * respuesta = [[NSMutableDictionary alloc] init];
+        respuesta = responseObject;
+        self.species  = [respuesta objectForKey:@"result"];
+        
+        [self getSpeciesObjects];
+        NSLog(@"JSON: %@", responseObject);
+        [self.SpeciesCollectionView reloadData];
+        
+        
+    } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No se pudo acceder al servidor"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+}
+
+-(void)getSpeciesObjects{
+    self.nuevasEspecies = [[NSMutableArray alloc]init];
+    Specie *newSpecie;
+    for (NSMutableDictionary *ObjetoDiccionario in self.species){
+        //nameFam = [ObjetoDiccionario objectForKey:@"Nombre"];
+        newSpecie = [Specie initWithJson:ObjetoDiccionario];
+        [self.nuevasEspecies addObject:newSpecie];
+    }
+  
+}
+
+
+
 #pragma mark - UICollectionView Datasource
 
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
@@ -39,7 +87,7 @@
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     //return [self.searches count];
-    return 2;
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {

@@ -13,6 +13,7 @@
 @interface SpeciesViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UILabel *familyNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *genderNameLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *SpeciesCollectionView;
 @property Family *familySelected;
 @property Gender *genderSelected;
 @end

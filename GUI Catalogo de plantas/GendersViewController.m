@@ -171,9 +171,17 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
+    
     SpeciesViewController *SpeciesViewController = [segue destinationViewController];
     SpeciesViewController.familySelected = self.familySelected;
+    
+    NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
+    NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:path.section];
+    NSArray *sectionGenders = [self.plantasDiccionario objectForKey:sectionTitle];
+    Gender *genderToSend = [sectionGenders objectAtIndex:path.row];
+    SpeciesViewController.genderSelected = genderToSend;
+
+    
     //SpeciesViewController.genderSelected = [self.familySelected.genders objectAtIndex:path.row];
 }
 

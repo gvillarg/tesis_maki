@@ -39,6 +39,7 @@
 		12DA4BB51ADC7E60006DFD91 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA4BA21ADC7E60006DFD91 /* UIProgressView+AFNetworking.m */; };
 		12DA4BB61ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA4BA41ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m */; };
 		12DA4BB71ADC7E60006DFD91 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA4BA61ADC7E60006DFD91 /* UIWebView+AFNetworking.m */; };
+		12ED243E1AE1B5770058B003 /* Specie.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ED243D1AE1B5770058B003 /* Specie.m */; };
 		202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202DF9351ACBA265002FABB4 /* GendersViewController.m */; };
 		203908091AD1DF59009E87EF /* SpeciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203908081AD1DF59009E87EF /* SpeciesViewController.m */; };
 		205121C81AD0E5AE00D2FCD3 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 205121C71AD0E5AE00D2FCD3 /* Gender.m */; };
@@ -118,6 +119,8 @@
 		12DA4BA41ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		12DA4BA51ADC7E60006DFD91 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		12DA4BA61ADC7E60006DFD91 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		12ED243C1AE1B5770058B003 /* Specie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specie.h; sourceTree = "<group>"; };
+		12ED243D1AE1B5770058B003 /* Specie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specie.m; sourceTree = "<group>"; };
 		202DF9341ACBA265002FABB4 /* GendersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GendersViewController.h; sourceTree = "<group>"; };
 		202DF9351ACBA265002FABB4 /* GendersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GendersViewController.m; sourceTree = "<group>"; };
 		203908071AD1DF59009E87EF /* SpeciesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeciesViewController.h; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 				122A03F71ACA27AC0086A2E4 /* Family.m */,
 				205121C61AD0E5AE00D2FCD3 /* Gender.h */,
 				205121C71AD0E5AE00D2FCD3 /* Gender.m */,
+				12ED243C1AE1B5770058B003 /* Specie.h */,
+				12ED243D1AE1B5770058B003 /* Specie.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -444,6 +449,7 @@
 				CCE7402B1A9FE8ED007374C4 /* ViewController.m in Sources */,
 				12DA4BA81ADC7E60006DFD91 /* AFHTTPRequestOperationManager.m in Sources */,
 				12DA4BB51ADC7E60006DFD91 /* UIProgressView+AFNetworking.m in Sources */,
+				12ED243E1AE1B5770058B003 /* Specie.m in Sources */,
 				122A03F81ACA27AC0086A2E4 /* Family.m in Sources */,
 				12DA4BB31ADC7E60006DFD91 /* UIButton+AFNetworking.m in Sources */,
 				12DA4BAE1ADC7E60006DFD91 /* AFURLResponseSerialization.m in Sources */,
