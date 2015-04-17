@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -256,7 +256,7 @@
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rGv-nz-2Zh">
                                 <rect key="frame" x="0.0" y="154" width="600" height="397"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CY2-C0-UY7">
                                     <size key="itemSize" width="104" height="98"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -264,28 +264,26 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SpecieCell" id="IMo-35-Za8">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SpecieCell" id="IMo-35-Za8" customClass="Cell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="104" height="98"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlantaModelo" translatesAutoresizingMaskIntoConstraints="NO" id="cFs-zc-0pt">
-                                                    <rect key="frame" x="8" y="8" width="88" height="82"/>
-                                                </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pushpin" translatesAutoresizingMaskIntoConstraints="NO" id="o0e-vC-z8B">
-                                                    <rect key="frame" x="41" y="0.0" width="23" height="22"/>
-                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYc-Za-wPC">
+                                                    <rect key="frame" x="29" y="71" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <constraints>
-                                            <constraint firstAttribute="bottomMargin" secondItem="cFs-zc-0pt" secondAttribute="bottom" id="EQg-zD-7QS"/>
-                                            <constraint firstItem="cFs-zc-0pt" firstAttribute="leading" secondItem="IMo-35-Za8" secondAttribute="leadingMargin" id="HhL-9R-w4k"/>
-                                            <constraint firstItem="cFs-zc-0pt" firstAttribute="top" secondItem="IMo-35-Za8" secondAttribute="topMargin" id="PIc-kH-sHW"/>
-                                            <constraint firstItem="cFs-zc-0pt" firstAttribute="trailing" secondItem="IMo-35-Za8" secondAttribute="trailingMargin" id="jCf-YS-qMn"/>
-                                        </constraints>
+                                        <size key="customSize" width="100" height="100"/>
+                                        <connections>
+                                            <outlet property="nombrePlantaLabel" destination="nYc-Za-wPC" id="Tdn-D6-vnQ"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -522,9 +520,7 @@
         <image name="LeafTabBar" width="26" height="26"/>
         <image name="ManualTabBar" width="25" height="25"/>
         <image name="MapTabBar" width="26" height="26"/>
-        <image name="PlantaModelo" width="100" height="100"/>
         <image name="PlantaModelo2" width="800" height="600"/>
         <image name="SearchTabBar" width="26" height="26"/>
-        <image name="pushpin" width="22" height="31"/>
     </resources>
 </document>

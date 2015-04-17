@@ -9,6 +9,7 @@
 #import "SpeciesViewController.h"
 #import "AFNetworking.h"
 #import "Specie.h"
+#import "Cell.h"
 
 @interface SpeciesViewController ()
 
@@ -82,18 +83,19 @@
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     //NSString *searchTerm = self.searches[section];
     //return [self.searchResults[searchTerm] count];
-    return 5;
+    return [self.nuevasEspecies count];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
-    //return [self.searches count];
+    
+    //return [self.nuevasEspecies count];
     return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"SpecieCell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor whiteColor];
-    
+    Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"SpecieCell" forIndexPath:indexPath];
+    //cell.backgroundColor = [UIColor whiteColor];
+    cell.nombrePlantaLabel.text = [[self.nuevasEspecies objectAtIndex:indexPath.row] name];
     return cell;
 }
 
@@ -115,7 +117,7 @@
 #pragma mark – UICollectionViewDelegateFlowLayout
 
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+/*- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     //NSString *searchTerm = self.searches[indexPath.section]; FlickrPhoto *photo =
     //self.searchResults[searchTerm][indexPath.row];
     UIImage *PlantPicture = [UIImage imageNamed:@"PlantaModelo"];
@@ -124,14 +126,14 @@
     retval.height += 10; retval.width += 10; return retval;
     //CGSize retval = photo.thumbnail.size.width > 0 ? photo.thumbnail.size : CGSizeMake(100, 100);
     //retval.height += 35; retval.width += 35; return retval;
-}
+}*/
 
 
-- (UIEdgeInsets)collectionView:
+/*- (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(25, 10, 25, 10);
     //return UIEdgeInsetsMake(50, 20, 50, 20);
-}
+}*/
 
 
 
