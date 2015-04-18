@@ -10,6 +10,8 @@
 #import "AFNetworking.h"
 #import "Specie.h"
 #import "Cell.h"
+#import "HeaderClass.h"
+#import "PlantViewController.h"
 
 @interface SpeciesViewController ()
 
@@ -85,13 +87,14 @@
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     //NSString *searchTerm = self.searches[section];
     //return [self.searchResults[searchTerm] count];
-    return [self.nuevasEspecies count];
+    //return [self.nuevasEspecies count];
+    return 1;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     
-    //return [self.nuevasEspecies count];
-    return 1;
+    return [self.nuevasEspecies count];
+    //return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,11 +120,14 @@
     return cell;
 }
 
-/*- (UICollectionReusableView *)collectionView:
+- (UICollectionReusableView *)collectionView:
  (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
  {
- return [[UICollectionReusableView alloc] init];
- }*/
+     HeaderClass *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"myHeader" forIndexPath:indexPath];
+     header.titleLabel.text = [NSString stringWithFormat:@"Especie"];
+     return header;
+     
+ }
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -154,7 +160,7 @@
 }*/
 
 
-/*
+
  
 #pragma mark - Navigation
 
@@ -162,7 +168,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"DetailSegue"]){
+        Cell *cell = (Cell *)sender;
+        NSIndexPath *indexPath = [self.SpeciesCollectionView indexPathForCell:cell];
+        
+        PlantViewController *pv = [segue destinationViewController];
+        
+        Plant *plant = [[Plant alloc]init];
+        plant.urlImage = @"http://fc04.deviantart.net/fs70/f/2010/288/a/c/tropical_plant_stock_tube_png_by_digitaltwist-d30sesn.png";
+        pv.plantSelected = plant;
+    }
 }
-*/
+
 
 @end

@@ -10,6 +10,9 @@
 		122A03F41ACA220F0086A2E4 /* FamiliesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A03F31ACA220F0086A2E4 /* FamiliesViewController.m */; };
 		122A03F81ACA27AC0086A2E4 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A03F71ACA27AC0086A2E4 /* Family.m */; };
 		1269E1B61AE1D049008A4002 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1B51AE1D049008A4002 /* Cell.m */; };
+		1269E1B91AE1DCEB008A4002 /* HeaderClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1B81AE1DCEB008A4002 /* HeaderClass.m */; };
+		1269E1BC1AE1E27E008A4002 /* PlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1BB1AE1E27E008A4002 /* PlantViewController.m */; };
+		1269E1BF1AE1E3C8008A4002 /* Plant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1BE1AE1E3C8008A4002 /* Plant.m */; };
 		12D7E7B61AD9B3BB00B93F13 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D7E7B51AD9B3BB00B93F13 /* AVFoundation.framework */; };
 		12D7E7B81AD9B3C200B93F13 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D7E7B71AD9B3C200B93F13 /* CoreData.framework */; };
 		12D7E7BA1AD9B3C800B93F13 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12D7E7B91AD9B3C800B93F13 /* CoreLocation.framework */; };
@@ -72,6 +75,12 @@
 		122A03F71ACA27AC0086A2E4 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
 		1269E1B41AE1D049008A4002 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		1269E1B51AE1D049008A4002 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		1269E1B71AE1DCEB008A4002 /* HeaderClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderClass.h; sourceTree = "<group>"; };
+		1269E1B81AE1DCEB008A4002 /* HeaderClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderClass.m; sourceTree = "<group>"; };
+		1269E1BA1AE1E27E008A4002 /* PlantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlantViewController.h; sourceTree = "<group>"; };
+		1269E1BB1AE1E27E008A4002 /* PlantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlantViewController.m; sourceTree = "<group>"; };
+		1269E1BD1AE1E3C8008A4002 /* Plant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plant.h; sourceTree = "<group>"; };
+		1269E1BE1AE1E3C8008A4002 /* Plant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plant.m; sourceTree = "<group>"; };
 		12D7E7B51AD9B3BB00B93F13 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		12D7E7B71AD9B3C200B93F13 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		12D7E7B91AD9B3C800B93F13 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -187,6 +196,8 @@
 				205121C71AD0E5AE00D2FCD3 /* Gender.m */,
 				12ED243C1AE1B5770058B003 /* Specie.h */,
 				12ED243D1AE1B5770058B003 /* Specie.m */,
+				1269E1BD1AE1E3C8008A4002 /* Plant.h */,
+				1269E1BE1AE1E3C8008A4002 /* Plant.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -288,6 +299,10 @@
 				12DA4B951ADC7E60006DFD91 /* UIKit+AFNetworking */,
 				122A03F51ACA27840086A2E4 /* Models */,
 				CCE740261A9FE8ED007374C4 /* AppDelegate.h */,
+				1269E1BA1AE1E27E008A4002 /* PlantViewController.h */,
+				1269E1BB1AE1E27E008A4002 /* PlantViewController.m */,
+				1269E1B71AE1DCEB008A4002 /* HeaderClass.h */,
+				1269E1B81AE1DCEB008A4002 /* HeaderClass.m */,
 				CCE740271A9FE8ED007374C4 /* AppDelegate.m */,
 				1269E1B41AE1D049008A4002 /* Cell.h */,
 				1269E1B51AE1D049008A4002 /* Cell.m */,
@@ -447,6 +462,7 @@
 				12DA4BB71ADC7E60006DFD91 /* UIWebView+AFNetworking.m in Sources */,
 				12DA4BA71ADC7E60006DFD91 /* AFHTTPRequestOperation.m in Sources */,
 				12DA4BA91ADC7E60006DFD91 /* AFHTTPSessionManager.m in Sources */,
+				1269E1BF1AE1E3C8008A4002 /* Plant.m in Sources */,
 				12DA4BB21ADC7E60006DFD91 /* UIAlertView+AFNetworking.m in Sources */,
 				12DA4BAD1ADC7E60006DFD91 /* AFURLRequestSerialization.m in Sources */,
 				1269E1B61AE1D049008A4002 /* Cell.m in Sources */,
@@ -456,11 +472,13 @@
 				12DA4BA81ADC7E60006DFD91 /* AFHTTPRequestOperationManager.m in Sources */,
 				12DA4BB51ADC7E60006DFD91 /* UIProgressView+AFNetworking.m in Sources */,
 				12ED243E1AE1B5770058B003 /* Specie.m in Sources */,
+				1269E1BC1AE1E27E008A4002 /* PlantViewController.m in Sources */,
 				122A03F81ACA27AC0086A2E4 /* Family.m in Sources */,
 				12DA4BB31ADC7E60006DFD91 /* UIButton+AFNetworking.m in Sources */,
 				12DA4BAE1ADC7E60006DFD91 /* AFURLResponseSerialization.m in Sources */,
 				202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */,
 				203908091AD1DF59009E87EF /* SpeciesViewController.m in Sources */,
+				1269E1B91AE1DCEB008A4002 /* HeaderClass.m in Sources */,
 				12DA4BB61ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m in Sources */,
 				CCE740281A9FE8ED007374C4 /* AppDelegate.m in Sources */,
 				CCE740251A9FE8ED007374C4 /* main.m in Sources */,
