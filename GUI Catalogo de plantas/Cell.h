@@ -10,5 +10,7 @@
 
 @interface Cell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *nombrePlantaLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *PlantaImagen;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

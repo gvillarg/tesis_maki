@@ -24,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundCollectionView"]];
+    
+    [self getSpecies];
     self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", self.familySelected.name];
     self.genderNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Genero ", self.genderSelected.name];
     
@@ -96,6 +98,22 @@
     Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"SpecieCell" forIndexPath:indexPath];
     //cell.backgroundColor = [UIColor whiteColor];
     cell.nombrePlantaLabel.text = [[self.nuevasEspecies objectAtIndex:indexPath.row] name];
+    
+    
+    NSURL *url = [[NSURL alloc] initWithString:@"http://fc04.deviantart.net/fs70/f/2010/288/a/c/tropical_plant_stock_tube_png_by_digitaltwist-d30sesn.png"]; //aca voy a obtener los urls de las plantas
+    
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error==nil) {
+            cell.PlantaImagen.image = [UIImage imageWithData:data];
+        }
+        [cell.spinner stopAnimating];
+        
+    }];
+    
+    [task resume];
+    [cell.spinner startAnimating];
+    
     return cell;
 }
 
@@ -134,8 +152,6 @@
     return UIEdgeInsetsMake(25, 10, 25, 10);
     //return UIEdgeInsetsMake(50, 20, 50, 20);
 }*/
-
-
 
 
 /*
