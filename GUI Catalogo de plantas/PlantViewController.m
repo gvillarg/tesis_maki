@@ -19,6 +19,7 @@
     // Do any additional setup after loading the view.
     NSURL *url = [[NSURL alloc] initWithString:[self.plantSelected urlImage]];
     [self fetchImageFromURL:url];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundDetailView"]];
 
 }
 
