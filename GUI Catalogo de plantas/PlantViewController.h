@@ -13,6 +13,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *fotoPlanta;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
+@property (weak, nonatomic) IBOutlet UILabel *nombreComunLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descripcionLabel;
+@property (weak, nonatomic) IBOutlet UILabel *habitatLabel;
 
 @property Plant *plantSelected;
 

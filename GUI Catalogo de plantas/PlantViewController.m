@@ -7,6 +7,7 @@
 //
 
 #import "PlantViewController.h"
+#import "Plant.h"
 
 @interface PlantViewController ()
 
@@ -19,8 +20,10 @@
     // Do any additional setup after loading the view.
     NSURL *url = [[NSURL alloc] initWithString:[self.plantSelected urlImage]];
     [self fetchImageFromURL:url];
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundDetailView"]];
-
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundDetailView"]];
+    self.nombreComunLabel.text = [NSString stringWithFormat: @"Nombre Comun: %@", [self.plantSelected name]];
+    self.descripcionLabel.text =[NSString stringWithFormat: @"%@", [self.plantSelected descripcion]];
+    self.habitatLabel.text = [NSString stringWithFormat: @"%@", [self.plantSelected habitat]];
 }
 
 - (void)didReceiveMemoryWarning {
