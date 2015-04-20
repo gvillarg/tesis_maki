@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *GenderTableView;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *familyNameHeightConstraint;
 
 
 @end

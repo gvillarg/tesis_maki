@@ -10,4 +10,16 @@
 
 @implementation Plant
 
++ (Plant *) initWithJson: (NSMutableDictionary *) ObjetoJason{
+    Plant *newplant = [[Plant alloc] init];
+    newplant.name = [ObjetoJason objectForKey:@"Nombre_Comun"];
+    newplant.id = ((NSNumber *)[ObjetoJason objectForKey:@"Planta_Id"]).integerValue;
+    newplant.urlImage = [ObjetoJason objectForKey:@"Urlimagen"];
+    newplant.descripcion = [ObjetoJason objectForKey:@"Dato1"];
+    newplant.habitat = [ObjetoJason objectForKey:@"Dato2"];
+    newplant.urlMasInfo = [ObjetoJason objectForKey:@"Dato3"];
+    
+    return newplant;
+}
+
 @end

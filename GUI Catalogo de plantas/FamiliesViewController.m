@@ -130,7 +130,12 @@
     NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
     Family *familyToShow = [sectionFamilies objectAtIndex:indexPath.row];
     cell.textLabel.text = familyToShow.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"generos"];
+    
+    if (familyToShow.cantgen == 1){
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"genero"];
+    } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"generos"];
+    }
     return cell;
     
 }

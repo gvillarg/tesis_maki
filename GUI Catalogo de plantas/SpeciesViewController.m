@@ -12,11 +12,13 @@
 #import "Cell.h"
 #import "HeaderClass.h"
 #import "PlantViewController.h"
+#import "Plant.h"
 
 @interface SpeciesViewController ()
 
 @property NSMutableArray *species;
 @property NSMutableArray *nuevasEspecies;
+@property NSMutableArray *nuevasPlantas;
 
 @end
 
@@ -71,11 +73,15 @@
 
 -(void)getSpeciesObjects{
     self.nuevasEspecies = [[NSMutableArray alloc]init];
+    self.nuevasPlantas = [[NSMutableArray alloc] init];
     Specie *newSpecie;
+    Plant *newPlant;
     for (NSMutableDictionary *ObjetoDiccionario in self.species){
         //nameFam = [ObjetoDiccionario objectForKey:@"Nombre"];
         newSpecie = [Specie initWithJson:ObjetoDiccionario];
+        newPlant = [Plant initWithJson:ObjetoDiccionario];
         [self.nuevasEspecies addObject:newSpecie];
+        [self.nuevasPlantas addObject:newPlant];
     }
   
 }
@@ -87,14 +93,14 @@
 - (NSInteger)collectionView:(UICollectionView *)view numberOfItemsInSection:(NSInteger)section {
     //NSString *searchTerm = self.searches[section];
     //return [self.searchResults[searchTerm] count];
-    //return [self.nuevasEspecies count];
-    return 1;
+    return [self.nuevasEspecies count];
+    //return 1;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView: (UICollectionView *)collectionView {
     
-    return [self.nuevasEspecies count];
-    //return 1;
+    //return [self.nuevasEspecies count];
+    return 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,8 +108,9 @@
     //cell.backgroundColor = [UIColor whiteColor];
     cell.nombrePlantaLabel.text = [[self.nuevasEspecies objectAtIndex:indexPath.row] name];
     
+    NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlImage]];
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://i57.tinypic.com/205vyn7.png"]; //aca voy a obtener los urls de las plantas
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
@@ -120,14 +127,14 @@
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:
+/*- (UICollectionReusableView *)collectionView:
  (UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
  {
      HeaderClass *header = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"myHeader" forIndexPath:indexPath];
      header.titleLabel.text = [NSString stringWithFormat:@"Especie"];
      return header;
      
- }
+ }*/
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
@@ -153,11 +160,11 @@
 }*/
 
 
-/*- (UIEdgeInsets)collectionView:
+- (UIEdgeInsets)collectionView:
 (UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
     return UIEdgeInsetsMake(25, 10, 25, 10);
     //return UIEdgeInsetsMake(50, 20, 50, 20);
-}*/
+}
 
 
 
@@ -175,8 +182,8 @@
         
         PlantViewController *pv = [segue destinationViewController];
         
-        Plant *plant = [[Plant alloc]init];
-        plant.urlImage = @"http://fc04.deviantart.net/fs70/f/2010/288/a/c/tropical_plant_stock_tube_png_by_digitaltwist-d30sesn.png";
+        Plant *plant = [self.nuevasPlantas objectAtIndex:indexPath.row];
+        
         pv.plantSelected = plant;
     }
 }

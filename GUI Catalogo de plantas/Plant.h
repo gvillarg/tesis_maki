@@ -14,5 +14,10 @@
 @property NSString *urlImage;
 @property NSInteger id;
 
+@property NSString *descripcion;
+@property NSString *habitat;
+@property NSString *urlMasInfo;
 
+
++ (Plant *) initWithJson: (NSMutableDictionary *) ObjetoJason;
 @end

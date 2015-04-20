@@ -40,7 +40,7 @@
     searchController = [[UISearchDisplayController alloc] init];
     searchController.searchResultsDataSource = self;
     
-    searchController.searchResultsTableView.frame = CGRectMake(0, 400, self.view.frame.size.width,300);
+    //searchController.searchResultsTableView.frame = CGRectMake(0, 400, self.view.frame.size.width,300);
     
     [self getGenders];
     // Do any additional setup after loading the view.
@@ -48,7 +48,9 @@
     //RECIEN COMENTADO
     //self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", [self.familySelected objectForKey:@"Nombre"]];
     
-    self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", [self.familySelected name]];
+    self.familyNameLabel.text = [NSString stringWithFormat: @"Familia %@", [self.familySelected name]];
+    self.searchBar.placeholder = [NSString stringWithFormat: @"Buscar en Familia %@", [self.familySelected name]];
+    //
 }
 
 - (void)didReceiveMemoryWarning {
@@ -137,7 +139,12 @@
         genderToShow = [filteredFamilies objectAtIndex:indexPath.row];
     }
     cell.textLabel.text = genderToShow.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)genderToShow.cantEsp, @"especies"];
+    if (genderToShow.cantEsp == 1) {
+    
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)genderToShow.cantEsp, @"especie"];
+    } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)genderToShow.cantEsp, @"especies"];
+    }
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
@@ -176,15 +183,24 @@
     //tableView = self.GenderTableView;
 }
 
--(void) searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView{
-    CGRect f = self.GenderTableView.frame;
-    CGRect s = searchController.searchBar.frame;
-    CGRect newFrame = CGRectMake(f.origin.x,
-                                 f.origin.y + s.size.height,
-                                 f.size.width,
-                                 f.size.height - s.size.height);
-    
-    tableView.frame = newFrame;
+//-(void) searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView{
+//    CGRect f = self.GenderTableView.frame;
+//    CGRect s = searchController.searchBar.frame;
+//    CGRect newFrame = CGRectMake(f.origin.x,
+//                                 s.size.height + s.origin.y,
+//                                 f.size.width,
+//                                 f.size.height - s.size.height - s.origin.y);
+//    
+//    tableView.frame = f;
+//}
+
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+
+    self.familyNameHeightConstraint.constant = 0;
+}
+
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar {
+    self.familyNameHeightConstraint.constant = 47;
 }
 
 -(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
@@ -245,11 +261,6 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Perform segue to candy detail
-    [self performSegueWithIdentifier:@"GenderDetail" sender:tableView];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     SpeciesViewController *SpeciesViewController = [segue destinationViewController];
