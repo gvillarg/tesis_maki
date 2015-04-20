@@ -9,10 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Family.h"
 
-@interface GendersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface GendersViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *familyNameLabel;
 @property Family *familySelected;
 //@property NSMutableDictionary *familySelected;
 @property (weak, nonatomic) IBOutlet UITableView *GenderTableView;
+
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
 
 @end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -130,11 +130,26 @@
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="R2f-wL-JGN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-fi-byV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
+                                <color key="backgroundColor" red="0.23230452205648758" green="0.53061868686868685" blue="0.32006831867724189" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="wfF-7p-m3D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-pc-plI">
                                 <rect key="frame" x="0.0" y="111" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WqC-Gu-MU7"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cxm-aE-VZZ" id="s9S-8Y-7pg"/>
+                                </connections>
                             </searchBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-B0-47p">
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-B0-47p">
                                 <rect key="frame" x="0.0" y="155" width="600" height="396"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -159,7 +174,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="XJD-MJ-3Ht" kind="show" id="ZyB-Pa-hkW"/>
+                                            <segue destination="XJD-MJ-3Ht" kind="show" identifier="GenderDetail" id="ZyB-Pa-hkW"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -168,31 +183,22 @@
                                     <outlet property="delegate" destination="cxm-aE-VZZ" id="unD-pq-mtl"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-fi-byV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
-                                <color key="backgroundColor" red="0.23230452205648758" green="0.53061868686868685" blue="0.32006831867724189" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="wfF-7p-m3D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="0UO-fi-byV" firstAttribute="top" secondItem="pfq-Ub-yHD" secondAttribute="bottom" id="4Te-UC-qfk"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="R2f-wL-JGN" secondAttribute="trailing" constant="-16" id="6K9-V0-WZz"/>
-                            <constraint firstItem="R2f-wL-JGN" firstAttribute="top" secondItem="0UO-fi-byV" secondAttribute="bottom" id="Cue-ns-L8G"/>
                             <constraint firstItem="ZtP-B0-47p" firstAttribute="top" secondItem="0UO-fi-byV" secondAttribute="bottom" id="DM7-Ff-gUj"/>
+                            <constraint firstItem="MCy-pc-plI" firstAttribute="leading" secondItem="Mym-dY-WoN" secondAttribute="leadingMargin" constant="-16" id="GfG-Q0-HZX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0UO-fi-byV" secondAttribute="trailing" constant="-16" id="Inw-Uy-tXL"/>
                             <constraint firstItem="0UO-fi-byV" firstAttribute="leading" secondItem="Mym-dY-WoN" secondAttribute="leadingMargin" constant="-16" id="Ms9-ky-8nI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0UO-fi-byV" secondAttribute="trailing" constant="-16" id="Pic-zm-ydx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZtP-B0-47p" secondAttribute="trailing" constant="-16" id="TMb-UM-cmw"/>
-                            <constraint firstItem="ZtP-B0-47p" firstAttribute="top" secondItem="R2f-wL-JGN" secondAttribute="bottom" id="Z7g-Fw-KCw"/>
-                            <constraint firstItem="R2f-wL-JGN" firstAttribute="leading" secondItem="Mym-dY-WoN" secondAttribute="leadingMargin" constant="-16" id="cKi-z3-Ocp"/>
+                            <constraint firstItem="MCy-pc-plI" firstAttribute="top" secondItem="0UO-fi-byV" secondAttribute="bottom" id="UU1-3n-w2D"/>
                             <constraint firstItem="ZtP-B0-47p" firstAttribute="leading" secondItem="Mym-dY-WoN" secondAttribute="leadingMargin" constant="-16" id="dPp-xs-40h"/>
+                            <constraint firstItem="ZtP-B0-47p" firstAttribute="top" secondItem="MCy-pc-plI" secondAttribute="bottom" id="kGh-pS-nqw"/>
                             <constraint firstItem="MRq-py-36y" firstAttribute="top" secondItem="ZtP-B0-47p" secondAttribute="bottom" id="nfJ-kI-VZO"/>
                             <constraint firstItem="0UO-fi-byV" firstAttribute="leading" secondItem="Mym-dY-WoN" secondAttribute="leadingMargin" constant="-16" id="ous-XC-UXb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MCy-pc-plI" secondAttribute="trailing" constant="-16" id="q43-Fi-61g"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -206,9 +212,20 @@
                         <outlet property="FamilyNameLabel" destination="0UO-fi-byV" id="jmC-wp-WiP"/>
                         <outlet property="GenderTableView" destination="ZtP-B0-47p" id="lzA-j3-Eve"/>
                         <outlet property="familyNameLabel" destination="0UO-fi-byV" id="F0y-fk-d4W"/>
+                        <outlet property="searchBar" destination="MCy-pc-plI" id="GVs-7T-r5r"/>
+                        <outlet property="searchDisplayController" destination="6lZ-3i-231" id="se3-83-axd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7Z-lO-d7b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="6lZ-3i-231">
+                    <connections>
+                        <outlet property="delegate" destination="cxm-aE-VZZ" id="o8a-Mu-m1T"/>
+                        <outlet property="searchBar" destination="MCy-pc-plI" id="nL3-BQ-Yd1"/>
+                        <outlet property="searchContentsController" destination="cxm-aE-VZZ" id="hEg-CE-EnR"/>
+                        <outlet property="searchResultsDataSource" destination="cxm-aE-VZZ" id="Ghx-sv-URX"/>
+                        <outlet property="searchResultsDelegate" destination="cxm-aE-VZZ" id="uI5-Kc-Enm"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="3662" y="240"/>
         </scene>

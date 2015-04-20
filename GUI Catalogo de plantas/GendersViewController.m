@@ -17,15 +17,31 @@
 @property NSMutableArray *nuevosGeneros;
 @property NSMutableDictionary *plantasDiccionario; //Este es el diccionario que tiene las letras y el arreglo de nombres
 @property NSArray *genderSectionTitles;
+
+@property NSMutableArray *filteredFamilies;
+@property (nonatomic, strong) UISearchDisplayController *searchController;
 @end
 
 @implementation GendersViewController
+
+@synthesize filteredFamilies, searchController;
 
 - (void)viewDidLoad {
       [super viewDidLoad];
     
     self.plantasDiccionario = [[NSMutableDictionary alloc] init];
     self.genderSectionTitles = [[NSArray alloc] init];
+    
+    //UITableView *tableVIew = (id) [self.view viewWithTag:1];
+    //[tableVIew registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NewCell"];
+    
+    
+    filteredFamilies = [[NSMutableArray alloc]init];
+    searchController = [[UISearchDisplayController alloc] init];
+    searchController.searchResultsDataSource = self;
+    
+    searchController.searchResultsTableView.frame = CGRectMake(0, 400, self.view.frame.size.width,300);
+    
     [self getGenders];
     // Do any additional setup after loading the view.
    
@@ -76,7 +92,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
     //return 1;
-    return [self.genderSectionTitles count];
+    if (tableView.tag == 1){
+        return [self.genderSectionTitles count];
+    }else {
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -87,10 +107,13 @@
     
     //return  0;
     
-    
+    if (tableView.tag == 1){
     NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:section];
     NSArray *sectionGender = [self.plantasDiccionario objectForKey:sectionTitle];
     return [sectionGender count];
+    } else {
+        return [filteredFamilies count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,28 +125,80 @@
     /*cell.textLabel.text = [[self.genders objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.genders objectAtIndex:indexPath.row] objectForKey:@"COUNT"], @"especies"];
     return cell;*/
-    
+    if ( cell == nil ) {
+        cell = [[UITableViewCell alloc] initWithStyle: UITableViewCellStyleValue1 reuseIdentifier:@"NewCell"];
+    }
     NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionGenders = [self.plantasDiccionario objectForKey:sectionTitle];
-    Gender *genderToShow = [sectionGenders objectAtIndex:indexPath.row];
+    Gender *genderToShow = [[Gender alloc] init];
+    if (tableView.tag == 1){
+        genderToShow = [sectionGenders objectAtIndex:indexPath.row];
+    } else {
+        genderToShow = [filteredFamilies objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = genderToShow.name;
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)genderToShow.cantEsp, @"especies"];
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (tableView.tag == 1){
     return [self.genderSectionTitles objectAtIndex:section];
+    } else {
+        return nil;
+    }
 }
 
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    if (tableView.tag == 1) {
     NSArray *alphabet = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L" , @"M", @"N", @"O", @"P", @"Q", @"R",  @"S", @"T", @"U" , @"V", @"W", @"X" , @"Y", @"Z",  nil] ;
     return alphabet;
+    } else {
+        return nil;
+    }
+    
 }
 
-- (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
+- (NSInteger)tableView:(UITableView *)tableView
+    sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
+
     return [self.genderSectionTitles indexOfObject:title];
+
 }
+
+
+#pragma mark Search DIsplay Delegate Methods
+
+-(void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView{
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NewCell"];
+    //tableView = self.GenderTableView;
+}
+
+-(void) searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView{
+    CGRect f = self.GenderTableView.frame;
+    CGRect s = searchController.searchBar.frame;
+    CGRect newFrame = CGRectMake(f.origin.x,
+                                 f.origin.y + s.size.height,
+                                 f.size.width,
+                                 f.size.height - s.size.height);
+    
+    tableView.frame = newFrame;
+}
+
+-(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    
+    [filteredFamilies removeAllObjects];
+    
+    if (searchString.length > 0){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c]  %@", self.searchBar.text];
+        filteredFamilies = [NSMutableArray arrayWithArray:[self.nuevosGeneros filteredArrayUsingPredicate:predicate]];
+    }
+    return YES;
+}
+
+
 
 -(void)getGenderNames{
     self.nuevosGeneros = [[NSMutableArray alloc]init];
@@ -170,6 +245,11 @@
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Perform segue to candy detail
+    [self performSegueWithIdentifier:@"GenderDetail" sender:tableView];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     SpeciesViewController *SpeciesViewController = [segue destinationViewController];
@@ -178,7 +258,15 @@
     NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
     NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:path.section];
     NSArray *sectionGenders = [self.plantasDiccionario objectForKey:sectionTitle];
-    Gender *genderToSend = [sectionGenders objectAtIndex:path.row];
+    Gender *genderToSend = [[Gender alloc]init];
+    
+    if(sender == searchController.searchResultsTableView){
+        genderToSend = [filteredFamilies objectAtIndex:path.row];
+    } else {
+        genderToSend = [sectionGenders objectAtIndex:path.row];
+    }
+    
+    
     SpeciesViewController.genderSelected = genderToSend;
 
     

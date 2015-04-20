@@ -103,7 +103,7 @@
     cell.nombrePlantaLabel.text = [[self.nuevasEspecies objectAtIndex:indexPath.row] name];
     
     
-    NSURL *url = [[NSURL alloc] initWithString:@"http://fc04.deviantart.net/fs70/f/2010/288/a/c/tropical_plant_stock_tube_png_by_digitaltwist-d30sesn.png"]; //aca voy a obtener los urls de las plantas
+    NSURL *url = [[NSURL alloc] initWithString:@"http://i57.tinypic.com/205vyn7.png"]; //aca voy a obtener los urls de las plantas
     
     NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
