@@ -270,7 +270,7 @@
                                 <rect key="frame" x="0.0" y="127" width="600" height="424"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CY2-C0-UY7">
-                                    <size key="itemSize" width="120" height="120"/>
+                                    <size key="itemSize" width="200" height="200"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -280,12 +280,12 @@
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bHV-DD-L3m">
-                                                    <rect key="frame" x="0.0" y="0.0" width="120" height="89"/>
-                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="169"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="92" id="3JV-xt-xv7"/>
                                                     </constraints>
@@ -295,11 +295,11 @@
                                                         </mask>
                                                     </variation>
                                                 </imageView>
-                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JFa-4q-uQL">
-                                                    <rect key="frame" x="50" y="36" width="20" height="20"/>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JFa-4q-uQL">
+                                                    <rect key="frame" x="90" y="75" width="20" height="20"/>
                                                 </activityIndicatorView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYc-Za-wPC">
-                                                    <rect key="frame" x="0.0" y="91" width="120" height="29"/>
+                                                    <rect key="frame" x="0.0" y="171" width="200" height="29"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="29" id="xg6-Oj-0a4"/>
@@ -311,19 +311,16 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="nYc-Za-wPC" firstAttribute="top" secondItem="JFa-4q-uQL" secondAttribute="bottom" constant="35" id="0x7-4Z-rWh"/>
-                                            <constraint firstItem="JFa-4q-uQL" firstAttribute="leading" secondItem="IMo-35-Za8" secondAttribute="leadingMargin" constant="42" id="IKS-Bs-2r0"/>
-                                            <constraint firstItem="JFa-4q-uQL" firstAttribute="top" secondItem="IMo-35-Za8" secondAttribute="topMargin" constant="28" id="NAB-Bj-NUW"/>
+                                            <constraint firstItem="JFa-4q-uQL" firstAttribute="centerY" secondItem="bHV-DD-L3m" secondAttribute="centerY" id="MOI-wz-vtJ"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="nYc-Za-wPC" secondAttribute="bottom" constant="-8" id="Pc7-gP-sUI"/>
                                             <constraint firstItem="nYc-Za-wPC" firstAttribute="leading" secondItem="IMo-35-Za8" secondAttribute="leadingMargin" constant="-8" id="fo0-rL-Xf3"/>
                                             <constraint firstItem="bHV-DD-L3m" firstAttribute="top" secondItem="IMo-35-Za8" secondAttribute="topMargin" constant="-8" id="g2A-Yh-GKc"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="bHV-DD-L3m" secondAttribute="trailing" constant="-8" id="gED-pN-HbO"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="JFa-4q-uQL" secondAttribute="trailing" constant="42" id="kqd-AP-b23"/>
                                             <constraint firstItem="bHV-DD-L3m" firstAttribute="leading" secondItem="IMo-35-Za8" secondAttribute="leadingMargin" constant="-8" id="lrM-JN-WV2"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="nYc-Za-wPC" secondAttribute="trailing" constant="-8" id="rCw-cQ-5gH"/>
+                                            <constraint firstItem="JFa-4q-uQL" firstAttribute="centerX" secondItem="bHV-DD-L3m" secondAttribute="centerX" id="w98-gR-fSN"/>
                                             <constraint firstItem="nYc-Za-wPC" firstAttribute="top" secondItem="bHV-DD-L3m" secondAttribute="bottom" constant="2" id="zRM-Yf-CaI"/>
                                         </constraints>
-                                        <size key="customSize" width="120" height="120"/>
                                         <connections>
                                             <outlet property="PlantaImagen" destination="bHV-DD-L3m" id="3c0-OR-bP0"/>
                                             <outlet property="nombrePlantaLabel" destination="nYc-Za-wPC" id="Tdn-D6-vnQ"/>
@@ -382,9 +379,6 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UAs-dQ-GAu">
-                                <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                            </activityIndicatorView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vcf-ab-MR3">
                                 <rect key="frame" x="172" y="334" width="256" height="37"/>
                                 <subviews>
@@ -419,10 +413,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UAs-dQ-GAu">
+                                <rect key="frame" x="290" y="221" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="hle-70-xaq" secondAttribute="centerX" id="3TW-Ef-nEx"/>
+                            <constraint firstItem="UAs-dQ-GAu" firstAttribute="centerY" secondItem="hle-70-xaq" secondAttribute="centerY" id="3uT-vz-QaW"/>
                             <constraint firstItem="2B7-T1-ZGM" firstAttribute="leading" secondItem="xNm-eG-e0y" secondAttribute="leadingMargin" id="47r-dI-f1Y"/>
                             <constraint firstAttribute="trailingMargin" secondItem="79b-gn-oLp" secondAttribute="trailing" id="4d5-Mi-bzT"/>
                             <constraint firstItem="79b-gn-oLp" firstAttribute="top" secondItem="2B7-T1-ZGM" secondAttribute="bottom" constant="8" id="7tF-ag-tP5"/>
@@ -434,6 +432,7 @@
                             <constraint firstItem="S3u-yp-AvY" firstAttribute="trailing" secondItem="xNm-eG-e0y" secondAttribute="trailingMargin" id="Ydr-mS-TMM"/>
                             <constraint firstItem="hle-70-xaq" firstAttribute="trailing" secondItem="Vcf-ab-MR3" secondAttribute="trailing" id="ZaL-IM-THd"/>
                             <constraint firstItem="S3u-yp-AvY" firstAttribute="top" secondItem="79b-gn-oLp" secondAttribute="bottom" constant="8" id="cPv-Va-eAI"/>
+                            <constraint firstItem="UAs-dQ-GAu" firstAttribute="centerX" secondItem="hle-70-xaq" secondAttribute="centerX" id="hUi-Sw-Ewr"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hle-70-xaq" secondAttribute="trailing" id="j8X-n2-8hb"/>
                             <constraint firstItem="2B7-T1-ZGM" firstAttribute="trailing" secondItem="xNm-eG-e0y" secondAttribute="trailingMargin" id="qJi-gp-fh7"/>
                             <constraint firstItem="79b-gn-oLp" firstAttribute="leading" secondItem="xNm-eG-e0y" secondAttribute="leadingMargin" id="sNZ-lY-Hbz"/>
@@ -458,7 +457,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5Z-oG-Xxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5121" y="240"/>
+            <point key="canvasLocation" x="5159" y="276"/>
         </scene>
         <!--Campus PUCP-->
         <scene sceneID="RAX-fi-2hL">
