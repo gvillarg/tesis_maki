@@ -272,27 +272,36 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (tableView.tag !=1){
-        [self performSegueWithIdentifier:@"GenderDetail" sender:nil];
-    }
+        [self performSegueWithIdentifier:@"GenderDetail" sender:self.searchDisplayController.searchResultsTableView];
+        
+     }
+    //[self performSegueWithIdentifier:@"GenderDetail" sender:tableView];
 }
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
+    if ([[segue identifier] isEqualToString:@"GenderDetail"]){
     SpeciesViewController *SpeciesViewController = [segue destinationViewController];
     SpeciesViewController.familySelected = self.familySelected;
     
-    NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
-    NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:path.section];
-    NSArray *sectionGenders = [self.plantasDiccionario objectForKey:sectionTitle];
-    Gender *genderToSend = [[Gender alloc]init];
     
-    if(sender == searchController.searchResultsTableView){
-        genderToSend = [filteredFamilies objectAtIndex:path.row];
+    //Gender *genderToSend = [[Gender alloc]init];
+    if (sender == self.searchDisplayController.searchResultsTableView){
+        NSIndexPath *path = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        Gender *genderToSend = [filteredFamilies objectAtIndex:path.row];
+        SpeciesViewController.genderSelected = genderToSend;
     } else {
-        genderToSend = [sectionGenders objectAtIndex:path.row];
+        NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
+        NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:path.section];
+        NSArray *sectionGenders = [self.plantasDiccionario objectForKey:sectionTitle];
+        Gender *genderToSend = [sectionGenders objectAtIndex:path.row];
+        SpeciesViewController.genderSelected = genderToSend;
+    }
+    
+    //NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
     }
     
     
-    SpeciesViewController.genderSelected = genderToSend;
+    
+    //SpeciesViewController.genderSelected = genderToSend;
 
     
     //SpeciesViewController.genderSelected = [self.familySelected.genders objectAtIndex:path.row];

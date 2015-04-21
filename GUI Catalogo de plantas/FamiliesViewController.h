@@ -10,7 +10,10 @@
 
 @interface FamiliesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate, UISearchDisplayDelegate >
 @property (weak, nonatomic) IBOutlet UITableView *FamilyTableView;
-@property (weak, nonatomic) IBOutlet UISearchBar *familySearchBar;
+
+
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
+
 
 @property (strong, nonatomic) NSMutableArray *filteredFamilyArray;
 

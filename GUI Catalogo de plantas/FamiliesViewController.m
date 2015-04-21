@@ -20,14 +20,17 @@
 @property NSMutableDictionary *plantasDiccionario; //Este es el diccionario que tiene las letras y el arreglo de nombres
 @property NSArray *familySectionTitles;
 
+@property NSMutableArray *filteredFamilies;
+@property (nonatomic, strong) UISearchDisplayController *searchController;
+
 @end
 
 
 
 @implementation FamiliesViewController
 
-@synthesize filteredFamilyArray;
-@synthesize familySearchBar;
+@synthesize filteredFamilies, searchController;
+
 
 # pragma mark - View Controller Life Cicle
 - (void)viewDidLoad {
@@ -37,6 +40,11 @@
    
     self.plantasDiccionario = [[NSMutableDictionary alloc] init];
     self.familySectionTitles = [[NSArray alloc] init];
+    
+    filteredFamilies = [[NSMutableArray alloc]init];
+    searchController = [[UISearchDisplayController alloc] init];
+    searchController.searchResultsDataSource = self;
+    
     [self getFamily];
     
     //[self loadInitialData];
@@ -108,15 +116,23 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
+    if (tableView.tag == 1){
     return [self.familySectionTitles count];
+    } else {
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     //return [self.families count];
     //return  0;
+    if (tableView.tag == 1) {
     NSString *sectionTitle = [self.familySectionTitles objectAtIndex:section];
     NSArray *sectionFamily = [self.plantasDiccionario objectForKey:sectionTitle];
     return [sectionFamily count];
+    } else {
+        return [filteredFamilies count];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -128,7 +144,13 @@
     //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.families objectAtIndex:indexPath.row] objectForKey:@"cantGen"], @"generos"];
     NSString *sectionTitle = [self.familySectionTitles objectAtIndex:indexPath.section];
     NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
-    Family *familyToShow = [sectionFamilies objectAtIndex:indexPath.row];
+    
+    Family *familyToShow = [[Family alloc]init];
+    if (tableView.tag == 1){
+        familyToShow = [sectionFamilies objectAtIndex:indexPath.row];
+    } else {
+        familyToShow = [filteredFamilies objectAtIndex:indexPath.row];
+    }
     cell.textLabel.text = familyToShow.name;
     
     if (familyToShow.cantgen == 1){
@@ -136,24 +158,54 @@
     } else {
         cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"generos"];
     }
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
     
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (tableView.tag == 1){
     return [self.familySectionTitles objectAtIndex:section];
+    } else {
+        return nil;
+    }
 }
 
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
+    if (tableView.tag == 1){
     NSArray *alphabet = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L" , @"M", @"N", @"O", @"P", @"Q", @"R",  @"S", @"T", @"U" , @"V", @"W", @"X" , @"Y", @"Z",  nil] ;
     return alphabet;
+    } else{
+        return nil;
+    }
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index{
     return [self.familySectionTitles indexOfObject:title];
 }
+
+#pragma mark Search DIsplay Delegate Methods
+
+-(void)searchDisplayController:(UISearchDisplayController *)controller didLoadSearchResultsTableView:(UITableView *)tableView{
+    [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"NewCell"];
+    //tableView = self.GenderTableView;
+}
+
+
+-(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+    
+    [filteredFamilies removeAllObjects];
+    
+    if (searchString.length > 0){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c]  %@", self.searchBar.text];
+        filteredFamilies = [NSMutableArray arrayWithArray:[self.nuevasFamilias filteredArrayUsingPredicate:predicate]];
+    }
+    return YES;
+}
+
+
 
 -(void)getFamily{
     
@@ -223,21 +275,39 @@
 
 #pragma mark - Navigation
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (tableView.tag !=1){
+        [self performSegueWithIdentifier:@"FamilySegue" sender:self.searchDisplayController.searchResultsTableView];
+    }
+}
+
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    NSIndexPath *path = [self.FamilyTableView indexPathForSelectedRow];
     GendersViewController *GenderViewController = [segue destinationViewController];
+    if (sender == self.searchDisplayController.searchResultsTableView){
+        NSIndexPath *path = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        Family *familyToSend = [filteredFamilies objectAtIndex:path.row];
+        GenderViewController.familySelected = familyToSend;
+    } else {
+        NSIndexPath *path = [self.FamilyTableView indexPathForSelectedRow];
+        NSString *sectionTitle = [self.familySectionTitles objectAtIndex:path.section];
+        NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
+        Family *familyToSend = [sectionFamilies objectAtIndex:path.row];
+        GenderViewController.familySelected = familyToSend;
+    }
+    
+    
     //GenderViewController.idFamilySelected = [self.families objectAtIndex:path.row];
   
     // RECIEN COMENTADO
     //GenderViewController.familySelected = [self.families objectAtIndex:path.row];
     
-    NSString *sectionTitle = [self.familySectionTitles objectAtIndex:path.section];
-    NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
-    Family *familyToSend = [sectionFamilies objectAtIndex:path.row];
-    GenderViewController.familySelected = familyToSend;
+    
+   
+    
+   
     
 }
 
