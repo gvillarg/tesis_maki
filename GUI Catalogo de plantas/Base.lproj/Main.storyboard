@@ -22,7 +22,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
                                 <rect key="frame" x="0.0" y="152" width="600" height="399"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -55,12 +55,21 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Mtp-au-Qkb"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-LS-7NS">
+                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-LS-7NS">
                                 <rect key="frame" x="0.0" y="64" width="600" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gg1-oR-PtL"/>
+                                </constraints>
                                 <textInputTraits key="textInputTraits"/>
                                 <scopeButtonTitles>
+                                    <string>Familias</string>
                                     <string>Nombre comun</string>
                                 </scopeButtonTitles>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gg1-oR-PtL"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="kNi-dc-7Qg"/>
                                 </connections>
@@ -69,14 +78,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NF7-Gr-FjP" secondAttribute="bottom" constant="52" id="3Ko-OL-MJB"/>
+                            <constraint firstItem="w5Q-LS-7NS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="9KV-BL-sYH"/>
                             <constraint firstItem="NF7-Gr-FjP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="JW0-YJ-5QR"/>
-                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="top" secondItem="w5Q-LS-7NS" secondAttribute="bottom" id="RR0-NE-ufv"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="w5Q-LS-7NS" secondAttribute="trailing" constant="-16" id="cCO-lO-waJ"/>
-                            <constraint firstItem="w5Q-LS-7NS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="gyC-E3-JSz"/>
+                            <constraint firstItem="NF7-Gr-FjP" firstAttribute="top" secondItem="w5Q-LS-7NS" secondAttribute="bottom" id="KKi-5v-1nh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w5Q-LS-7NS" secondAttribute="trailing" constant="-16" id="QiF-M4-tVS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NF7-Gr-FjP" secondAttribute="trailing" constant="-21" id="h8f-9j-RgD"/>
                             <constraint firstItem="NF7-Gr-FjP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-11" id="ijK-MI-3D2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="NF7-Gr-FjP" secondAttribute="bottom" id="leP-CW-ZZh"/>
-                            <constraint firstItem="w5Q-LS-7NS" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pe0-VR-4RS"/>
+                            <constraint firstItem="w5Q-LS-7NS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="qrV-os-nfT"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NF7-Gr-FjP" secondAttribute="trailing" constant="-16" id="t5E-dK-RCT"/>
                         </constraints>
                         <variation key="default">
@@ -90,6 +99,7 @@
                     <navigationItem key="navigationItem" title="Familias" id="izd-nz-vi4"/>
                     <connections>
                         <outlet property="FamilyTableView" destination="NF7-Gr-FjP" id="COB-dq-9Z6"/>
+                        <outlet property="barHeight" destination="Gg1-oR-PtL" id="PMG-ma-AvC"/>
                         <outlet property="searchBar" destination="w5Q-LS-7NS" id="fza-qu-gFu"/>
                         <outlet property="searchDisplayController" destination="LE9-sx-WQd" id="egr-4j-h3e"/>
                     </connections>

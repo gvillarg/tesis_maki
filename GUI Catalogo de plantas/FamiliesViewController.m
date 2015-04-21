@@ -13,7 +13,8 @@
 #import "AFNetworking.h"
 @interface FamiliesViewController ()
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
+//@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
 @property NSMutableArray *families;
 
 @property NSMutableArray *nuevasFamilias;
@@ -108,9 +109,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+/*- (void)viewWillAppear:(BOOL)animated {
     [self.barHeight setConstant:88];
-}
+}*/
 
 # pragma mark  - UITableViewDelegate and DataSource
 
