@@ -413,7 +413,7 @@
     } else {
         [self performSegueWithIdentifier:@"PlantSegue" sender:tableView];
     }
-    self.esPlanta = 0;
+    //self.esPlanta = 0;
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
