@@ -518,6 +518,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5e-nT-NSX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.84597911010000004" green="0.24323458279999999" blue="0.35707282109999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
