@@ -9,8 +9,10 @@
 #import "FamiliesViewController.h"
 #import "Family.h"
 #import "GendersViewController.h"
+#import "PlantViewController.h"
 #import "Gender.h"
 #import "AFNetworking.h"
+#import "Plant.h"
 @interface FamiliesViewController ()
 
 //@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barHeight;
@@ -21,9 +23,13 @@
 @property NSMutableDictionary *plantasDiccionario; //Este es el diccionario que tiene las letras y el arreglo de nombres
 @property NSArray *familySectionTitles;
 
+@property NSMutableArray *plants;
+@property NSMutableArray *nuevasPlantas;
+
 @property NSMutableArray *filteredFamilies;
 @property (nonatomic, strong) UISearchDisplayController *searchController;
 
+@property NSInteger esPlanta;
 @end
 
 
@@ -37,7 +43,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [self.searchBar setShowsScopeBar:NO];
+    [self.searchBar sizeToFit];
    
     self.plantasDiccionario = [[NSMutableDictionary alloc] init];
     self.familySectionTitles = [[NSArray alloc] init];
@@ -46,6 +53,7 @@
     searchController = [[UISearchDisplayController alloc] init];
     searchController.searchResultsDataSource = self;
     
+    self.esPlanta = 0;
     [self getFamily];
     
     //[self loadInitialData];
@@ -147,11 +155,54 @@
     NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
     
     Family *familyToShow = [[Family alloc]init];
+    Plant *plantToShow = [[Plant alloc]init];
     if (tableView.tag == 1){
         familyToShow = [sectionFamilies objectAtIndex:indexPath.row];
     } else {
+        if (self.esPlanta == 0){
         familyToShow = [filteredFamilies objectAtIndex:indexPath.row];
+        } else {
+            plantToShow = [filteredFamilies objectAtIndex:indexPath.row];
+        }
     }
+    if (self.esPlanta == 0) {
+    cell.textLabel.text = familyToShow.name;
+    
+    if (familyToShow.cantgen == 1){
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"genero"];
+    } else {
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"%ld %@", (long)familyToShow.cantgen, @"generos"];
+    }
+    } else {
+        cell.textLabel.text = plantToShow.name;
+    }
+    [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    return cell;
+    
+}
+
+/*- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    //return nil;
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewCell" forIndexPath:indexPath];
+    //Family *family = [self.families objectAtIndex:indexPath.row];
+    
+    //cell.textLabel.text = [[self.families objectAtIndex:indexPath.row] objectForKey:@"Nombre"] ;
+    //cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ %@" , [[self.families objectAtIndex:indexPath.row] objectForKey:@"cantGen"], @"generos"];
+    NSString *sectionTitle = [self.familySectionTitles objectAtIndex:indexPath.section];
+    NSArray *sectionFamilies = [self.plantasDiccionario objectForKey:sectionTitle];
+    
+    Family *familyToShow = [[Family alloc]init];
+    Plant *plantToShow = [[Plant alloc]init];
+    if (tableView.tag == 1){
+        familyToShow = [sectionFamilies objectAtIndex:indexPath.row];
+    } else {
+        if (self.esPlanta == 0){
+            familyToShow = [filteredFamilies objectAtIndex:indexPath.row];
+        } else {
+            plantToShow = [filteredFamilies objectAtIndex:indexPath.row];
+        }
+    }
+    
     cell.textLabel.text = familyToShow.name;
     
     if (familyToShow.cantgen == 1){
@@ -162,7 +213,8 @@
     [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     return cell;
     
-}
+}*/
+
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     if (tableView.tag == 1){
@@ -195,7 +247,7 @@
 }
 
 
--(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
+/*-(BOOL) searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString{
     
     [filteredFamilies removeAllObjects];
     
@@ -204,8 +256,45 @@
         filteredFamilies = [NSMutableArray arrayWithArray:[self.nuevasFamilias filteredArrayUsingPredicate:predicate]];
     }
     return YES;
+}*/
+
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
+    // Tells the table data source to reload when text changes
+    [self filterContentForSearchText:searchString scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:[self.searchDisplayController.searchBar selectedScopeButtonIndex]]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
 }
 
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption {
+    // Tells the table data source to reload when scope bar selection changes
+    [self filterContentForSearchText:self.searchDisplayController.searchBar.text scope:
+     [[self.searchDisplayController.searchBar scopeButtonTitles] objectAtIndex:searchOption]];
+    // Return YES to cause the search result table view to be reloaded.
+    return YES;
+}
+
+#pragma mark Content Filtering
+-(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
+    // Update the filtered array based on the search text and scope.
+    // Remove all objects from the filtered search array
+    [filteredFamilies removeAllObjects];
+    // Filter the array using NSPredicate
+    if (searchText.length > 0){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c]  %@", self.searchBar.text];
+        filteredFamilies = [NSMutableArray arrayWithArray:[self.nuevasFamilias filteredArrayUsingPredicate:predicate]];
+    }
+    self.esPlanta = 0;
+    if (![scope isEqualToString:@"Familias"]) {
+        // Further filter the array with the scope
+        [filteredFamilies removeAllObjects];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF.name contains[c]  %@", self.searchBar.text];
+        filteredFamilies = [NSMutableArray arrayWithArray:[self.nuevasPlantas filteredArrayUsingPredicate:predicate]];
+        self.esPlanta = 1;
+    }
+    
+}
 
 
 -(void)getFamily{
@@ -221,6 +310,7 @@
         
         [self getFamilyNames];
         NSLog(@"JSON: %@", responseObject);
+        [self getPlant];
         [self.FamilyTableView reloadData];
         
         
@@ -274,18 +364,63 @@
     self.familySectionTitles = [[self.plantasDiccionario allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
+-(void)getPlant{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    
+    
+    [manager GET:@"http://inform.pucp.edu.pe/~a20090212/ServicioPlanta.php" parameters:nil success:^(AFHTTPRequestOperation *task, id responseObject) {
+        NSMutableDictionary * respuesta = [[NSMutableDictionary alloc] init];
+        respuesta = responseObject;
+        self.plants  = [respuesta objectForKey:@"result"];
+        
+        [self getPlantNames];
+        NSLog(@"JSON: %@", responseObject);
+        [self.FamilyTableView reloadData];
+        
+        
+    } failure:^(AFHTTPRequestOperation *task, NSError *error) {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"No se pudo acceder al servidor"
+                                                            message:[error localizedDescription]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Ok"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }];
+}
+
+-(void)getPlantNames{
+    self.nuevasPlantas = [[NSMutableArray alloc]init];
+    Plant *newPlant;
+    for (NSMutableDictionary *ObjetoDiccionario in self.plants){
+        //nameFam = [ObjetoDiccionario objectForKey:@"Nombre"];
+        newPlant = [Plant initWithJson2:ObjetoDiccionario];
+        [self.nuevasPlantas addObject:newPlant];
+    }
+    
+   }
+
+
 #pragma mark - Navigation
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (tableView.tag !=1){
+    /*if (tableView.tag !=1){
         [self performSegueWithIdentifier:@"FamilySegue" sender:self.searchDisplayController.searchResultsTableView];
+    }*/
+    if (self.esPlanta == 0){
+    [self performSegueWithIdentifier:@"FamilySegue" sender:tableView];
+    } else {
+        [self performSegueWithIdentifier:@"PlantSegue" sender:tableView];
     }
+    self.esPlanta = 0;
 }
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if (self.esPlanta == 0) {
     GendersViewController *GenderViewController = [segue destinationViewController];
     if (sender == self.searchDisplayController.searchResultsTableView){
         NSIndexPath *path = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
@@ -298,7 +433,12 @@
         Family *familyToSend = [sectionFamilies objectAtIndex:path.row];
         GenderViewController.familySelected = familyToSend;
     }
-    
+    } else {
+        PlantViewController *PlantViewController = [segue destinationViewController];
+        NSIndexPath *path = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+        Plant * plantToSend = [filteredFamilies objectAtIndex:path.row];
+        PlantViewController.plantSelected = plantToSend;
+    }
     
     //GenderViewController.idFamilySelected = [self.families objectAtIndex:path.row];
   

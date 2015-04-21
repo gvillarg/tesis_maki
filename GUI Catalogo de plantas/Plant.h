@@ -18,6 +18,11 @@
 @property NSString *habitat;
 @property NSString *urlMasInfo;
 
+@property NSInteger *Familia_Id;
+@property NSInteger *Genero_Id;
+@property NSInteger *Especie_Id;
+
 
 + (Plant *) initWithJson: (NSMutableDictionary *) ObjetoJason;
++ (Plant *) initWithJson2: (NSMutableDictionary *) ObjetoJason;
 @end

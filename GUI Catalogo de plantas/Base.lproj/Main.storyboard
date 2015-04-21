@@ -45,9 +45,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="cxm-aE-VZZ" kind="show" identifier="FamilySegue" id="Cw1-p7-fHE"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -102,6 +99,8 @@
                         <outlet property="barHeight" destination="Gg1-oR-PtL" id="PMG-ma-AvC"/>
                         <outlet property="searchBar" destination="w5Q-LS-7NS" id="fza-qu-gFu"/>
                         <outlet property="searchDisplayController" destination="LE9-sx-WQd" id="egr-4j-h3e"/>
+                        <segue destination="cxm-aE-VZZ" kind="show" identifier="FamilySegue" id="O2A-Fo-1Lp"/>
+                        <segue destination="0kf-dX-W3G" kind="show" identifier="PlantSegue" id="iKh-Zj-DlM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -115,7 +114,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="2924" y="240"/>
+            <point key="canvasLocation" x="2943" y="226"/>
         </scene>
         <!--Generos-->
         <scene sceneID="NEq-gC-PLA">
@@ -475,7 +474,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5Z-oG-Xxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5159" y="276"/>
+            <point key="canvasLocation" x="3749" y="-180"/>
         </scene>
         <!--Campus PUCP-->
         <scene sceneID="RAX-fi-2hL">
@@ -592,4 +591,7 @@
         <image name="MapTabBar" width="26" height="26"/>
         <image name="SearchTabBar" width="26" height="26"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="iKh-Zj-DlM"/>
+    </inferredMetricsTieBreakers>
 </document>
