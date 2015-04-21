@@ -111,7 +111,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)cv cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     Cell *cell = [cv dequeueReusableCellWithReuseIdentifier:@"SpecieCell" forIndexPath:indexPath];
     //cell.backgroundColor = [UIColor whiteColor];
-    cell.nombrePlantaLabel.text = [[self.nuevasEspecies objectAtIndex:indexPath.row] name];
+    cell.nombrePlantaLabel.text = [NSString stringWithFormat:@"Especie: %@", [[self.nuevasEspecies objectAtIndex:indexPath.row] name]];
     
     NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlImage]];
     
