@@ -8,7 +8,7 @@
 
 #import "PlantViewController.h"
 #import "Plant.h"
-
+#import <QuartzCore/QuartzCore.h>
 @interface PlantViewController ()
 
 @end
@@ -24,6 +24,13 @@
     self.nombreComunLabel.text = [NSString stringWithFormat: @"Nombre Comun: %@", [self.plantSelected name]];
     self.descripcionLabel.text =[NSString stringWithFormat: @"%@", [self.plantSelected descripcion]];
     self.habitatLabel.text = [NSString stringWithFormat: @"%@", [self.plantSelected habitat]];
+    self.btnInfo.layer.cornerRadius = 6;
+    self.btnInfo.clipsToBounds = YES;
+}
+- (IBAction)MasInfoButton:(UIButton *)sender {
+    NSString *miURLString = [[NSString alloc] initWithString:[self.plantSelected urlMasInfo]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:miURLString]];
+    
 }
 
 - (void)didReceiveMemoryWarning {

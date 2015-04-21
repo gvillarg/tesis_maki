@@ -151,6 +151,7 @@
                             </searchBar>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-B0-47p">
                                 <rect key="frame" x="0.0" y="155" width="600" height="396"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewCell" textLabel="nb3-9L-nz2" detailTextLabel="wqR-2a-jYA" style="IBUITableViewCellStyleValue1" id="zDA-EH-z42">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -172,6 +173,7 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <segue destination="XJD-MJ-3Ht" kind="show" identifier="GenderDetail" id="ZyB-Pa-hkW"/>
                                         </connections>
@@ -416,6 +418,15 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="UAs-dQ-GAu">
                                 <rect key="frame" x="290" y="221" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ob-3P-Ur2">
+                                <rect key="frame" x="16" y="470" width="235" height="32"/>
+                                <color key="backgroundColor" red="0.80856219824964859" green="0.83150756309639295" blue="0.84597911010000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Encuentra más Información aca!"/>
+                                <connections>
+                                    <action selector="MasInfoButton:" destination="0kf-dX-W3G" eventType="touchUpInside" id="H7j-dN-dre"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -425,20 +436,22 @@
                             <constraint firstAttribute="trailingMargin" secondItem="79b-gn-oLp" secondAttribute="trailing" id="4d5-Mi-bzT"/>
                             <constraint firstItem="79b-gn-oLp" firstAttribute="top" secondItem="2B7-T1-ZGM" secondAttribute="bottom" constant="8" id="7tF-ag-tP5"/>
                             <constraint firstItem="hle-70-xaq" firstAttribute="top" secondItem="0hi-Pb-nZP" secondAttribute="bottom" constant="27" id="8k8-oe-KoT"/>
+                            <constraint firstItem="jZf-Gg-Jtd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="2ob-3P-Ur2" secondAttribute="bottom" constant="8" id="AWN-25-4gn"/>
                             <constraint firstItem="hle-70-xaq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xNm-eG-e0y" secondAttribute="leadingMargin" id="AbI-aI-e5I"/>
                             <constraint firstItem="hle-70-xaq" firstAttribute="bottom" secondItem="Vcf-ab-MR3" secondAttribute="bottom" id="NkN-Yb-Sgo"/>
                             <constraint firstItem="S3u-yp-AvY" firstAttribute="leading" secondItem="xNm-eG-e0y" secondAttribute="leadingMargin" id="SF4-sh-cJj"/>
                             <constraint firstItem="hle-70-xaq" firstAttribute="leading" secondItem="Vcf-ab-MR3" secondAttribute="leading" id="SFj-xN-ls5"/>
                             <constraint firstItem="S3u-yp-AvY" firstAttribute="trailing" secondItem="xNm-eG-e0y" secondAttribute="trailingMargin" id="Ydr-mS-TMM"/>
                             <constraint firstItem="hle-70-xaq" firstAttribute="trailing" secondItem="Vcf-ab-MR3" secondAttribute="trailing" id="ZaL-IM-THd"/>
+                            <constraint firstItem="2ob-3P-Ur2" firstAttribute="top" secondItem="S3u-yp-AvY" secondAttribute="bottom" constant="8" id="bUe-Bf-phb"/>
                             <constraint firstItem="S3u-yp-AvY" firstAttribute="top" secondItem="79b-gn-oLp" secondAttribute="bottom" constant="8" id="cPv-Va-eAI"/>
                             <constraint firstItem="UAs-dQ-GAu" firstAttribute="centerX" secondItem="hle-70-xaq" secondAttribute="centerX" id="hUi-Sw-Ewr"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="hle-70-xaq" secondAttribute="trailing" id="j8X-n2-8hb"/>
                             <constraint firstItem="2B7-T1-ZGM" firstAttribute="trailing" secondItem="xNm-eG-e0y" secondAttribute="trailingMargin" id="qJi-gp-fh7"/>
                             <constraint firstItem="79b-gn-oLp" firstAttribute="leading" secondItem="xNm-eG-e0y" secondAttribute="leadingMargin" id="sNZ-lY-Hbz"/>
                             <constraint firstItem="2B7-T1-ZGM" firstAttribute="top" secondItem="hle-70-xaq" secondAttribute="bottom" constant="16" id="wbc-su-rv4"/>
+                            <constraint firstItem="2ob-3P-Ur2" firstAttribute="leading" secondItem="xNm-eG-e0y" secondAttribute="leadingMargin" id="x4P-ff-GEU"/>
                             <constraint firstItem="jZf-Gg-Jtd" firstAttribute="top" secondItem="hle-70-xaq" secondAttribute="bottom" constant="280" id="xgC-pX-pMS"/>
-                            <constraint firstItem="jZf-Gg-Jtd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="S3u-yp-AvY" secondAttribute="bottom" constant="8" id="zEC-4q-xxJ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -448,6 +461,7 @@
                     </view>
                     <connections>
                         <outlet property="NombreComunLabel" destination="A4Y-fS-aR4" id="vCw-mx-Mdn"/>
+                        <outlet property="btnInfo" destination="2ob-3P-Ur2" id="pyW-bY-9IW"/>
                         <outlet property="descripcionLabel" destination="2B7-T1-ZGM" id="HOL-ue-FaB"/>
                         <outlet property="fotoPlanta" destination="hle-70-xaq" id="Kx3-Ms-JCT"/>
                         <outlet property="habitatLabel" destination="S3u-yp-AvY" id="Uw5-M4-URh"/>

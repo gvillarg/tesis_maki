@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nombreComunLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descripcionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *habitatLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btnInfo;
 
 @property Plant *plantSelected;
 

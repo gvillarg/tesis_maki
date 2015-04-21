@@ -28,6 +28,11 @@
 
 - (void)viewDidLoad {
       [super viewDidLoad];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background2"]];
+    bgImageView.frame = self.GenderTableView.frame;
+    [self.GenderTableView setBackgroundView:bgImageView];
+    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2"]];
     
     self.plantasDiccionario = [[NSMutableDictionary alloc] init];
     self.genderSectionTitles = [[NSArray alloc] init];
@@ -256,7 +261,10 @@
     self.genderSectionTitles = [[self.plantasDiccionario allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
 }
 
-
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+}
 
 #pragma mark - Navigation
 
