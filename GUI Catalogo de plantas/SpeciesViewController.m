@@ -34,7 +34,7 @@
     self.genderNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Genero ", self.genderSelected.name];
     
     UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"Background2"] drawInRect:self.view.bounds];
+    [[UIImage imageNamed:@"Background4"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];

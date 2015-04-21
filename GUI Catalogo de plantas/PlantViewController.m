@@ -26,6 +26,13 @@
     self.habitatLabel.text = [NSString stringWithFormat: @"%@", [self.plantSelected habitat]];
     self.btnInfo.layer.cornerRadius = 6;
     self.btnInfo.clipsToBounds = YES;
+    
+    /*UIGraphicsBeginImageContext(self.view.frame.size);
+    [[UIImage imageNamed:@"Background2"] drawInRect:self.view.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.view.backgroundColor = [UIColor colorWithPatternImage:image];*/
+    
 }
 - (IBAction)MasInfoButton:(UIButton *)sender {
     NSString *miURLString = [[NSString alloc] initWithString:[self.plantSelected urlMasInfo]];

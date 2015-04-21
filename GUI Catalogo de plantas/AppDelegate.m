@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 //    [GMSServices provideAPIKey:@"AIzaSyAKIFcKjuIeZOlzUgHD1IHDgMCkTL2SzOk"];
-    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:85.0/255 green:201.0/255 blue:210.0/255 alpha:1]];
+    [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:34.0/255 green:139.0/255 blue:34.0/255 alpha:1]];
     return YES;
 }
 

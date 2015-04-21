@@ -22,9 +22,30 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-LS-7NS">
+                                <rect key="frame" x="0.0" y="64" width="600" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gg1-oR-PtL"/>
+                                </constraints>
+                                <color key="tintColor" red="0.54578993060000003" green="0.095349434969999994" blue="0.2001057862" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.23230452209999999" green="0.53061868690000003" blue="0.32006831870000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Familias</string>
+                                    <string>Nombre comun</string>
+                                </scopeButtonTitles>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gg1-oR-PtL"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kNi-dc-7Qg"/>
+                                </connections>
+                            </searchBar>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
                                 <rect key="frame" x="0.0" y="152" width="600" height="399"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="NewCell" textLabel="NIn-bi-7lX" detailTextLabel="RfB-xy-r3V" style="IBUITableViewCellStyleValue1" id="PsO-d4-hF1">
                                         <autoresizingMask key="autoresizingMask"/>
@@ -44,7 +65,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -52,25 +75,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Mtp-au-Qkb"/>
                                 </connections>
                             </tableView>
-                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-LS-7NS">
-                                <rect key="frame" x="0.0" y="64" width="600" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Gg1-oR-PtL"/>
-                                </constraints>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Familias</string>
-                                    <string>Nombre comun</string>
-                                </scopeButtonTitles>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Gg1-oR-PtL"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kNi-dc-7Qg"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -133,20 +137,12 @@
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-fi-byV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
-                                <color key="backgroundColor" red="0.23230452205648758" green="0.53061868686868685" blue="0.32006831867724189" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="wfF-7p-m3D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <searchBar contentMode="redraw" placeholder="Buscar en familia: A" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-pc-plI">
                                 <rect key="frame" x="0.0" y="111" width="600" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="WqC-Gu-MU7"/>
                                 </constraints>
+                                <color key="barTintColor" red="0.23230452209999999" green="0.53061868690000003" blue="0.32006831870000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
                                     <outlet property="delegate" destination="cxm-aE-VZZ" id="s9S-8Y-7pg"/>
@@ -159,7 +155,7 @@
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewCell" textLabel="nb3-9L-nz2" detailTextLabel="wqR-2a-jYA" style="IBUITableViewCellStyleValue1" id="zDA-EH-z42">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zDA-EH-z42" id="lRk-b3-SuY">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.94999999999999996" contentMode="center" tableViewCell="zDA-EH-z42" id="lRk-b3-SuY">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nb3-9L-nz2">
@@ -187,6 +183,15 @@
                                     <outlet property="delegate" destination="cxm-aE-VZZ" id="unD-pq-mtl"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-fi-byV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
+                                <color key="backgroundColor" red="0.61568627450980395" green="0.68627450980392157" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="wfF-7p-m3D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -423,9 +428,12 @@
                             </activityIndicatorView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ob-3P-Ur2">
                                 <rect key="frame" x="16" y="470" width="235" height="32"/>
-                                <color key="backgroundColor" red="0.80856219824964859" green="0.83150756309639295" blue="0.84597911010000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.058823529409999999" green="0.43921568630000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Encuentra más Información aca!"/>
+                                <state key="normal" title="Encuentra más Información aca!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="MasInfoButton:" destination="0kf-dX-W3G" eventType="touchUpInside" id="H7j-dN-dre"/>
                                 </connections>
@@ -521,7 +529,6 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="n5e-nT-NSX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.84597911010000004" green="0.24323458279999999" blue="0.35707282109999999" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -592,6 +599,6 @@
         <image name="SearchTabBar" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iKh-Zj-DlM"/>
+        <segue reference="ybi-Us-C8f"/>
     </inferredMetricsTieBreakers>
 </document>

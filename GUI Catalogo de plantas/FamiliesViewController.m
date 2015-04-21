@@ -42,6 +42,10 @@
 # pragma mark - View Controller Life Cicle
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background4"]];
+    bgImageView.frame = self.FamilyTableView.frame;
+    [self.FamilyTableView setBackgroundView:bgImageView];
     // Do any additional setup after loading the view.
     [self.searchBar setShowsScopeBar:NO];
     [self.searchBar sizeToFit];
@@ -54,6 +58,8 @@
     searchController.searchResultsDataSource = self;
     
     self.esPlanta = 0;
+    
+    
     [self getFamily];
     
     //[self loadInitialData];
@@ -401,6 +407,11 @@
     
    }
 
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    cell.backgroundColor = [UIColor clearColor];
+}
 
 #pragma mark - Navigation
 

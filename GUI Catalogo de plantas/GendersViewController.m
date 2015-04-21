@@ -27,8 +27,8 @@
 @synthesize filteredFamilies, searchController;
 
 - (void)viewDidLoad {
-      [super viewDidLoad];
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background2"]];
+    [super viewDidLoad];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background4"]];
     bgImageView.frame = self.GenderTableView.frame;
     [self.GenderTableView setBackgroundView:bgImageView];
     
