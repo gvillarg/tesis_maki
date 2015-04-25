@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		122A03F41ACA220F0086A2E4 /* FamiliesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A03F31ACA220F0086A2E4 /* FamiliesViewController.m */; };
 		122A03F81ACA27AC0086A2E4 /* Family.m in Sources */ = {isa = PBXBuildFile; fileRef = 122A03F71ACA27AC0086A2E4 /* Family.m */; };
+		12559FCA1AEC37F800B94507 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12559FC91AEC37F800B94507 /* Dot.swift */; };
+		12559FCE1AEC392800B94507 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12559FCC1AEC392800B94507 /* PhotoViewController.swift */; };
+		12559FCF1AEC392800B94507 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12559FCD1AEC392800B94507 /* SetupViewController.swift */; };
 		1269E1B61AE1D049008A4002 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1B51AE1D049008A4002 /* Cell.m */; };
 		1269E1B91AE1DCEB008A4002 /* HeaderClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1B81AE1DCEB008A4002 /* HeaderClass.m */; };
 		1269E1BC1AE1E27E008A4002 /* PlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1BB1AE1E27E008A4002 /* PlantViewController.m */; };
@@ -73,6 +76,10 @@
 		122A03F31ACA220F0086A2E4 /* FamiliesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FamiliesViewController.m; sourceTree = "<group>"; };
 		122A03F61ACA27AC0086A2E4 /* Family.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Family.h; sourceTree = "<group>"; };
 		122A03F71ACA27AC0086A2E4 /* Family.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Family.m; sourceTree = "<group>"; };
+		12559FC91AEC37F800B94507 /* Dot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dot.swift; sourceTree = "<group>"; };
+		12559FCB1AEC383C00B94507 /* GUI Catalogo de plantas-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GUI Catalogo de plantas-Bridging-Header.h"; sourceTree = "<group>"; };
+		12559FCC1AEC392800B94507 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		12559FCD1AEC392800B94507 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		1269E1B41AE1D049008A4002 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		1269E1B51AE1D049008A4002 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		1269E1B71AE1DCEB008A4002 /* HeaderClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderClass.h; sourceTree = "<group>"; };
@@ -202,6 +209,15 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		12559FC51AEC379300B94507 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12559FCB1AEC383C00B94507 /* GUI Catalogo de plantas-Bridging-Header.h */,
+				12559FC91AEC37F800B94507 /* Dot.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		12D7E7CD1AD9B52F00B93F13 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +311,7 @@
 		CCE740211A9FE8EC007374C4 /* GUI Catalogo de plantas */ = {
 			isa = PBXGroup;
 			children = (
+				12559FC51AEC379300B94507 /* Views */,
 				12DA4B811ADC7E60006DFD91 /* AFNetworking */,
 				12DA4B951ADC7E60006DFD91 /* UIKit+AFNetworking */,
 				122A03F51ACA27840086A2E4 /* Models */,
@@ -312,6 +329,8 @@
 				202DF9341ACBA265002FABB4 /* GendersViewController.h */,
 				202DF9351ACBA265002FABB4 /* GendersViewController.m */,
 				CCE7402A1A9FE8ED007374C4 /* ViewController.m */,
+				12559FCC1AEC392800B94507 /* PhotoViewController.swift */,
+				12559FCD1AEC392800B94507 /* SetupViewController.swift */,
 				CCE7402C1A9FE8ED007374C4 /* Main.storyboard */,
 				CCE7402F1A9FE8ED007374C4 /* Images.xcassets */,
 				CCE740311A9FE8ED007374C4 /* LaunchScreen.xib */,
@@ -461,7 +480,9 @@
 				12DA4BB11ADC7E60006DFD91 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				12DA4BB71ADC7E60006DFD91 /* UIWebView+AFNetworking.m in Sources */,
 				12DA4BA71ADC7E60006DFD91 /* AFHTTPRequestOperation.m in Sources */,
+				12559FCF1AEC392800B94507 /* SetupViewController.swift in Sources */,
 				12DA4BA91ADC7E60006DFD91 /* AFHTTPSessionManager.m in Sources */,
+				12559FCA1AEC37F800B94507 /* Dot.swift in Sources */,
 				1269E1BF1AE1E3C8008A4002 /* Plant.m in Sources */,
 				12DA4BB21ADC7E60006DFD91 /* UIAlertView+AFNetworking.m in Sources */,
 				12DA4BAD1ADC7E60006DFD91 /* AFURLRequestSerialization.m in Sources */,
@@ -482,6 +503,7 @@
 				12DA4BB61ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m in Sources */,
 				CCE740281A9FE8ED007374C4 /* AppDelegate.m in Sources */,
 				CCE740251A9FE8ED007374C4 /* main.m in Sources */,
+				12559FCE1AEC392800B94507 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +627,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GUI",
@@ -621,6 +644,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GUI Catalogo de plantas/GUI Catalogo de plantas-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -628,6 +653,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/GUI",
@@ -644,6 +670,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GUI Catalogo de plantas/GUI Catalogo de plantas-Bridging-Header.h";
 			};
 			name = Release;
 		};

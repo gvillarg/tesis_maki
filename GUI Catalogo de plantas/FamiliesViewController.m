@@ -281,6 +281,10 @@
     return YES;
 }
 
+-(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar{
+    self.esPlanta = 0;
+}
+
 #pragma mark Content Filtering
 -(void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope {
     // Update the filtered array based on the search text and scope.

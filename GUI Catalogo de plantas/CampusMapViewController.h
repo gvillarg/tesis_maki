@@ -10,6 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 
 @interface CampusMapViewController : UIViewController
-@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIView *mapView;
+
 
 @end

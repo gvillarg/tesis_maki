@@ -19,10 +19,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //-12.068943,-77.08019,17
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-12.068943 longitude:-77.0801917 zoom:16.4];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView_.myLocationEnabled = YES;
-    self.view = mapView_;
     
     // Creates a marker in the center of the map.
   //  GMSMarker *marker = [[GMSMarker alloc] init];
@@ -31,6 +27,20 @@
   //  marker.snippet = @"Australia";
   //  marker.map = mapView_;
     
+    
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-12.068938
+                                                            longitude:-77.080190
+                                                                 zoom:15.60];
+    mapView_ = [GMSMapView mapWithFrame:self.mapView.bounds camera:camera];
+    mapView_.myLocationEnabled = YES;
+    [self.mapView addSubview: mapView_];
+    
+}
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    mapView_.frame = self.mapView.bounds;
 }
 
 - (void)didReceiveMemoryWarning {
