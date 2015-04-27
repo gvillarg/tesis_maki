@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "Plant.h"
 
 @interface CampusMapViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 
-
+@property Plant *selectedPLant;
 @end

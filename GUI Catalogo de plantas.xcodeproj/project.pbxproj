@@ -49,6 +49,7 @@
 		12ED243E1AE1B5770058B003 /* Specie.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ED243D1AE1B5770058B003 /* Specie.m */; };
 		202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202DF9351ACBA265002FABB4 /* GendersViewController.m */; };
 		203908091AD1DF59009E87EF /* SpeciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203908081AD1DF59009E87EF /* SpeciesViewController.m */; };
+		204B4B0E1AEDC9B600218B32 /* SearchMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 204B4B0D1AEDC9B600218B32 /* SearchMapTableViewController.m */; };
 		205121C81AD0E5AE00D2FCD3 /* Gender.m in Sources */ = {isa = PBXBuildFile; fileRef = 205121C71AD0E5AE00D2FCD3 /* Gender.m */; };
 		9BDE01D61ADDB7FE00EEA7AE /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BDE01D51ADDB7FE00EEA7AE /* GoogleMaps.framework */; };
 		9BDE01D81ADDB85800EEA7AE /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9BDE01D71ADDB85800EEA7AE /* GoogleMaps.bundle */; };
@@ -144,6 +145,8 @@
 		202DF9351ACBA265002FABB4 /* GendersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GendersViewController.m; sourceTree = "<group>"; };
 		203908071AD1DF59009E87EF /* SpeciesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeciesViewController.h; sourceTree = "<group>"; };
 		203908081AD1DF59009E87EF /* SpeciesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeciesViewController.m; sourceTree = "<group>"; };
+		204B4B0C1AEDC9B500218B32 /* SearchMapTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchMapTableViewController.h; sourceTree = "<group>"; };
+		204B4B0D1AEDC9B600218B32 /* SearchMapTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchMapTableViewController.m; sourceTree = "<group>"; };
 		205121C61AD0E5AE00D2FCD3 /* Gender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gender.h; sourceTree = "<group>"; };
 		205121C71AD0E5AE00D2FCD3 /* Gender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Gender.m; sourceTree = "<group>"; };
 		9BDE01D51ADDB7FE00EEA7AE /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
@@ -339,6 +342,8 @@
 				122A03F31ACA220F0086A2E4 /* FamiliesViewController.m */,
 				12D7E7CE1AD9B5C100B93F13 /* CampusMapViewController.h */,
 				12D7E7CF1AD9B5C100B93F13 /* CampusMapViewController.m */,
+				204B4B0C1AEDC9B500218B32 /* SearchMapTableViewController.h */,
+				204B4B0D1AEDC9B600218B32 /* SearchMapTableViewController.m */,
 			);
 			path = "GUI Catalogo de plantas";
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 				12DA4BAB1ADC7E60006DFD91 /* AFSecurityPolicy.m in Sources */,
 				205121C81AD0E5AE00D2FCD3 /* Gender.m in Sources */,
 				12DA4BAA1ADC7E60006DFD91 /* AFNetworkReachabilityManager.m in Sources */,
+				204B4B0E1AEDC9B600218B32 /* SearchMapTableViewController.m in Sources */,
 				12D7E7D31AD9BC3200B93F13 /* CampusMapViewController.m in Sources */,
 				12DA4BB01ADC7E60006DFD91 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				12DA4BB41ADC7E60006DFD91 /* UIImageView+AFNetworking.m in Sources */,
