@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Plant.h"
 
 @interface SearchMapTableViewController : UITableViewController <UITableViewDataSource, UITableViewDelegate, UISearchDisplayDelegate, UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 
 @property (strong, nonatomic) IBOutlet UITableView *plantTableVIew;
+@property Plant *plantSelected;
 
 @end

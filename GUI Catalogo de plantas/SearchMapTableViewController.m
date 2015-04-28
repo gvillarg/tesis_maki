@@ -205,29 +205,26 @@
 }
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    if ([[segue identifier] isEqualToString:@"GenderDetail"]){
-        SpeciesViewController *SpeciesViewController = [segue destinationViewController];
-        SpeciesViewController.familySelected = self.familySelected;
+    if ([[segue identifier] isEqualToString:@"unwindPlantSegue"]){
+        self.plantSelected = [[Plant alloc]init];
         
-        
-        //Gender *genderToSend = [[Gender alloc]init];
         if (sender == self.searchDisplayController.searchResultsTableView){
             NSIndexPath *path = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            Gender *genderToSend = [filteredFamilies objectAtIndex:path.row];
-            SpeciesViewController.genderSelected = genderToSend;
+            self.plantSelected = [filteredPlants objectAtIndex:path.row];
+           
         } else {
-            NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
-            NSString *sectionTitle = [self.genderSectionTitles objectAtIndex:path.section];
-            NSArray *sectionGenders = [self.plantasDiccionario objectForKey:sectionTitle];
-            Gender *genderToSend = [sectionGenders objectAtIndex:path.row];
-            SpeciesViewController.genderSelected = genderToSend;
+            NSIndexPath *path = [self.plantTableVIew indexPathForSelectedRow];
+            NSString *sectionTitle = [self.plantSectionTitles objectAtIndex:path.section];
+            NSArray *sectionPlants = [self.plantasDiccionario objectForKey:sectionTitle];
+           self.plantSelected = [sectionPlants objectAtIndex:path.row];
+           
         }
         
         //NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
@@ -235,5 +232,5 @@
 
 }
 
-*/
+
 @end

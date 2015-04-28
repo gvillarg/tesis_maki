@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -582,6 +582,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="Pu5-GV-YEy" kind="unwind" identifier="unwindPlantSegue" unwindAction="unwindToList:" id="lO5-ot-94h"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -597,6 +600,7 @@
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SMS-Wb-x2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Pu5-GV-YEy" userLabel="Exit" sceneMemberID="exit"/>
                 <searchDisplayController id="Gju-Zt-W2H">
                     <connections>
                         <outlet property="delegate" destination="s7q-YU-GFo" id="GcH-np-dKM"/>
@@ -607,7 +611,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3677" y="928"/>
+            <point key="canvasLocation" x="3883" y="956"/>
         </scene>
         <!--Explorador-->
         <scene sceneID="PDg-jm-XvZ">

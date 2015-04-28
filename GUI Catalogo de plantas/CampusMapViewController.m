@@ -8,6 +8,8 @@
 
 #import "CampusMapViewController.h"
 #import <GoogleMaps/GoogleMaps.h>
+#import "SearchMapTableViewController.h"
+#import "Plant.h"
 
 @interface CampusMapViewController ()
 @end
@@ -33,9 +35,18 @@
                                                                  zoom:15.60];
     mapView_ = [GMSMapView mapWithFrame:self.mapView.bounds camera:camera];
     mapView_.myLocationEnabled = YES;
+    
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.position = CLLocationCoordinate2DMake(-12.069525, -77.080566);
+    marker.title = @"CAPU";
+    marker.snippet = @"Capilla";
+    marker.map = mapView_;
+    marker.icon = [UIImage imageNamed:@"plantIcon.png"];
+
     [self.mapView addSubview: mapView_];
     
-}
+    
+   }
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
@@ -58,6 +69,18 @@
 }
 */
 
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    
+    //Para que desaparazca la ventana
+    if (![segue.sourceViewController isBeingDismissed]){
+        [segue.sourceViewController dismissViewControllerAnimated:true completion:nil];
+    }
+    
+    SearchMapTableViewController *source = [segue sourceViewController];
+    self.selectedPLant = [[Plant alloc]init];
+    self.selectedPLant = source.plantSelected;
+    
+}
 
 
 @end
