@@ -191,11 +191,15 @@
         
         Plant *plant = [self.nuevasPlantas objectAtIndex:indexPath.row];
         Specie *specie = [self.nuevasEspecies objectAtIndex:indexPath.row];
+        plant.nombreFamilia = [self.familySelected name];
+        plant.nombreGenero = [self.genderSelected name];
+        plant.nombreEspecie = [specie name];
         
         pv.plantSelected = plant;
-        pv.familySelected = self.familySelected;
-        pv.genderSelected = self.genderSelected;
-        pv.specieSelected = specie;
+        
+        //pv.familySelected = self.familySelected;
+        //pv.genderSelected = self.genderSelected;
+        //pv.specieSelected = specie;
         
     }
 }

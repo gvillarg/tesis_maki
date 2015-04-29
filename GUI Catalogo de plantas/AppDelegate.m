@@ -20,7 +20,7 @@
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyAKIFcKjuIeZOlzUgHD1IHDgMCkTL2SzOk"];
     [[UITabBar appearance] setSelectedImageTintColor:[UIColor colorWithRed:34.0/255 green:139.0/255 blue:34.0/255 alpha:1]];
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarImage6"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarImage8"] forBarMetrics:UIBarMetricsDefault];
     return YES;
 }
 

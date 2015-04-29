@@ -71,9 +71,9 @@
 -(void)muestraMarkerPlants{
    
     
-    int randomNumber = arc4random_uniform(10);
+    int randomNumber = arc4random_uniform(5);
     NSLog(@"numero random %d", randomNumber);
-    for ( int i=0; i<=1; i++) {
+    for ( int i=0; i<=randomNumber; i++) {
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.appearAnimation=YES;
         //double valSum = ((double)arc4random() / ARC4RANDOM_MAX);
@@ -83,15 +83,15 @@
         }else{
             NSString *posx = [self.selectedPLant localidad_x];
             NSRange range1 = NSMakeRange(7,1);
-            posx = [posx stringByReplacingCharactersInRange:range1 withString:@"6"];
+            posx = [posx stringByReplacingCharactersInRange:range1 withString:[NSString stringWithFormat: @"%d",i]];
             NSString *posy = [self.selectedPLant localidad_y];
             NSRange range2 = NSMakeRange(8,1);
-            posy = [posy stringByReplacingCharactersInRange:range2 withString:@"5"];
+            posy = [posy stringByReplacingCharactersInRange:range2 withString:[NSString stringWithFormat: @"%d",i+1]];
             marker.position = CLLocationCoordinate2DMake(((NSNumber *)posx).doubleValue , ((NSNumber *)posy).doubleValue);
 
         }
         
-        marker.icon = [UIImage imageNamed:@"plantIcon.png"];
+        //marker.icon = [UIImage imageNamed:@"plantIcon.png"];
         marker.map = mapView_;
     }
     
