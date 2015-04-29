@@ -25,9 +25,9 @@
     self.nombreComunLabel.text = [NSString stringWithFormat: @"Nombre Comun: %@", [self.plantSelected name]];
     self.descripcionLabel.text =[NSString stringWithFormat: @"%@", [self.plantSelected descripcion]];
     self.habitatLabel.text = [NSString stringWithFormat: @"%@", [self.plantSelected habitat]];
-    self.familyLabel.text = [NSString stringWithFormat:@"Familia: %@", [self.familySelected name]];
-    self.genderLabel.text = [NSString stringWithFormat:@"Genero: %@", [self.genderSelected name]];
-    self.specieLabel.text = [NSString stringWithFormat:@"Especie: %@", [self.specieSelected name]];
+    self.familyLabel.text = [NSString stringWithFormat:@"Familia: %@", [self.plantSelected nombreFamilia]];
+    self.genderLabel.text = [NSString stringWithFormat:@"Genero: %@", [self.plantSelected nombreGenero]];
+    self.specieLabel.text = [NSString stringWithFormat:@"Especie: %@", [self.plantSelected nombreEspecie]];
     self.btnInfo.layer.cornerRadius = 6;
     self.btnInfo.clipsToBounds = YES;
     self.btnMapa.layer.cornerRadius = 6;
