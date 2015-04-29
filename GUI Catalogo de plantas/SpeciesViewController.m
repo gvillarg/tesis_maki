@@ -33,11 +33,11 @@
     self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", self.familySelected.name];
     self.genderNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Genero ", self.genderSelected.name];
     
-    UIGraphicsBeginImageContext(self.view.frame.size);
-    [[UIImage imageNamed:@"Background4"] drawInRect:self.view.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    //UIGraphicsBeginImageContext(self.view.frame.size);
+    //[[UIImage imageNamed:@"Background4"] drawInRect:self.view.bounds];
+    //UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    //UIGraphicsEndImageContext();
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:image];
    
 }
 
@@ -190,8 +190,13 @@
         PlantViewController *pv = [segue destinationViewController];
         
         Plant *plant = [self.nuevasPlantas objectAtIndex:indexPath.row];
+        Specie *specie = [self.nuevasEspecies objectAtIndex:indexPath.row];
         
         pv.plantSelected = plant;
+        pv.familySelected = self.familySelected;
+        pv.genderSelected = self.genderSelected;
+        pv.specieSelected = specie;
+        
     }
 }
 

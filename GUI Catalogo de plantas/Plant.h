@@ -26,8 +26,8 @@
 @property NSString *nombreGenero;
 @property NSString *nombreEspecie;
 
-@property NSNumber *localidad_x;
-@property NSNumber *localidad_y;
+@property NSString *localidad_x;
+@property NSString *localidad_y;
 
 + (Plant *) initWithJson: (NSMutableDictionary *) ObjetoJason;
 + (Plant *) initWithJson2: (NSMutableDictionary *) ObjetoJason;

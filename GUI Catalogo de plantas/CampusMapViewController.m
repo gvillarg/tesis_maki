@@ -73,15 +73,21 @@
     
     int randomNumber = arc4random_uniform(10);
     NSLog(@"numero random %d", randomNumber);
-    for ( int i=0; i<=randomNumber; i++) {
+    for ( int i=0; i<=1; i++) {
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.appearAnimation=YES;
         //double valSum = ((double)arc4random() / ARC4RANDOM_MAX);
         
         if (i==0){
-           marker.position = CLLocationCoordinate2DMake([self.selectedPLant localidad_x].doubleValue, [self.selectedPLant localidad_y].doubleValue);
+           marker.position = CLLocationCoordinate2DMake(((NSNumber *)[self.selectedPLant localidad_x]).doubleValue, ((NSNumber *)[self.selectedPLant localidad_y]).doubleValue);
         }else{
-            marker.position = CLLocationCoordinate2DMake([self.selectedPLant localidad_x].doubleValue + 0.0001, [self.selectedPLant localidad_y].doubleValue + 0.001);
+            NSString *posx = [self.selectedPLant localidad_x];
+            NSRange range1 = NSMakeRange(7,1);
+            posx = [posx stringByReplacingCharactersInRange:range1 withString:@"6"];
+            NSString *posy = [self.selectedPLant localidad_y];
+            NSRange range2 = NSMakeRange(8,1);
+            posy = [posy stringByReplacingCharactersInRange:range2 withString:@"5"];
+            marker.position = CLLocationCoordinate2DMake(((NSNumber *)posx).doubleValue , ((NSNumber *)posy).doubleValue);
 
         }
         

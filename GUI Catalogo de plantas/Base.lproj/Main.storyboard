@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -22,27 +22,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-LS-7NS">
-                                <rect key="frame" x="0.0" y="64" width="600" height="88"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="Gg1-oR-PtL"/>
-                                </constraints>
-                                <color key="tintColor" red="0.54578993060000003" green="0.095349434969999994" blue="0.2001057862" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.23230452209999999" green="0.53061868690000003" blue="0.32006831870000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <scopeButtonTitles>
-                                    <string>Familias</string>
-                                    <string>Nombre comun</string>
-                                </scopeButtonTitles>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Gg1-oR-PtL"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kNi-dc-7Qg"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NF7-Gr-FjP">
                                 <rect key="frame" x="0.0" y="152" width="600" height="399"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -75,6 +54,27 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Mtp-au-Qkb"/>
                                 </connections>
                             </tableView>
+                            <searchBar contentMode="redraw" misplaced="YES" showsScopeBar="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w5Q-LS-7NS">
+                                <rect key="frame" x="0.0" y="64" width="600" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Gg1-oR-PtL"/>
+                                </constraints>
+                                <color key="tintColor" red="0.061965652209122528" green="0.067741121480424493" blue="0.27375315661010091" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.058823529409999999" green="0.43921568630000002" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Familias</string>
+                                    <string>Nombre comun</string>
+                                </scopeButtonTitles>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Gg1-oR-PtL"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kNi-dc-7Qg"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -137,7 +137,27 @@
                                 <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-B0-47p">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-fi-byV">
+                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
+                                <color key="backgroundColor" red="0.61568627450980395" green="0.68627450980392157" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="wfF-7p-m3D"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <searchBar contentMode="redraw" placeholder="Buscar en familia: A" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-pc-plI">
+                                <rect key="frame" x="0.0" y="111" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="WqC-Gu-MU7"/>
+                                </constraints>
+                                <color key="barTintColor" red="0.23230452209999999" green="0.53061868690000003" blue="0.32006831870000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cxm-aE-VZZ" id="s9S-8Y-7pg"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="5" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="ZtP-B0-47p">
                                 <rect key="frame" x="0.0" y="155" width="600" height="396"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -172,26 +192,6 @@
                                     <outlet property="delegate" destination="cxm-aE-VZZ" id="unD-pq-mtl"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="    Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0UO-fi-byV">
-                                <rect key="frame" x="0.0" y="64" width="600" height="47"/>
-                                <color key="backgroundColor" red="0.61568627450980395" green="0.68627450980392157" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="wfF-7p-m3D"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <searchBar contentMode="redraw" placeholder="Buscar en familia: A" translatesAutoresizingMaskIntoConstraints="NO" id="MCy-pc-plI">
-                                <rect key="frame" x="0.0" y="111" width="600" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="WqC-Gu-MU7"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.23230452209999999" green="0.53061868690000003" blue="0.32006831870000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="cxm-aE-VZZ" id="s9S-8Y-7pg"/>
-                                </connections>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -438,13 +438,37 @@
                                     <action selector="MasInfoButton:" destination="0kf-dX-W3G" eventType="touchUpInside" id="H7j-dN-dre"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-aI-qeK">
-                                <rect key="frame" x="16" y="510" width="269" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kq2-el-aDb">
+                                <rect key="frame" x="395" y="96" width="194" height="31"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwQ-sO-oZn">
+                                <rect key="frame" x="395" y="135" width="194" height="31"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jjm-gE-of5">
+                                <rect key="frame" x="395" y="174" width="194" height="31"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDU-aI-qeK">
+                                <rect key="frame" x="16" y="510" width="288" height="30"/>
+                                <color key="backgroundColor" red="0.34652288791197144" green="0.57555959412828295" blue="0.043716382822537654" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Ubica esta planta en el Campus PUCP!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="oS1-2y-mvA" kind="show" id="od5-Dd-foT"/>
+                                    <segue destination="oS1-2y-mvA" kind="show" identifier="plantToMapSegue" id="od5-Dd-foT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -484,10 +508,14 @@
                     <connections>
                         <outlet property="NombreComunLabel" destination="A4Y-fS-aR4" id="vCw-mx-Mdn"/>
                         <outlet property="btnInfo" destination="2ob-3P-Ur2" id="pyW-bY-9IW"/>
+                        <outlet property="btnMapa" destination="DDU-aI-qeK" id="0v5-uS-w1r"/>
                         <outlet property="descripcionLabel" destination="2B7-T1-ZGM" id="HOL-ue-FaB"/>
+                        <outlet property="familyLabel" destination="Kq2-el-aDb" id="eHA-lG-uyK"/>
                         <outlet property="fotoPlanta" destination="hle-70-xaq" id="Kx3-Ms-JCT"/>
+                        <outlet property="genderLabel" destination="EwQ-sO-oZn" id="gx1-Zb-9qR"/>
                         <outlet property="habitatLabel" destination="S3u-yp-AvY" id="Uw5-M4-URh"/>
                         <outlet property="nombreComunLabel" destination="A4Y-fS-aR4" id="oMm-WY-qXb"/>
+                        <outlet property="specieLabel" destination="Jjm-gE-of5" id="Z7s-E6-pB0"/>
                         <outlet property="spinner" destination="UAs-dQ-GAu" id="NTV-IS-2nu"/>
                     </connections>
                 </viewController>
@@ -874,7 +902,7 @@
         <image name="SearchTabBar" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ybi-Us-C8f"/>
         <segue reference="od5-Dd-foT"/>
+        <segue reference="iKh-Zj-DlM"/>
     </inferredMetricsTieBreakers>
 </document>

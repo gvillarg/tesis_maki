@@ -43,9 +43,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background4"]];
-    bgImageView.frame = self.FamilyTableView.frame;
-    [self.FamilyTableView setBackgroundView:bgImageView];
+    //UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background4"]];
+    //bgImageView.frame = self.FamilyTableView.frame;
+    //[self.FamilyTableView setBackgroundView:bgImageView];
     // Do any additional setup after loading the view.
     [self.searchBar setShowsScopeBar:NO];
     [self.searchBar sizeToFit];
@@ -232,12 +232,17 @@
 
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-    if (tableView.tag == 1){
+    if (tableView.tag==1){
+        return self.familySectionTitles;
+    } else {
+        return nil;
+    }
+    /*if (tableView.tag == 1){
     NSArray *alphabet = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L" , @"M", @"N", @"O", @"P", @"Q", @"R",  @"S", @"T", @"U" , @"V", @"W", @"X" , @"Y", @"Z",  nil] ;
     return alphabet;
     } else{
         return nil;
-    }
+    }*/
     
 }
 

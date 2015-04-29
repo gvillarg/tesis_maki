@@ -36,8 +36,8 @@
     newplant.nombreFamilia = [ObjetoJason objectForKey:@"Nombre_Familia"];
     newplant.nombreGenero = [ObjetoJason objectForKey:@"Nombre_Genero"];
     newplant.nombreEspecie = [ObjetoJason objectForKey:@"Nombre_Especie"];
-    newplant.localidad_x = (NSNumber *)[ObjetoJason objectForKey:@"Localidad_x"];
-    newplant.localidad_y = (NSNumber *)[ObjetoJason objectForKey:@"Localidad_y"];
+    newplant.localidad_x = [ObjetoJason objectForKey:@"Localidad_x"];
+    newplant.localidad_y = [ObjetoJason objectForKey:@"Localidad_y"];
     return newplant;
 }
 

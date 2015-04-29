@@ -9,6 +9,7 @@
 #import "PlantViewController.h"
 #import "Plant.h"
 #import <QuartzCore/QuartzCore.h>
+#import "CampusMapViewController.h"
 @interface PlantViewController ()
 
 @end
@@ -24,9 +25,13 @@
     self.nombreComunLabel.text = [NSString stringWithFormat: @"Nombre Comun: %@", [self.plantSelected name]];
     self.descripcionLabel.text =[NSString stringWithFormat: @"%@", [self.plantSelected descripcion]];
     self.habitatLabel.text = [NSString stringWithFormat: @"%@", [self.plantSelected habitat]];
+    self.familyLabel.text = [NSString stringWithFormat:@"Familia: %@", [self.familySelected name]];
+    self.genderLabel.text = [NSString stringWithFormat:@"Genero: %@", [self.genderSelected name]];
+    self.specieLabel.text = [NSString stringWithFormat:@"Especie: %@", [self.specieSelected name]];
     self.btnInfo.layer.cornerRadius = 6;
     self.btnInfo.clipsToBounds = YES;
-    
+    self.btnMapa.layer.cornerRadius = 6;
+    self.btnMapa.clipsToBounds = YES;
     /*UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"Background2"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
@@ -60,14 +65,19 @@
     [self.spinner startAnimating];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+   
+    if ([segue.identifier isEqualToString:@"plantToMapSegue"]){
+        
+        CampusMapViewController *pv = [segue destinationViewController];
+        
+        pv.selectedPLant = self.plantSelected;
+    }
 }
-*/
+
 
 @end

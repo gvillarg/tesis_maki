@@ -28,9 +28,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background4"]];
-    bgImageView.frame = self.GenderTableView.frame;
-    [self.GenderTableView setBackgroundView:bgImageView];
+    //UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background4"]];
+    //bgImageView.frame = self.GenderTableView.frame;
+    //[self.GenderTableView setBackgroundView:bgImageView];
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"Background2"]];
     
@@ -164,12 +164,17 @@
 
 
 -(NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView{
-    if (tableView.tag == 1) {
+    if (tableView.tag==1){
+        return self.genderSectionTitles;
+    } else {
+        return nil;
+    }
+    /*if (tableView.tag == 1) {
     NSArray *alphabet = [[NSArray alloc] initWithObjects:@"A", @"B", @"C", @"D", @"E", @"F", @"G", @"H", @"I", @"J", @"K", @"L" , @"M", @"N", @"O", @"P", @"Q", @"R",  @"S", @"T", @"U" , @"V", @"W", @"X" , @"Y", @"Z",  nil] ;
     return alphabet;
     } else {
         return nil;
-    }
+    }*/
     
 }
 

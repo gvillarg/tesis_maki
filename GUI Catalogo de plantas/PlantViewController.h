@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Plant.h"
+#import "Family.h"
+#import "Gender.h"
+#import "Specie.h"
 
 @interface PlantViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIImageView *fotoPlanta;
@@ -17,8 +20,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *descripcionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *habitatLabel;
 @property (weak, nonatomic) IBOutlet UIButton *btnInfo;
+@property (strong, nonatomic) IBOutlet UIButton *btnMapa;
+
+@property (strong, nonatomic) IBOutlet UILabel *familyLabel;
+@property (strong, nonatomic) IBOutlet UILabel *genderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *specieLabel;
 
 @property Plant *plantSelected;
+@property Family *familySelected;
+@property Gender *genderSelected;
+@property Specie *specieSelected;
 
 
 @end
