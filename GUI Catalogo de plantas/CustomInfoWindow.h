@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *generoLabel;
 @property (weak, nonatomic) IBOutlet UILabel *especieLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *photoPlant;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @end

@@ -108,9 +108,11 @@
         if (error==nil) {
             infoWindow.photoPlant.image = [UIImage imageWithData:data];
         }
+        [infoWindow.spinner stopAnimating];
     }];
     //infoWindow.photoPlant.image = [UIImage imageNamed:@"PlantaModelo2"];
     [task resume];
+    [infoWindow.spinner startAnimating];
     return infoWindow;
 }
 /*
