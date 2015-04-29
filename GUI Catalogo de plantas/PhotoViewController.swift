@@ -55,7 +55,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case StoryboardSegue.Setup:
-            var setupViewController = segue.destinationViewController as SetupViewController
+            var setupViewController = segue.destinationViewController as! SetupViewController
             setupViewController.image = image
         default:
             println("Unsuported segue indentifier: \(segue.identifier)")
