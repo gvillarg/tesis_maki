@@ -10,7 +10,11 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "SearchMapTableViewController.h"
 #import "Plant.h"
+#import "CustomInfoWindow.h"
+#include <stdlib.h>
+#import <math.h>
 
+#define ARC4RANDOM_MAX      0x100000
 @interface CampusMapViewController ()
 @end
 
@@ -32,20 +36,16 @@
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-12.068938
                                                             longitude:-77.080190
-                                                                 zoom:15.60];
+                                                                 zoom:16.60];
     mapView_ = [GMSMapView mapWithFrame:self.mapView.bounds camera:camera];
+    mapView_.delegate = self;
     mapView_.myLocationEnabled = YES;
     
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-12.069525, -77.080566);
-    marker.title = @"CAPU";
-    marker.snippet = @"Capilla";
-    marker.map = mapView_;
-    marker.icon = [UIImage imageNamed:@"plantIcon.png"];
+   
 
     [self.mapView addSubview: mapView_];
     
-    
+    [self muestraMarkerPlants];
    }
 
 -(void)viewDidLayoutSubviews {
@@ -59,6 +59,60 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*-(void)muestraMarkerPlants{
+    GMSMarker *marker = [[GMSMarker alloc] init];
+    marker.appearAnimation=YES;
+    //marker.position = CLLocationCoordinate2DMake(-12.069525, -77.080566);
+    marker.position = CLLocationCoordinate2DMake([self.selectedPLant localidad_x].doubleValue, [self.selectedPLant localidad_y].doubleValue);
+    marker.icon = [UIImage imageNamed:@"plantIcon.png"];
+    marker.map = mapView_;
+}*/
+
+-(void)muestraMarkerPlants{
+   
+    
+    int randomNumber = arc4random_uniform(10);
+    NSLog(@"numero random %d", randomNumber);
+    for ( int i=0; i<=randomNumber; i++) {
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.appearAnimation=YES;
+        //double valSum = ((double)arc4random() / ARC4RANDOM_MAX);
+        
+        if (i==0){
+           marker.position = CLLocationCoordinate2DMake([self.selectedPLant localidad_x].doubleValue, [self.selectedPLant localidad_y].doubleValue);
+        }else{
+            marker.position = CLLocationCoordinate2DMake([self.selectedPLant localidad_x].doubleValue + 0.0001, [self.selectedPLant localidad_y].doubleValue + 0.001);
+
+        }
+        
+        marker.icon = [UIImage imageNamed:@"plantIcon.png"];
+        marker.map = mapView_;
+    }
+    
+    
+}
+
+-(UIView *) mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
+    CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
+    infoWindow.nombreComunLabel.text = [NSString stringWithFormat: @"%@", [self.selectedPLant name]];
+    infoWindow.familiaLabel.text = [NSString stringWithFormat: @"Familia: %@", [self.selectedPLant nombreFamilia]];
+    infoWindow.generoLabel.text = [NSString stringWithFormat: @"Genero: %@", [self.selectedPLant nombreGenero]];
+    infoWindow.especieLabel.text = [NSString stringWithFormat: @"Especie: %@", [self.selectedPLant nombreEspecie]];
+
+    NSString *urlString = [[NSString alloc] initWithString:[self.selectedPLant urlImage]];
+    
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error==nil) {
+            infoWindow.photoPlant.image = [UIImage imageWithData:data];
+        }
+    }];
+    //infoWindow.photoPlant.image = [UIImage imageNamed:@"PlantaModelo2"];
+    [task resume];
+    return infoWindow;
+}
 /*
 #pragma mark - Navigation
 
@@ -80,6 +134,8 @@
     self.selectedPLant = [[Plant alloc]init];
     self.selectedPLant = source.plantSelected;
     
+    [mapView_ clear];
+    [self muestraMarkerPlants];
 }
 
 

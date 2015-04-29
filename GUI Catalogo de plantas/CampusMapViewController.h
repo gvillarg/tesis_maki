@@ -10,7 +10,7 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "Plant.h"
 
-@interface CampusMapViewController : UIViewController
+@interface CampusMapViewController : UIViewController <GMSMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 
 @property Plant *selectedPLant;

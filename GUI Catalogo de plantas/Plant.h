@@ -22,6 +22,12 @@
 @property NSInteger *Genero_Id;
 @property NSInteger *Especie_Id;
 
+@property NSString *nombreFamilia;
+@property NSString *nombreGenero;
+@property NSString *nombreEspecie;
+
+@property NSNumber *localidad_x;
+@property NSNumber *localidad_y;
 
 + (Plant *) initWithJson: (NSMutableDictionary *) ObjetoJason;
 + (Plant *) initWithJson2: (NSMutableDictionary *) ObjetoJason;

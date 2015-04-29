@@ -46,6 +46,8 @@
 		12DA4BB51ADC7E60006DFD91 /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA4BA21ADC7E60006DFD91 /* UIProgressView+AFNetworking.m */; };
 		12DA4BB61ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA4BA41ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m */; };
 		12DA4BB71ADC7E60006DFD91 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 12DA4BA61ADC7E60006DFD91 /* UIWebView+AFNetworking.m */; };
+		12E00B4C1AF0511200CA66AE /* InfoWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12E00B4B1AF0511200CA66AE /* InfoWindow.xib */; };
+		12E00B521AF0549F00CA66AE /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E00B511AF0549F00CA66AE /* CustomInfoWindow.m */; };
 		12ED243E1AE1B5770058B003 /* Specie.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ED243D1AE1B5770058B003 /* Specie.m */; };
 		202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202DF9351ACBA265002FABB4 /* GendersViewController.m */; };
 		203908091AD1DF59009E87EF /* SpeciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203908081AD1DF59009E87EF /* SpeciesViewController.m */; };
@@ -139,6 +141,9 @@
 		12DA4BA41ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		12DA4BA51ADC7E60006DFD91 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		12DA4BA61ADC7E60006DFD91 /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		12E00B4B1AF0511200CA66AE /* InfoWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InfoWindow.xib; sourceTree = "<group>"; };
+		12E00B501AF0549F00CA66AE /* CustomInfoWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomInfoWindow.h; sourceTree = "<group>"; };
+		12E00B511AF0549F00CA66AE /* CustomInfoWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomInfoWindow.m; sourceTree = "<group>"; };
 		12ED243C1AE1B5770058B003 /* Specie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Specie.h; sourceTree = "<group>"; };
 		12ED243D1AE1B5770058B003 /* Specie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specie.m; sourceTree = "<group>"; };
 		202DF9341ACBA265002FABB4 /* GendersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GendersViewController.h; sourceTree = "<group>"; };
@@ -340,6 +345,9 @@
 				CCE740221A9FE8ED007374C4 /* Supporting Files */,
 				122A03F21ACA220F0086A2E4 /* FamiliesViewController.h */,
 				122A03F31ACA220F0086A2E4 /* FamiliesViewController.m */,
+				12E00B501AF0549F00CA66AE /* CustomInfoWindow.h */,
+				12E00B511AF0549F00CA66AE /* CustomInfoWindow.m */,
+				12E00B4B1AF0511200CA66AE /* InfoWindow.xib */,
 				12D7E7CE1AD9B5C100B93F13 /* CampusMapViewController.h */,
 				12D7E7CF1AD9B5C100B93F13 /* CampusMapViewController.m */,
 				204B4B0C1AEDC9B500218B32 /* SearchMapTableViewController.h */,
@@ -455,6 +463,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCE7402E1A9FE8ED007374C4 /* Main.storyboard in Resources */,
+				12E00B4C1AF0511200CA66AE /* InfoWindow.xib in Resources */,
 				CCE740331A9FE8ED007374C4 /* LaunchScreen.xib in Resources */,
 				CCE740301A9FE8ED007374C4 /* Images.xcassets in Resources */,
 				9BDE01D81ADDB85800EEA7AE /* GoogleMaps.bundle in Resources */,
@@ -475,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12E00B521AF0549F00CA66AE /* CustomInfoWindow.m in Sources */,
 				12DA4BAB1ADC7E60006DFD91 /* AFSecurityPolicy.m in Sources */,
 				205121C81AD0E5AE00D2FCD3 /* Gender.m in Sources */,
 				12DA4BAA1ADC7E60006DFD91 /* AFNetworkReachabilityManager.m in Sources */,

@@ -33,6 +33,11 @@
     newplant.Familia_Id = ((NSNumber *)[ObjetoJason objectForKey:@"Familia_Id"]).integerValue;
     newplant.Genero_Id = ((NSNumber *)[ObjetoJason objectForKey:@"Genero_Id"]).integerValue;
     newplant.Especie_Id = ((NSNumber *)[ObjetoJason objectForKey:@"Especie_Id"]).integerValue;
+    newplant.nombreFamilia = [ObjetoJason objectForKey:@"Nombre_Familia"];
+    newplant.nombreGenero = [ObjetoJason objectForKey:@"Nombre_Genero"];
+    newplant.nombreEspecie = [ObjetoJason objectForKey:@"Nombre_Especie"];
+    newplant.localidad_x = (NSNumber *)[ObjetoJason objectForKey:@"Localidad_x"];
+    newplant.localidad_y = (NSNumber *)[ObjetoJason objectForKey:@"Localidad_y"];
     return newplant;
 }
 
