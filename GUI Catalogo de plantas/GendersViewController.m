@@ -54,7 +54,7 @@
     //self.familyNameLabel.text = [NSString stringWithFormat: @"%@ %@", @" Familia ", [self.familySelected objectForKey:@"Nombre"]];
     
     self.familyNameLabel.text = [NSString stringWithFormat: @"Familia %@", [self.familySelected name]];
-    self.searchBar.placeholder = [NSString stringWithFormat: @"Buscar en Familia %@", [self.familySelected name]];
+    self.searchBar.placeholder = [NSString stringWithFormat: @"Buscar Generos en Familia %@", [self.familySelected name]];
     //
 }
 
