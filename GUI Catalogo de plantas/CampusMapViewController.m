@@ -104,6 +104,7 @@
     infoWindow.familiaLabel.text = [NSString stringWithFormat: @"Familia: %@", [self.selectedPLant nombreFamilia]];
     infoWindow.generoLabel.text = [NSString stringWithFormat: @"Genero: %@", [self.selectedPLant nombreGenero]];
     infoWindow.especieLabel.text = [NSString stringWithFormat: @"Especie: %@", [self.selectedPLant nombreEspecie]];
+    
 
     NSString *urlString = [[NSString alloc] initWithString:[self.selectedPLant urlImage]];
     
