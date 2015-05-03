@@ -585,7 +585,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="uxh-1a-Se7">
-                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="tmU-SZ-7pP">
+                        <barButtonItem key="rightBarButtonItem" image="searchIcon" id="tmU-SZ-7pP">
+                            <color key="tintColor" red="0.0" green="0.26793622347901325" blue="0.56621201657458564" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="s7q-YU-GFo" kind="popoverPresentation" popoverAnchorBarButtonItem="tmU-SZ-7pP" id="pop-vu-mYX">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -819,7 +820,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="MuS-No-f7Y"/>
                                     <barButtonItem title="Aceptar" id="W6u-39-w2g">
                                         <connections>
-                                            <segue destination="pr2-49-31L" kind="unwind" identifier="AcceptSetup" unwindAction="acceptSetup:" id="hLr-Tk-pBS"/>
+                                            <segue destination="CfB-i8-uYg" kind="modal" identifier="AcceptSegue" id="4cW-YX-Twn"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -912,6 +913,39 @@
             </objects>
             <point key="canvasLocation" x="3252" y="1743"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="eUH-bJ-kmh">
+            <objects>
+                <viewController id="CfB-i8-uYg" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G9r-Gz-OAn"/>
+                        <viewControllerLayoutGuide type="bottom" id="iXJ-se-1e5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CXk-I7-Et6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npj-AO-5ka">
+                                <rect key="frame" x="115" y="147" width="414" height="380"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="K1S-HR-pjH">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K1S-HR-pjH" id="bk9-eD-jiK">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0hu-Gq-FeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4059" y="1743"/>
+        </scene>
     </scenes>
     <resources>
         <image name="GMSSprites-0-2x.png" width="256" height="280"/>
@@ -919,6 +953,7 @@
         <image name="ManualTabBar" width="25" height="25"/>
         <image name="MapTabBar" width="26" height="26"/>
         <image name="SearchTabBar" width="26" height="26"/>
+        <image name="searchIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="iKh-Zj-DlM"/>

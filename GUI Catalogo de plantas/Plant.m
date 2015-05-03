@@ -18,7 +18,8 @@
     newplant.descripcion = [ObjetoJason objectForKey:@"Dato1"];
     newplant.habitat = [ObjetoJason objectForKey:@"Dato2"];
     newplant.urlMasInfo = [ObjetoJason objectForKey:@"Dato3"];
-    
+    newplant.localidad_x = [ObjetoJason objectForKey:@"Localidad_x"];
+    newplant.localidad_y = [ObjetoJason objectForKey:@"Localidad_y"];
     return newplant;
 }
 
