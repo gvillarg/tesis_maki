@@ -13,6 +13,8 @@
 #import "CustomInfoWindow.h"
 #include <stdlib.h>
 #import <math.h>
+#import "PlantViewController.h"
+#import "Cell.h"
 
 #define ARC4RANDOM_MAX      0x100000
 @interface CampusMapViewController ()
@@ -104,7 +106,6 @@
     infoWindow.familiaLabel.text = [NSString stringWithFormat: @"Familia: %@", [self.selectedPLant nombreFamilia]];
     infoWindow.generoLabel.text = [NSString stringWithFormat: @"Genero: %@", [self.selectedPLant nombreGenero]];
     infoWindow.especieLabel.text = [NSString stringWithFormat: @"Especie: %@", [self.selectedPLant nombreEspecie]];
-    
 
     NSString *urlString = [[NSString alloc] initWithString:[self.selectedPLant urlImage]];
     
@@ -121,6 +122,11 @@
     [task resume];
     [infoWindow.spinner startAnimating];
     return infoWindow;
+}
+
+-(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+     NSLog(@"perform segue");
+    [self performSegueWithIdentifier:@"ShowPlantDetails" sender:self];
 }
 /*
 #pragma mark - Navigation
@@ -145,6 +151,26 @@
     
     [mapView_ clear];
     [self muestraMarkerPlants];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"DetailSegue"]){
+        
+        PlantViewController *pv = [segue destinationViewController];
+        
+        Plant *plant = self.selectedPLant;
+//        Specie *specie = [self.nuevasEspecies objectAtIndex:indexPath.row];
+//        plant.nombreFamilia = [self.familySelected name];
+//        plant.nombreGenero = [self.genderSelected name];
+//        plant.nombreEspecie = [specie name];
+        
+        pv.plantSelected = plant;
+        
+        //pv.familySelected = self.familySelected;
+        //pv.genderSelected = self.genderSelected;
+        //pv.specieSelected = specie;
+        
+    }
 }
 
 

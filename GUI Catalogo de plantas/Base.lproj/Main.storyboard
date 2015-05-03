@@ -540,7 +540,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t5Z-oG-Xxz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3713" y="24"/>
+            <point key="canvasLocation" x="3821" y="970"/>
         </scene>
         <!--Campus PUCP-->
         <scene sceneID="RAX-fi-2hL">
@@ -597,6 +597,7 @@
                     <connections>
                         <outlet property="mapView" destination="nQe-JA-1Zs" id="ZsG-2v-2bB"/>
                         <outlet property="searchDisplayController" destination="1eS-6T-Uc3" id="Qtr-zm-LYJ"/>
+                        <segue destination="0kf-dX-W3G" kind="show" identifier="ShowPlantDetails" id="MpA-wd-D6c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3wJ-TG-1pB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -956,7 +957,7 @@
         <image name="searchIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="iKh-Zj-DlM"/>
         <segue reference="od5-Dd-foT"/>
+        <segue reference="MpA-wd-D6c"/>
     </inferredMetricsTieBreakers>
 </document>

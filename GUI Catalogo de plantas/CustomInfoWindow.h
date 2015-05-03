@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CampusMapViewController.h"
 
 @interface CustomInfoWindow : UIView
 @property (weak, nonatomic) IBOutlet UILabel *nombreComunLabel;
