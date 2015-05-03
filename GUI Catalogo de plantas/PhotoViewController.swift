@@ -31,7 +31,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBAction func selectImageButtonPressed(sender: UIButton) {
         
         var imagePicker = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         imagePicker.mediaTypes = [kUTTypeImage]
         imagePicker.delegate = self
         
@@ -68,8 +68,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBAction func acceptSetup(segue:UIStoryboardSegue) {
         println("Setup finished")
-        resultLabel.text = "Congratulations, you're ugly"
-        takePictureButton.setTitle("Try again", forState: .Normal)
+        resultLabel.text = "La imagen ha sido enviada"
+        takePictureButton.setTitle("Tomar otra foto", forState: .Normal)
         
         
         println("Dots where placed on coordinates:")
