@@ -586,7 +586,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="uxh-1a-Se7">
                         <barButtonItem key="rightBarButtonItem" image="searchIcon" id="tmU-SZ-7pP">
-                            <color key="tintColor" red="0.0" green="0.26793622347901325" blue="0.56621201657458564" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" red="0.61568627450000002" green="0.68627450980000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="s7q-YU-GFo" kind="popoverPresentation" popoverAnchorBarButtonItem="tmU-SZ-7pP" id="pop-vu-mYX">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -718,7 +718,7 @@
         <scene sceneID="dIq-5W-Z76">
             <objects>
                 <navigationController id="c2h-Dc-bp4" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Descubre hojas" image="LeafTabBar" id="NhC-j2-gMc"/>
+                    <tabBarItem key="tabBarItem" title="Descubre hojas" image="cameraTabBar" id="NhC-j2-gMc"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hwv-LD-gJp">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -767,10 +767,17 @@
                                     <action selector="selectImageButtonPressed:" destination="LcJ-SQ-5qR" eventType="touchUpInside" id="ysJ-zc-44k"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="20" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-ie-DnV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="20" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-ie-DnV">
                                 <rect key="frame" x="275" y="257" width="50" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eox-nx-DTw">
+                                <rect key="frame" x="96" y="83" width="408" height="97"/>
+                                <string key="text">Para descubrir a que planta pertenece una hoja, solo deberas tomar una foto de ella y enviarla para ser evaluada! Intenta que el fondo de la foto sea blanco para obtener mejores resultados!</string>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
+                                <color key="textColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -779,9 +786,13 @@
                             <constraint firstItem="9OK-te-mk2" firstAttribute="top" secondItem="fZU-ie-DnV" secondAttribute="bottom" constant="8" id="FPl-Cd-6dc"/>
                             <constraint firstAttribute="centerY" secondItem="9OK-te-mk2" secondAttribute="centerY" id="LOY-66-tEo"/>
                             <constraint firstItem="fZU-ie-DnV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="8" id="XFM-y7-xDS"/>
+                            <constraint firstItem="eox-nx-DTw" firstAttribute="leading" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="80" id="Yp8-NT-MUS"/>
                             <constraint firstAttribute="centerX" secondItem="fZU-ie-DnV" secondAttribute="centerX" id="bGy-xe-sPz"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fZU-ie-DnV" secondAttribute="trailing" constant="8" id="bqp-mG-8Aj"/>
                             <constraint firstAttribute="centerX" secondItem="9OK-te-mk2" secondAttribute="centerX" id="dhx-Kf-5eY"/>
+                            <constraint firstItem="eox-nx-DTw" firstAttribute="top" secondItem="MSG-tr-fCJ" secondAttribute="bottom" constant="63" id="kyA-fK-R9l"/>
+                            <constraint firstItem="fZU-ie-DnV" firstAttribute="top" secondItem="eox-nx-DTw" secondAttribute="bottom" constant="69" id="ov3-lA-L4C"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eox-nx-DTw" secondAttribute="trailing" constant="80" id="wwv-Gh-k0E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cMj-rr-U65"/>
@@ -981,15 +992,15 @@
     </scenes>
     <resources>
         <image name="GMSSprites-0-2x.png" width="256" height="280"/>
-        <image name="LeafTabBar" width="26" height="26"/>
         <image name="ManualTabBar" width="25" height="25"/>
         <image name="MapTabBar" width="26" height="26"/>
         <image name="SearchTabBar" width="26" height="26"/>
+        <image name="cameraTabBar" width="32" height="32"/>
         <image name="searchIcon" width="36" height="36"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="aTf-OT-3SW"/>
-        <segue reference="nbE-rp-Mif"/>
-        <segue reference="od5-Dd-foT"/>
+        <segue reference="wJX-E1-9QI"/>
+        <segue reference="Hwh-Gu-W2o"/>
+        <segue reference="MpA-wd-D6c"/>
     </inferredMetricsTieBreakers>
 </document>
