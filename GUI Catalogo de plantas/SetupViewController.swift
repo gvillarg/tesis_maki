@@ -30,16 +30,16 @@ class SetupViewController: UIViewController {
         imageView.addConstraint(imageRatioContraint)
         imageView.setNeedsLayout()
         
-        blueDot.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dotDragged:"))
-        redDot.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dotDragged:"))
-        greenDot.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dotDragged:"))
+        //blueDot.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dotDragged:"))
+        //redDot.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dotDragged:"))
+        //greenDot.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: "dotDragged:"))
         
     }
     
     override func viewWillAppear(animated: Bool) {
         // Set dots position
-        blueDot.center = CGPointMake(view.center.x - 20, view.center.y)
-        redDot.center = CGPointMake(view.center.x + 20, view.center.y)
+        //blueDot.center = CGPointMake(view.center.x - 20, view.center.y)
+        //redDot.center = CGPointMake(view.center.x + 20, view.center.y)
     }
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +49,7 @@ class SetupViewController: UIViewController {
     
     func dotDragged(recognizer: UIPanGestureRecognizer) {
         
-        var dot = recognizer.view as! Dot
+        var dot = recognizer.view as Dot
         
         switch recognizer.state {
         case UIGestureRecognizerState.Changed:
@@ -75,14 +75,14 @@ class SetupViewController: UIViewController {
         
         switch segue.identifier! {
         case StoryboardSegue.CancelSetup:
-            var viewController = segue.destinationViewController as! PhotoViewController
+            var viewController = segue.destinationViewController as PhotoViewController
             viewController.image = nil
-            viewController.bluePosition = nil
-            viewController.redPosition = nil
+            //viewController.bluePosition = nil
+            //viewController.redPosition = nil
         case StoryboardSegue.AcceptSetup:
-            var viewController = segue.destinationViewController as! PhotoViewController
-            viewController.bluePosition = view.convertPoint(blueDot.center, toView: imageView)
-            viewController.redPosition = view.convertPoint(redDot.center, toView: imageView)
+            var viewController = segue.destinationViewController as PhotoViewController
+            //viewController.bluePosition = view.convertPoint(blueDot.center, toView: imageView)
+            //viewController.redPosition = view.convertPoint(redDot.center, toView: imageView)
         default: break
         }
     }

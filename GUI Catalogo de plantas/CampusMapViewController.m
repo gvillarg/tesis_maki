@@ -171,6 +171,15 @@
         //pv.specieSelected = specie;
         
     }
+    
+    if ([segue.identifier isEqualToString:@"ShowPlantDetails"]){
+        
+        PlantViewController *pv = [segue destinationViewController];
+
+        Plant *plant = self.selectedPLant;
+        
+        pv.plantSelected = plant;
+    }
 }
 
 

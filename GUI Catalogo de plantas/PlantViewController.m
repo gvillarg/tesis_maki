@@ -21,8 +21,8 @@
     // Do any additional setup after loading the view.
     
     // MAKI: He comentado esto porque aqui se cae
-//    NSURL *url = [[NSURL alloc] initWithString:[self.plantSelected urlImage]];
-//    [self fetchImageFromURL:url];
+    NSURL *url = [[NSURL alloc] initWithString:[self.plantSelected urlImage]];
+    [self fetchImageFromURL:url];
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"BackgroundDetailView"]];
     self.nombreComunLabel.text = [NSString stringWithFormat: @"Nombre Comun: %@", [self.plantSelected name]];
     self.descripcionLabel.text =[NSString stringWithFormat: @"%@", [self.plantSelected descripcion]];
