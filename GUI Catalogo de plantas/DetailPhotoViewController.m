@@ -75,21 +75,31 @@
 }
 -(void) simularAlgoritmo{
     
-    int randomNumber = arc4random_uniform(7);
+    int seRepite = 0;
+    int randomNumber = arc4random_uniform(7)+1;
     for (int i=0; i<=randomNumber; i++) {
+        seRepite = 0;
         int randomId = arc4random_uniform(70)+2;
         NSNumber *randomIDNumber = [NSNumber numberWithInt:randomId];
         NSMutableDictionary *randomIdDictionary = [[NSMutableDictionary alloc]initWithObjectsAndKeys:randomIDNumber, @"id", nil];
-        //if ([self.idList count]==0){
+        
+        
+        if ([self.idList count]==0){
             [self.idList addObject:randomIdDictionary];
-        //}
-        //else {
-        //    for (NSMutableDictionary *ObjetoDiccionario in self.idList) {
-        //        if (ObjetoDiccionario objectForKey:<#(id)#>)
-                
-        //    }
-        //[self.idList addObject:randomIdDictionary];
-        //}
+        }
+        else {
+            for (NSMutableDictionary *ObjetoDiccionario in self.idList) {
+                if (((NSNumber *)[ObjetoDiccionario objectForKey:@"id"]).intValue == randomId ){
+                    seRepite = 1;
+                }
+            }
+            if (seRepite == 0){
+                 [self.idList addObject:randomIdDictionary];
+            }
+            
+        }
+        
+        
     }
 }
 
