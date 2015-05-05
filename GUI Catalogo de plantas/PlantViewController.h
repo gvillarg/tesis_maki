@@ -31,5 +31,6 @@
 @property Gender *genderSelected;
 @property Specie *specieSelected;
 
+@property int vieneDelMapa;
 
 @end

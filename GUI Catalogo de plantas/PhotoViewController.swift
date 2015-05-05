@@ -49,7 +49,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         dismissViewControllerAnimated(true){
             [unowned self] in
-            self.performSegueWithIdentifier(StoryboardSegue.Setup, sender: self)
+           // self.performSegueWithIdentifier(StoryboardSegue.Setup, sender: self)
+            self.performSegueWithIdentifier("DetailPhoto", sender: self)
         }
     }
     
@@ -58,6 +59,9 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         case StoryboardSegue.Setup:
             var setupViewController = segue.destinationViewController as SetupViewController
             setupViewController.image = image
+        case "DetailPhoto":
+            var detailphotoViewController = segue.destinationViewController as DetailPhotoViewController
+            detailphotoViewController.photoTaken = image
         default:
             println("Unsuported segue indentifier: \(segue.identifier)")
         }

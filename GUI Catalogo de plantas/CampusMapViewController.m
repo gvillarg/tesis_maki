@@ -179,6 +179,7 @@
         Plant *plant = self.selectedPLant;
         
         pv.plantSelected = plant;
+        pv.vieneDelMapa = 1;
     }
 }
 

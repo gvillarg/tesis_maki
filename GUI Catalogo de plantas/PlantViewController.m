@@ -34,6 +34,10 @@
     self.btnInfo.clipsToBounds = YES;
     self.btnMapa.layer.cornerRadius = 6;
     self.btnMapa.clipsToBounds = YES;
+    
+    if (self.vieneDelMapa == 1){
+        self.btnMapa.hidden = 1;
+    }
     /*UIGraphicsBeginImageContext(self.view.frame.size);
     [[UIImage imageNamed:@"Background2"] drawInRect:self.view.bounds];
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();

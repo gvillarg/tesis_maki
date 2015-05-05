@@ -24,6 +24,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.idList = [[NSMutableArray alloc]init];
+    self.photoImage.image = self.photoTaken;
     [self simularAlgoritmo];
     [self getPlants];
 }

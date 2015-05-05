@@ -10,5 +10,6 @@
 
 @interface DetailPhotoViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *PlantListTableView;
-
+@property (weak, nonatomic) IBOutlet UIImageView *photoImage;
+@property UIImage *photoTaken;
 @end
