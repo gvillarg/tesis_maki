@@ -586,7 +586,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mapa" id="uxh-1a-Se7">
                         <barButtonItem key="rightBarButtonItem" image="searchIcon" id="tmU-SZ-7pP">
-                            <color key="tintColor" red="0.61568627450000002" green="0.68627450980000004" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="s7q-YU-GFo" kind="popoverPresentation" popoverAnchorBarButtonItem="tmU-SZ-7pP" id="pop-vu-mYX">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
@@ -596,6 +596,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapView" destination="nQe-JA-1Zs" id="ZsG-2v-2bB"/>
+                        <outlet property="searchButton" destination="tmU-SZ-7pP" id="yEy-Hz-mo7"/>
                         <outlet property="searchDisplayController" destination="1eS-6T-Uc3" id="Qtr-zm-LYJ"/>
                         <segue destination="0kf-dX-W3G" kind="show" identifier="ShowPlantDetails" id="MpA-wd-D6c"/>
                     </connections>
@@ -758,47 +759,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-te-mk2">
-                                <rect key="frame" x="221" y="285" width="158" height="30"/>
-                                <state key="normal" title="Tomar foto de una hoja">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="selectImageButtonPressed:" destination="LcJ-SQ-5qR" eventType="touchUpInside" id="ysJ-zc-44k"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" placeholderIntrinsicWidth="50" placeholderIntrinsicHeight="20" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZU-ie-DnV">
-                                <rect key="frame" x="275" y="257" width="50" height="20"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eox-nx-DTw">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eox-nx-DTw">
                                 <rect key="frame" x="96" y="83" width="408" height="97"/>
                                 <string key="text">Para descubrir a que planta pertenece una hoja, solo deberas tomar una foto de ella y enviarla para ser evaluada! Intenta que el fondo de la foto sea blanco para obtener mejores resultados!</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-te-mk2">
+                                <rect key="frame" x="96" y="285" width="220" height="43"/>
+                                <state key="normal" title="Utilizar una foto de la galeria">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectImageButtonPressed:" destination="LcJ-SQ-5qR" eventType="touchUpInside" id="ysJ-zc-44k"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUT-bI-4xT">
+                                <rect key="frame" x="96" y="336" width="220" height="30"/>
+                                <state key="normal" title="Tomar una foto de la cámara">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectImageButton2Pressed:" destination="LcJ-SQ-5qR" eventType="touchUpInside" id="Yrz-Hk-sxL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9OK-te-mk2" firstAttribute="top" secondItem="fZU-ie-DnV" secondAttribute="bottom" constant="8" id="FPl-Cd-6dc"/>
-                            <constraint firstAttribute="centerY" secondItem="9OK-te-mk2" secondAttribute="centerY" id="LOY-66-tEo"/>
-                            <constraint firstItem="fZU-ie-DnV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="8" id="XFM-y7-xDS"/>
                             <constraint firstItem="eox-nx-DTw" firstAttribute="leading" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="80" id="Yp8-NT-MUS"/>
-                            <constraint firstAttribute="centerX" secondItem="fZU-ie-DnV" secondAttribute="centerX" id="bGy-xe-sPz"/>
-                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="fZU-ie-DnV" secondAttribute="trailing" constant="8" id="bqp-mG-8Aj"/>
-                            <constraint firstAttribute="centerX" secondItem="9OK-te-mk2" secondAttribute="centerX" id="dhx-Kf-5eY"/>
                             <constraint firstItem="eox-nx-DTw" firstAttribute="top" secondItem="MSG-tr-fCJ" secondAttribute="bottom" constant="63" id="kyA-fK-R9l"/>
-                            <constraint firstItem="fZU-ie-DnV" firstAttribute="top" secondItem="eox-nx-DTw" secondAttribute="bottom" constant="69" id="ov3-lA-L4C"/>
                             <constraint firstAttribute="trailingMargin" secondItem="eox-nx-DTw" secondAttribute="trailing" constant="80" id="wwv-Gh-k0E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cMj-rr-U65"/>
                     <connections>
-                        <outlet property="resultLabel" destination="fZU-ie-DnV" id="RyV-hY-T5j"/>
                         <outlet property="takePictureButton" destination="9OK-te-mk2" id="eLU-og-xwA"/>
+                        <outlet property="takePictureCameraButton" destination="eUT-bI-4xT" id="S4M-0e-bsh"/>
                         <segue destination="CfB-i8-uYg" kind="show" identifier="DetailPhoto" id="pBw-IF-Rgz"/>
                     </connections>
                 </viewController>
@@ -909,25 +906,46 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npj-AO-5ka">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="103" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="npj-AO-5ka">
                                 <rect key="frame" x="0.0" y="300" width="600" height="251"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewCell" textLabel="N1V-CI-CWu" style="IBUITableViewCellStyleDefault" id="K1S-HR-pjH">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="NewCell" rowHeight="103" id="K1S-HR-pjH" customClass="DetailPhotoTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="430" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K1S-HR-pjH" id="bk9-eD-jiK">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N1V-CI-CWu">
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rm-ED-RQn">
+                                                    <rect key="frame" x="29" y="12" width="88" height="80"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BIh-Vf-0dR">
+                                                    <rect key="frame" x="136" y="32" width="423" height="40"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="7M0-xY-eli">
+                                                    <rect key="frame" x="63" y="41" width="20" height="20"/>
+                                                </activityIndicatorView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="4rm-ED-RQn" firstAttribute="leading" secondItem="bk9-eD-jiK" secondAttribute="leadingMargin" constant="21" id="Ez5-qS-2pD"/>
+                                                <constraint firstItem="BIh-Vf-0dR" firstAttribute="leading" secondItem="4rm-ED-RQn" secondAttribute="trailing" constant="19" id="Jow-KL-AbW"/>
+                                                <constraint firstItem="4rm-ED-RQn" firstAttribute="top" secondItem="bk9-eD-jiK" secondAttribute="topMargin" constant="4" id="OOX-e2-gKS"/>
+                                                <constraint firstItem="BIh-Vf-0dR" firstAttribute="top" secondItem="bk9-eD-jiK" secondAttribute="topMargin" constant="24" id="Qll-aE-abE"/>
+                                                <constraint firstItem="BIh-Vf-0dR" firstAttribute="trailing" secondItem="bk9-eD-jiK" secondAttribute="trailingMargin" id="Wza-Ab-oFD"/>
+                                                <constraint firstAttribute="centerX" secondItem="7M0-xY-eli" secondAttribute="centerX" id="lej-d3-SVx"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BIh-Vf-0dR" secondAttribute="bottom" constant="23" id="lq5-IW-nH3"/>
+                                                <constraint firstAttribute="centerY" secondItem="7M0-xY-eli" secondAttribute="centerY" id="ooO-kg-Axl"/>
+                                                <constraint firstItem="BIh-Vf-0dR" firstAttribute="leading" secondItem="4rm-ED-RQn" secondAttribute="trailing" constant="19" id="qJq-SU-hVv"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="4rm-ED-RQn" secondAttribute="bottom" constant="3" id="sWQ-rq-6km"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="photoImage" destination="4rm-ED-RQn" id="NjX-pa-Kqh"/>
+                                            <outlet property="plantName" destination="BIh-Vf-0dR" id="qVs-qd-666"/>
+                                            <outlet property="spinner" destination="7M0-xY-eli" id="51q-jd-tff"/>
                                             <segue destination="0kf-dX-W3G" kind="show" identifier="DetailSegue" id="nbE-rp-Mif"/>
                                         </connections>
                                     </tableViewCell>
@@ -971,7 +989,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0hu-Gq-FeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3257" y="1664"/>
+            <point key="canvasLocation" x="3257" y="1658"/>
         </scene>
     </scenes>
     <resources>
@@ -984,6 +1002,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="nbE-rp-Mif"/>
-        <segue reference="od5-Dd-foT"/>
+        <segue reference="wJX-E1-9QI"/>
     </inferredMetricsTieBreakers>
 </document>

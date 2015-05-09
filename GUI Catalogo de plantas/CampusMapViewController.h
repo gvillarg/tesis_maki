@@ -12,6 +12,7 @@
 
 @interface CampusMapViewController : UIViewController <GMSMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *mapView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 
 @property Plant *selectedPLant;
 @end

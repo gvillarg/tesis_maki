@@ -12,6 +12,7 @@
 
 @property NSString *name;
 @property NSString *urlImage;
+@property NSString *urlSmallImage;
 @property NSInteger id;
 
 @property NSString *descripcion;

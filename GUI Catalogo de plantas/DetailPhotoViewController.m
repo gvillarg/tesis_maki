@@ -10,6 +10,7 @@
 #import "AFNetworking.h"
 #import "Plant.h"
 #import "PlantViewController.h"
+#import "DetailPhotoTableViewCell.h"
 
 @interface DetailPhotoViewController ()
 
@@ -119,9 +120,26 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     //return nil;
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewCell" forIndexPath:indexPath];
+    DetailPhotoTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NewCell" forIndexPath:indexPath];
     Plant *plant = [self.nuevasPlantas objectAtIndex:indexPath.row];
-    cell.textLabel.text = plant.name;
+    //cell.textLabel.text = plant.name;
+    
+    cell.plantName.text = plant.name;
+    NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlSmallImage]];
+    
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error==nil) {
+            cell.photoImage.image = [UIImage imageWithData:data];
+        }
+        [cell.spinner stopAnimating];
+        
+    }];
+    
+    [task resume];
+    [cell.spinner startAnimating];
     return cell;
     
 }

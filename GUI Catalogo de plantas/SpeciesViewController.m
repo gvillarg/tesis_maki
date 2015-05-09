@@ -113,7 +113,7 @@
     //cell.backgroundColor = [UIColor whiteColor];
     cell.nombrePlantaLabel.text = [NSString stringWithFormat:@"Especie: %@", [[self.nuevasEspecies objectAtIndex:indexPath.row] name]];
     
-    NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlImage]];
+    NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlSmallImage]];
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     

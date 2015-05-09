@@ -17,6 +17,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var takePictureButton: UIButton!
+    @IBOutlet weak var takePictureCameraButton: UIButton!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,17 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         var imagePicker = UIImagePickerController()
         //imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+        imagePicker.mediaTypes = [kUTTypeImage]
+        imagePicker.delegate = self
+        
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    @IBAction func selectImageButton2Pressed(sender: UIButton) {
+        
+        var imagePicker = UIImagePickerController()
+        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+        //imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
         imagePicker.mediaTypes = [kUTTypeImage]
         imagePicker.delegate = self
         

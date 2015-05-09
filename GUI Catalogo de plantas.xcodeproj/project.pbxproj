@@ -12,6 +12,7 @@
 		12559FCA1AEC37F800B94507 /* Dot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12559FC91AEC37F800B94507 /* Dot.swift */; };
 		12559FCE1AEC392800B94507 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12559FCC1AEC392800B94507 /* PhotoViewController.swift */; };
 		12559FCF1AEC392800B94507 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12559FCD1AEC392800B94507 /* SetupViewController.swift */; };
+		12677ECD1AFD73F500211445 /* DetailPhotoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12677ECC1AFD73F500211445 /* DetailPhotoTableViewCell.m */; };
 		1269E1B61AE1D049008A4002 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1B51AE1D049008A4002 /* Cell.m */; };
 		1269E1B91AE1DCEB008A4002 /* HeaderClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1B81AE1DCEB008A4002 /* HeaderClass.m */; };
 		1269E1BC1AE1E27E008A4002 /* PlantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1269E1BB1AE1E27E008A4002 /* PlantViewController.m */; };
@@ -84,6 +85,8 @@
 		12559FCB1AEC383C00B94507 /* GUI Catalogo de plantas-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GUI Catalogo de plantas-Bridging-Header.h"; sourceTree = "<group>"; };
 		12559FCC1AEC392800B94507 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		12559FCD1AEC392800B94507 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
+		12677ECB1AFD73F500211445 /* DetailPhotoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPhotoTableViewCell.h; sourceTree = "<group>"; };
+		12677ECC1AFD73F500211445 /* DetailPhotoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPhotoTableViewCell.m; sourceTree = "<group>"; };
 		1269E1B41AE1D049008A4002 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		1269E1B51AE1D049008A4002 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		1269E1B71AE1DCEB008A4002 /* HeaderClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderClass.h; sourceTree = "<group>"; };
@@ -341,6 +344,8 @@
 				202DF9351ACBA265002FABB4 /* GendersViewController.m */,
 				2036FF081AF6B383003CD1EE /* DetailPhotoViewController.h */,
 				2036FF091AF6B384003CD1EE /* DetailPhotoViewController.m */,
+				12677ECB1AFD73F500211445 /* DetailPhotoTableViewCell.h */,
+				12677ECC1AFD73F500211445 /* DetailPhotoTableViewCell.m */,
 				CCE7402A1A9FE8ED007374C4 /* ViewController.m */,
 				12559FCC1AEC392800B94507 /* PhotoViewController.swift */,
 				12559FCD1AEC392800B94507 /* SetupViewController.swift */,
@@ -520,6 +525,7 @@
 				12DA4BB31ADC7E60006DFD91 /* UIButton+AFNetworking.m in Sources */,
 				12DA4BAE1ADC7E60006DFD91 /* AFURLResponseSerialization.m in Sources */,
 				202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */,
+				12677ECD1AFD73F500211445 /* DetailPhotoTableViewCell.m in Sources */,
 				203908091AD1DF59009E87EF /* SpeciesViewController.m in Sources */,
 				1269E1B91AE1DCEB008A4002 /* HeaderClass.m in Sources */,
 				12DA4BB61ADC7E60006DFD91 /* UIRefreshControl+AFNetworking.m in Sources */,

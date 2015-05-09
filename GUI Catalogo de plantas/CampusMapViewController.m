@@ -35,6 +35,8 @@
   //  marker.snippet = @"Australia";
   //  marker.map = mapView_;
     
+  //  self.searchButton.layer.cornerRadius = 6;
+  //  self.searchButton.clipsToBounds = YES;
     
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-12.068938
                                                             longitude:-77.080190

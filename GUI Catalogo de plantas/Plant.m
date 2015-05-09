@@ -18,6 +18,7 @@
     newplant.descripcion = [ObjetoJason objectForKey:@"Dato1"];
     newplant.habitat = [ObjetoJason objectForKey:@"Dato2"];
     newplant.urlMasInfo = [ObjetoJason objectForKey:@"Dato3"];
+    newplant.urlSmallImage = [ObjetoJason objectForKey:@"Dato4"];
     newplant.localidad_x = [ObjetoJason objectForKey:@"Localidad_x"];
     newplant.localidad_y = [ObjetoJason objectForKey:@"Localidad_y"];
     return newplant;
@@ -31,6 +32,7 @@
     newplant.descripcion = [ObjetoJason objectForKey:@"Dato1"];
     newplant.habitat = [ObjetoJason objectForKey:@"Dato2"];
     newplant.urlMasInfo = [ObjetoJason objectForKey:@"Dato3"];
+    newplant.urlSmallImage = [ObjetoJason objectForKey:@"Dato4"];
     newplant.Familia_Id = ((NSNumber *)[ObjetoJason objectForKey:@"Familia_Id"]).integerValue;
     newplant.Genero_Id = ((NSNumber *)[ObjetoJason objectForKey:@"Genero_Id"]).integerValue;
     newplant.Especie_Id = ((NSNumber *)[ObjetoJason objectForKey:@"Especie_Id"]).integerValue;
