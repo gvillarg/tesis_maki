@@ -119,10 +119,15 @@
     
     NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        if (error==nil) {
-            cell.PlantaImagen.image = [UIImage imageWithData:data];
-        }
-        [cell.spinner stopAnimating];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Some code
+            if (error==nil) {
+                Plant *plant = [self.nuevasPlantas objectAtIndex:indexPath.row];
+                plant.smallImage = [UIImage imageWithData:data];
+                cell.PlantaImagen.image = plant.smallImage;
+            }
+            [cell.spinner stopAnimating];
+        });
         
     }];
     

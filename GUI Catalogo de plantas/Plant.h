@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface Plant : NSObject
 
@@ -29,6 +30,9 @@
 
 @property NSString *localidad_x;
 @property NSString *localidad_y;
+
+@property UIImage *smallImage;
+@property UIImage *image;
 
 + (Plant *) initWithJson: (NSMutableDictionary *) ObjetoJason;
 + (Plant *) initWithJson2: (NSMutableDictionary *) ObjetoJason;

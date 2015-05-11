@@ -17,7 +17,7 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var takePictureButton: UIButton!
-    @IBOutlet weak var takePictureCameraButton: UIButton!
+
    
     
     override func viewDidLoad() {
@@ -32,25 +32,55 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     @IBAction func selectImageButtonPressed(sender: UIButton) {
         
-        var imagePicker = UIImagePickerController()
-        //imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
-        imagePicker.mediaTypes = [kUTTypeImage]
-        imagePicker.delegate = self
+        var actionSheet = UIAlertController(title: "Seleccionar", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         
-        presentViewController(imagePicker, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.PhotoLibrary) {
+            
+            var action = UIAlertAction(title: "Escoger imagen existente", style: .Default) {
+                action in
+                
+                var imageChooser = UIImagePickerController()
+                //imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                imageChooser.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+                imageChooser.mediaTypes = [kUTTypeImage]
+                imageChooser.delegate = self
+                
+                self.presentViewController(imageChooser, animated: true, completion: nil)
+            }
+            
+            actionSheet.addAction(action)
+            
+        }
+        
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            
+            var action = UIAlertAction(title: "Tomar foto", style: .Default) {
+                action in
+                
+                var imagePicker = UIImagePickerController()
+                imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
+                //imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+                imagePicker.mediaTypes = [kUTTypeImage]
+                imagePicker.delegate = self
+                
+                self.presentViewController(imagePicker, animated: true, completion: nil)
+            }
+            
+            actionSheet.addAction(action)
+        }
+        
+        // cancel action
+        var cancelAction = UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Destructive, handler: nil)
+        
+        actionSheet.addAction(cancelAction)
+        
+        actionSheet.popoverPresentationController?.sourceRect = takePictureButton.bounds
+        actionSheet.popoverPresentationController?.sourceView = takePictureButton
+        
+        presentViewController(actionSheet, animated: true, completion: nil)
+        
     }
-    
-    @IBAction func selectImageButton2Pressed(sender: UIButton) {
-        
-        var imagePicker = UIImagePickerController()
-        imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        //imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
-        imagePicker.mediaTypes = [kUTTypeImage]
-        imagePicker.delegate = self
-        
-        presentViewController(imagePicker, animated: true, completion: nil)
-    }
+
     
     struct StoryboardSegue {
         static let Setup = "SetupImage"

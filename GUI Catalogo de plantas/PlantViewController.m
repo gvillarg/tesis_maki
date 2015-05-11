@@ -44,6 +44,11 @@
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];*/
     
+    if (self.plantSelected.smallImage != nil) {
+        self.fotoPlanta.image = self.plantSelected.smallImage;
+    }
+    
+    
 }
 - (IBAction)MasInfoButton:(UIButton *)sender {
     NSString *miURLString = [[NSString alloc] initWithString:[self.plantSelected urlMasInfo]];
@@ -60,10 +65,15 @@
 -(void)fetchImageFromURL: (NSURL *)url {
     NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        if (error==nil) {
-            self.fotoPlanta.image = [UIImage imageWithData:data];
-        }
-        [self.spinner stopAnimating];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Some code
+            if (error==nil) {
+                self.fotoPlanta.image = [UIImage imageWithData:data];
+            }
+            [self.spinner stopAnimating];
+        });
+        
+        
         
     }];
     

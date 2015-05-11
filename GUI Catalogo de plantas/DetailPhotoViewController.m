@@ -125,16 +125,18 @@
     //cell.textLabel.text = plant.name;
     
     cell.plantName.text = plant.name;
-    NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlSmallImage]];
+    NSString *urlString = [[NSString alloc] initWithString:[[self.nuevasPlantas objectAtIndex:indexPath.row] urlImage]];
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
     NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
-        if (error==nil) {
-            cell.photoImage.image = [UIImage imageWithData:data];
-        }
-        [cell.spinner stopAnimating];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error==nil) {
+                cell.photoImage.image = [UIImage imageWithData:data];
+            }
+            [cell.spinner stopAnimating];
+        });
         
     }];
     
