@@ -95,14 +95,14 @@
 
         }
         
-        //marker.icon = [UIImage imageNamed:@"plantIcon.png"];
+        marker.icon = [UIImage imageNamed:@"mapPin"];
         marker.map = mapView_;
     }
     
     
 }
 
--(UIView *) mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
+/*-(UIView *) mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
     infoWindow.nombreComunLabel.text = [NSString stringWithFormat: @"%@", [self.selectedPLant name]];
     infoWindow.familiaLabel.text = [NSString stringWithFormat: @"Familia: %@", [self.selectedPLant nombreFamilia]];
@@ -124,12 +124,15 @@
     [task resume];
     [infoWindow.spinner startAnimating];
     return infoWindow;
-}
+}*/
 
--(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+/*-(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
      NSLog(@"perform segue");
     [self performSegueWithIdentifier:@"ShowPlantDetails" sender:self];
-}
+}*/
+
+
+
 /*
 #pragma mark - Navigation
 
