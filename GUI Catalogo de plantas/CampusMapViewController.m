@@ -61,7 +61,7 @@
 -(void)setSelectedPlant:(Plant *)selectedPlant {
     _selectedPlant = selectedPlant;
     
-    
+    self.selectedPlantImage.image = nil;
     NSString *urlString = [[NSString alloc] initWithString:[self.selectedPlant urlImage]];
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
