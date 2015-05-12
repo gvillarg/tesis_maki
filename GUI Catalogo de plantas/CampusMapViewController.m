@@ -45,8 +45,7 @@
     mapView_.delegate = self;
     mapView_.myLocationEnabled = YES;
     
-   
-
+    
     [self.mapView addSubview: mapView_];
     
     [self muestraMarkerPlants];
@@ -97,9 +96,26 @@
         
         marker.icon = [UIImage imageNamed:@"mapPin"];
         marker.map = mapView_;
+        
+        /*if (self.seleccionoUnaPlanta == 1){
+        NSString *urlString = [[NSString alloc] initWithString:[self.selectedPLant urlSmallImage]];
+        
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        
+        NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error==nil) {
+                    self.selectedPlantImage.image = [UIImage imageWithData:data];
+                }
+                //[cell.spinner stopAnimating];
+            });
+        }];
+        
+        [task resume];
+        //[infoWindow.spinner startAnimating];
+        }*/
+        
     }
-    
-    
 }
 
 /*-(UIView *) mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
@@ -154,7 +170,14 @@
     self.selectedPLant = [[Plant alloc]init];
     self.selectedPLant = source.plantSelected;
     
+    self.seleccionoUnaPlanta = 1;
+    
     [mapView_ clear];
+    
+    
+    
+
+    
     [self muestraMarkerPlants];
 }
 

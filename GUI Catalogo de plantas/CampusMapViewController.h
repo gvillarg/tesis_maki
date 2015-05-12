@@ -14,5 +14,10 @@
 @property (weak, nonatomic) IBOutlet UIView *mapView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 
+@property (weak, nonatomic) IBOutlet UIImageView *selectedPlantImage;
+@property int seleccionoUnaPlanta;
+
 @property Plant *selectedPLant;
+
+
 @end
