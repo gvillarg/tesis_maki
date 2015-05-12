@@ -91,7 +91,7 @@
         
         CampusMapViewController *pv = [segue destinationViewController];
         
-        pv.selectedPLant = self.plantSelected;
+        pv.selectedPlant = self.plantSelected;
     }
 }
 

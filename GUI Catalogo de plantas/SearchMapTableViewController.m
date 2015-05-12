@@ -9,6 +9,7 @@
 #import "SearchMapTableViewController.h"
 #import "AFNetworking.h"
 #import "Plant.h"
+#import "CampusMapViewController.h"
 
 @interface SearchMapTableViewController ()
 @property NSMutableDictionary *plantasDiccionario;
@@ -220,19 +221,24 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     if ([[segue identifier] isEqualToString:@"unwindPlantSegue"]){
-        self.plantSelected = [[Plant alloc]init];
+//        self.plantSelected = [[Plant alloc]init];
+        
+        CampusMapViewController *campusMapVC = (CampusMapViewController *)segue.destinationViewController;
+        
+        Plant *selectedPlant;
         
         if (sender == self.searchDisplayController.searchResultsTableView){
             NSIndexPath *path = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
-            self.plantSelected = [filteredPlants objectAtIndex:path.row];
+            selectedPlant = [filteredPlants objectAtIndex:path.row];
            
         } else {
             NSIndexPath *path = [self.plantTableVIew indexPathForSelectedRow];
             NSString *sectionTitle = [self.plantSectionTitles objectAtIndex:path.section];
             NSArray *sectionPlants = [self.plantasDiccionario objectForKey:sectionTitle];
-           self.plantSelected = [sectionPlants objectAtIndex:path.row];
-           
+           selectedPlant = [sectionPlants objectAtIndex:path.row];
         }
+        
+        campusMapVC.selectedPlant = selectedPlant;
         
         //NSIndexPath *path = [self.GenderTableView indexPathForSelectedRow];
     }

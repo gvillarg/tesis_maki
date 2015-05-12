@@ -14,6 +14,6 @@
 
 
 @property (strong, nonatomic) IBOutlet UITableView *plantTableVIew;
-@property Plant *plantSelected;
+//@property Plant *plantSelected;
 
 @end

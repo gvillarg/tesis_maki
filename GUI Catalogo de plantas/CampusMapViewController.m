@@ -18,10 +18,16 @@
 
 #define ARC4RANDOM_MAX      0x100000
 @interface CampusMapViewController ()
+
+
 @end
 
 @implementation CampusMapViewController
+
+//@synthesize selectedPlant;
  GMSMapView *mapView_;
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,7 +55,31 @@
     [self.mapView addSubview: mapView_];
     
     [self muestraMarkerPlants];
+    
    }
+
+-(void)setSelectedPlant:(Plant *)selectedPlant {
+    _selectedPlant = selectedPlant;
+    
+    
+    NSString *urlString = [[NSString alloc] initWithString:[self.selectedPlant urlImage]];
+    
+    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    
+    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error==nil) {
+                self.selectedPlantImage.image = [UIImage imageWithData:data];
+            }
+            //[cell.spinner stopAnimating];
+        });
+    }];
+    
+    [task resume];
+    //[cell.spinner startAnimating];
+    
+    
+}
 
 -(void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
@@ -82,12 +112,12 @@
         //double valSum = ((double)arc4random() / ARC4RANDOM_MAX);
         
         if (i==0){
-           marker.position = CLLocationCoordinate2DMake(((NSNumber *)[self.selectedPLant localidad_x]).doubleValue, ((NSNumber *)[self.selectedPLant localidad_y]).doubleValue);
+           marker.position = CLLocationCoordinate2DMake(((NSNumber *)[self.selectedPlant localidad_x]).doubleValue, ((NSNumber *)[self.selectedPlant localidad_y]).doubleValue);
         }else{
-            NSString *posx = [self.selectedPLant localidad_x];
+            NSString *posx = [self.selectedPlant localidad_x];
             NSRange range1 = NSMakeRange(7,1);
             posx = [posx stringByReplacingCharactersInRange:range1 withString:[NSString stringWithFormat: @"%d",i]];
-            NSString *posy = [self.selectedPLant localidad_y];
+            NSString *posy = [self.selectedPlant localidad_y];
             NSRange range2 = NSMakeRange(8,1);
             posy = [posy stringByReplacingCharactersInRange:range2 withString:[NSString stringWithFormat: @"%d",i+1]];
             marker.position = CLLocationCoordinate2DMake(((NSNumber *)posx).doubleValue , ((NSNumber *)posy).doubleValue);
@@ -166,11 +196,8 @@
         [segue.sourceViewController dismissViewControllerAnimated:true completion:nil];
     }
     
-    SearchMapTableViewController *source = [segue sourceViewController];
-    self.selectedPLant = [[Plant alloc]init];
-    self.selectedPLant = source.plantSelected;
-    
-    self.seleccionoUnaPlanta = 1;
+//    SearchMapTableViewController *source = [segue sourceViewController];
+//    self.selectedPlant = source.plantSelected;
     
     [mapView_ clear];
     
@@ -186,7 +213,7 @@
         
         PlantViewController *pv = [segue destinationViewController];
         
-        Plant *plant = self.selectedPLant;
+        Plant *plant = self.selectedPlant;
 //        Specie *specie = [self.nuevasEspecies objectAtIndex:indexPath.row];
 //        plant.nombreFamilia = [self.familySelected name];
 //        plant.nombreGenero = [self.genderSelected name];
@@ -204,7 +231,7 @@
         
         PlantViewController *pv = [segue destinationViewController];
 
-        Plant *plant = self.selectedPLant;
+        Plant *plant = self.selectedPlant;
         
         pv.plantSelected = plant;
         pv.vieneDelMapa = 1;
