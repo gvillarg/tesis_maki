@@ -49,7 +49,7 @@ class SetupViewController: UIViewController {
     
     func dotDragged(recognizer: UIPanGestureRecognizer) {
         
-        var dot = recognizer.view as! Dot
+        var dot = recognizer.view as Dot
         
         switch recognizer.state {
         case UIGestureRecognizerState.Changed:
@@ -75,12 +75,12 @@ class SetupViewController: UIViewController {
         
         switch segue.identifier! {
         case StoryboardSegue.CancelSetup:
-            var viewController = segue.destinationViewController as! PhotoViewController
+            var viewController = segue.destinationViewController as PhotoViewController
             viewController.image = nil
             //viewController.bluePosition = nil
             //viewController.redPosition = nil
         case StoryboardSegue.AcceptSetup:
-            var viewController = segue.destinationViewController as! PhotoViewController
+            var viewController = segue.destinationViewController as PhotoViewController
             //viewController.bluePosition = view.convertPoint(blueDot.center, toView: imageView)
             //viewController.redPosition = view.convertPoint(redDot.center, toView: imageView)
         default: break

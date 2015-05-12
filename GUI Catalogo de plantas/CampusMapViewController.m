@@ -77,6 +77,7 @@
     
     [task resume];
     //[cell.spinner startAnimating];
+    self.nameLabel.text = [self.selectedPlant name];
     
     
 }
@@ -236,6 +237,16 @@
         pv.plantSelected = plant;
         pv.vieneDelMapa = 1;
     }
+    if ([segue.identifier isEqualToString:@"buttonSegue"]){
+        
+        PlantViewController *pv = [segue destinationViewController];
+        
+        Plant *plant = self.selectedPlant;
+        
+        pv.plantSelected = plant;
+        pv.vieneDelMapa = 1;
+    }
+    
 }
 
 

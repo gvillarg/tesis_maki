@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *searchButton;
 
 @property (weak, nonatomic) IBOutlet UIImageView *selectedPlantImage;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (nonatomic) Plant *selectedPlant;
 
