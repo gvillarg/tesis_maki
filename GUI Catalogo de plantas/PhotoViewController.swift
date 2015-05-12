@@ -17,12 +17,14 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var takePictureButton: UIButton!
-
-   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        takePictureButton.layer.cornerRadius = 10
+//        takePictureButton.layer.borderColor = UIColor.whiteColor().CGColor
+//        takePictureButton.layer.borderWidth = 2
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,10 +102,10 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case StoryboardSegue.Setup:
-            var setupViewController = segue.destinationViewController as SetupViewController
+            var setupViewController = segue.destinationViewController as! SetupViewController
             setupViewController.image = image
         case "DetailPhoto":
-            var detailphotoViewController = segue.destinationViewController as DetailPhotoViewController
+            var detailphotoViewController = segue.destinationViewController as! DetailPhotoViewController
             detailphotoViewController.photoTaken = image
         default:
             println("Unsuported segue indentifier: \(segue.identifier)")

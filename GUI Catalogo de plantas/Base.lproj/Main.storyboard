@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Familias-->
@@ -71,6 +72,9 @@
                                     <mask key="constraints">
                                         <exclude reference="Gg1-oR-PtL"/>
                                     </mask>
+                                </variation>
+                                <variation key="widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="88"/>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                     <rect key="frame" x="0.0" y="64" width="800" height="88"/>
@@ -768,47 +772,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="takePicture" translatesAutoresizingMaskIntoConstraints="NO" id="ta9-HZ-s4V">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="takePicture" translatesAutoresizingMaskIntoConstraints="NO" id="ta9-HZ-s4V">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eox-nx-DTw">
-                                <rect key="frame" x="326" y="83" width="220" height="240"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eox-nx-DTw">
+                                <rect key="frame" x="276" y="208" width="300" height="145"/>
                                 <string key="text">Para descubrir a que planta pertenece una hoja, solo deberás tomar una foto de ella y enviarla para ser evaluada! Intenta que el fondo de la foto sea blanco para obtener mejores resultados! Así</string>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-te-mk2">
-                                <rect key="frame" x="417" y="500" width="159" height="43"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="whr-KQ-WbZ"/>
-                                </constraints>
-                                <state key="normal" title="Tomar una foto">
-                                    <color key="titleColor" red="0.09803922474" green="0.094117656349999995" blue="0.43921571970000001" alpha="1" colorSpace="deviceRGB"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9OK-te-mk2">
+                                <rect key="frame" x="431" y="489" width="153" height="46"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <inset key="contentEdgeInsets" minX="14" minY="14" maxX="14" maxY="14"/>
+                                <state key="normal" title="Tomar una foto ▶︎">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="selectImageButtonPressed:" destination="LcJ-SQ-5qR" eventType="touchUpInside" id="ysJ-zc-44k"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flecha4" translatesAutoresizingMaskIntoConstraints="NO" id="MXI-7R-IO4">
-                                <rect key="frame" x="216" y="283" width="143" height="118"/>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="flecha4" translatesAutoresizingMaskIntoConstraints="NO" id="MXI-7R-IO4">
+                                <rect key="frame" x="276" y="361" width="133" height="168"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="168" id="Q2D-HL-Skf"/>
+                                    <constraint firstAttribute="width" constant="133" id="rWY-7M-yjb"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="MXI-7R-IO4" firstAttribute="leading" secondItem="eox-nx-DTw" secondAttribute="leading" id="7vw-gD-cYS"/>
                             <constraint firstItem="ta9-HZ-s4V" firstAttribute="top" secondItem="MSG-tr-fCJ" secondAttribute="bottom" id="82W-sJ-1yg"/>
-                            <constraint firstItem="9OK-te-mk2" firstAttribute="top" secondItem="eox-nx-DTw" secondAttribute="bottom" constant="177" id="8Ea-Gz-trz"/>
-                            <constraint firstItem="9OK-te-mk2" firstAttribute="leading" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="401" id="CsA-A1-TUX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9OK-te-mk2" secondAttribute="trailing" constant="8" id="KUo-cJ-V5T"/>
-                            <constraint firstItem="eox-nx-DTw" firstAttribute="top" secondItem="MSG-tr-fCJ" secondAttribute="bottom" constant="19" id="W05-ao-Vz9"/>
+                            <constraint firstItem="ta9-HZ-s4V" firstAttribute="width" secondItem="eox-nx-DTw" secondAttribute="width" multiplier="2" id="PYw-xI-HYA"/>
+                            <constraint firstItem="MXI-7R-IO4" firstAttribute="top" secondItem="eox-nx-DTw" secondAttribute="bottom" constant="8" id="Vck-xZ-dom"/>
                             <constraint firstItem="FnB-lC-nHV" firstAttribute="top" secondItem="ta9-HZ-s4V" secondAttribute="bottom" id="Wf5-9i-Pvu"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="eox-nx-DTw" secondAttribute="trailing" constant="38" id="cAS-0h-NmV"/>
-                            <constraint firstItem="eox-nx-DTw" firstAttribute="leading" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="310" id="gNq-da-f97"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eox-nx-DTw" secondAttribute="trailing" constant="8" id="cAS-0h-NmV">
+                                <variation key="widthClass=compact" constant="-8"/>
+                            </constraint>
+                            <constraint firstItem="9OK-te-mk2" firstAttribute="trailing" secondItem="ebw-Fr-In9" secondAttribute="trailingMargin" id="ef9-lX-BgV"/>
+                            <constraint firstAttribute="centerY" secondItem="eox-nx-DTw" secondAttribute="centerY" constant="20" id="gmD-sJ-FRz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ta9-HZ-s4V" secondAttribute="trailing" constant="-16" id="iyV-hB-tLk"/>
+                            <constraint firstItem="FnB-lC-nHV" firstAttribute="top" secondItem="9OK-te-mk2" secondAttribute="bottom" constant="16" id="jJA-cl-UvI"/>
                             <constraint firstItem="ta9-HZ-s4V" firstAttribute="leading" secondItem="ebw-Fr-In9" secondAttribute="leadingMargin" constant="-16" id="kt7-cY-6hW"/>
-                            <constraint firstItem="9OK-te-mk2" firstAttribute="top" secondItem="eox-nx-DTw" secondAttribute="bottom" constant="177" id="tjH-ij-Shd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cMj-rr-U65"/>
@@ -1023,7 +1032,7 @@
         <image name="takePicture" width="1600" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ybi-Us-C8f"/>
+        <segue reference="nbE-rp-Mif"/>
         <segue reference="od5-Dd-foT"/>
     </inferredMetricsTieBreakers>
 </document>
