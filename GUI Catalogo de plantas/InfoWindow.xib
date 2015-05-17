@@ -7,11 +7,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CustomInfoWindow">
-            <rect key="frame" x="0.0" y="0.0" width="224" height="235"/>
+            <rect key="frame" x="0.0" y="0.0" width="224" height="135"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="infowindow_bg" translatesAutoresizingMaskIntoConstraints="NO" id="9l8-ID-34q">
-                    <rect key="frame" x="0.0" y="0.0" width="224" height="235"/>
+                    <rect key="frame" x="0.0" y="0.0" width="224" height="135"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ViB-aF-OLd">
                     <rect key="frame" x="8" y="16" width="208" height="21"/>
@@ -20,25 +20,19 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ssc-EQ-1Ra">
-                    <rect key="frame" x="8" y="148" width="208" height="21"/>
+                    <rect key="frame" x="8" y="45" width="208" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVl-xy-ccd">
+                    <rect key="frame" x="8" y="86" width="208" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eaG-Fy-8Jl">
-                    <rect key="frame" x="8" y="167" width="208" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lGU-cC-dWz">
-                    <rect key="frame" x="64" y="45" width="96" height="95"/>
-                </imageView>
-                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="i7C-TR-DbA">
-                    <rect key="frame" x="102" y="83" width="20" height="20"/>
-                </activityIndicatorView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uVl-xy-ccd">
-                    <rect key="frame" x="8" y="185" width="208" height="21"/>
+                    <rect key="frame" x="8" y="66" width="208" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
@@ -63,10 +57,8 @@
                 <outlet property="familiaLabel" destination="Ssc-EQ-1Ra" id="t6h-wB-Dc8"/>
                 <outlet property="generoLabel" destination="eaG-Fy-8Jl" id="32b-7y-lwf"/>
                 <outlet property="nombreComunLabel" destination="ViB-aF-OLd" id="ai0-Ib-yV7"/>
-                <outlet property="photoPlant" destination="lGU-cC-dWz" id="PXR-sV-Awj"/>
-                <outlet property="spinner" destination="i7C-TR-DbA" id="ZWX-oq-9HU"/>
             </connections>
-            <point key="canvasLocation" x="424" y="269.5"/>
+            <point key="canvasLocation" x="424" y="219.5"/>
         </view>
     </objects>
     <resources>

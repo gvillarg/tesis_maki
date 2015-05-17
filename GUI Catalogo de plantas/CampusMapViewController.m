@@ -182,14 +182,14 @@
     }
 }
 
-/*-(UIView *) mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
+-(UIView *) mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker{
     CustomInfoWindow *infoWindow = [[[NSBundle mainBundle] loadNibNamed:@"InfoWindow" owner:self options:nil] objectAtIndex:0];
-    infoWindow.nombreComunLabel.text = [NSString stringWithFormat: @"%@", [self.selectedPLant name]];
-    infoWindow.familiaLabel.text = [NSString stringWithFormat: @"Familia: %@", [self.selectedPLant nombreFamilia]];
-    infoWindow.generoLabel.text = [NSString stringWithFormat: @"Genero: %@", [self.selectedPLant nombreGenero]];
-    infoWindow.especieLabel.text = [NSString stringWithFormat: @"Especie: %@", [self.selectedPLant nombreEspecie]];
+    infoWindow.nombreComunLabel.text = [NSString stringWithFormat: @"%@", [self.selectedPlant name]];
+    infoWindow.familiaLabel.text = [NSString stringWithFormat: @"Familia: %@", [self.selectedPlant nombreFamilia]];
+    infoWindow.generoLabel.text = [NSString stringWithFormat: @"Genero: %@", [self.selectedPlant nombreGenero]];
+    infoWindow.especieLabel.text = [NSString stringWithFormat: @"Especie: %@", [self.selectedPlant nombreEspecie]];
 
-    NSString *urlString = [[NSString alloc] initWithString:[self.selectedPLant urlImage]];
+    NSString *urlString = [[NSString alloc] initWithString:[self.selectedPlant urlImage]];
     
     NSURL *url = [[NSURL alloc] initWithString:urlString];
     
@@ -204,12 +204,12 @@
     [task resume];
     [infoWindow.spinner startAnimating];
     return infoWindow;
-}*/
+}
 
-/*-(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+-(void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
      NSLog(@"perform segue");
     [self performSegueWithIdentifier:@"ShowPlantDetails" sender:self];
-}*/
+}
 
 
 
