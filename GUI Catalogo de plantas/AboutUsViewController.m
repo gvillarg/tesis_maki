@@ -45,26 +45,38 @@
 
 - (IBAction)apretoTwitter:(id)sender {
     NSString *miUrlString;
-    miUrlString = @"twitter.com/GRPIAAPUCP";
+    miUrlString = @"https://www.twitter.com/GRPIAAPUCP";
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:miUrlString]];
 }
 
-- (IBAction)apretoCorreo:(id)sender {
+- (IBAction)apretoCorreo:(UIButton *)sender {
     MFMailComposeViewController *miComposer = [[MFMailComposeViewController alloc] init];
-    miComposer.mailComposeDelegate = self;
     
-    //Aqui le metemos el destinatario y el cuerpo
-    [miComposer setSubject:@"Mensaje al grupo GRPIAA"];
-    [miComposer setMessageBody:@"Escribe aqui tu sugerencia - Prueba 1" isHTML:NO];
-    [miComposer setToRecipients:@[@"makikommt@gmail.com"]];
-    //
+    if (miComposer != nil) {
+        miComposer.mailComposeDelegate = self;
+        
+        //Aqui le metemos el destinatario y el cuerpo
+        [miComposer setSubject:@"Mensaje al grupo GRPIAA"];
+        [miComposer setMessageBody:@"Escribe aqui tu sugerencia - Prueba 1" isHTML:NO];
+        [miComposer setToRecipients:@[@"makikommt@gmail.com"]];
+        //
+        
+        miComposer.popoverPresentationController.sourceRect = sender.bounds;
+        miComposer.popoverPresentationController.sourceView = sender;
+        
+        [self presentViewController:miComposer animated:YES completion:nil];
+    } else {
+        NSLog(@"No se encontro un correo electronico");
+    }
     
-    [self presentViewController:miComposer animated:YES completion:nil];
 }
-- (IBAction)apretoCompartir:(id)sender {
+- (IBAction)apretoCompartir:(UIButton *)sender {
     UIActivityViewController *miActivity = [[UIActivityViewController alloc] initWithActivityItems:@[@"Me gusta mucho esta aplicacion!/"] applicationActivities:nil];
     
     miActivity.excludedActivityTypes = @[UIActivityTypeMail];
+    
+    miActivity.popoverPresentationController.sourceRect = sender.bounds;
+    miActivity.popoverPresentationController.sourceView = sender;
     
     [self presentViewController:miActivity animated:YES completion:nil];
 }
