@@ -51,25 +51,28 @@
     // Long Press gesture recognizer
     UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showSaveImageMenu:)];
     
-    longPressRecognizer.minimumPressDuration = 2;
+    longPressRecognizer.minimumPressDuration = 1;
     
     [self.fotoPlanta addGestureRecognizer:longPressRecognizer];
     
 }
 
 -(void) showSaveImageMenu: (UILongPressGestureRecognizer *)recognizer {
-    NSLog(@"imagen presionada %@", recognizer);
-    UIAlertController *actionSheet =[UIAlertController alertControllerWithTitle:@"Seleccionar" message:nil preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction* saveImageAction = [UIAlertAction actionWithTitle:@"Guardar imagen" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
-        UIImageWriteToSavedPhotosAlbum(self.fotoPlanta.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
-        //self.image = image;
-    }];
-    
-    [actionSheet addAction:saveImageAction];
-    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancelar" style:UIAlertActionStyleCancel handler:nil];
-    [actionSheet addAction:cancelAction];
-    [self presentViewController:actionSheet animated:YES completion:nil];
+    if (recognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"imagen presionada %@", recognizer);
+        UIAlertController *actionSheet =[UIAlertController alertControllerWithTitle:@"Seleccionar" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction* saveImageAction = [UIAlertAction actionWithTitle:@"Guardar imagen" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+            UIImageWriteToSavedPhotosAlbum(self.fotoPlanta.image, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+            //self.image = image;
+        }];
+        
+        [actionSheet addAction:saveImageAction];
+        UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancelar" style:UIAlertActionStyleCancel handler:nil];
+        [actionSheet addAction:cancelAction];
+        [self presentViewController:actionSheet animated:YES completion:nil];
+    }
 }
 
 -(void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
