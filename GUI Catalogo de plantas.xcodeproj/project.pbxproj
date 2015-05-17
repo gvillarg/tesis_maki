@@ -51,6 +51,7 @@
 		12E00B521AF0549F00CA66AE /* CustomInfoWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 12E00B511AF0549F00CA66AE /* CustomInfoWindow.m */; };
 		12ED243E1AE1B5770058B003 /* Specie.m in Sources */ = {isa = PBXBuildFile; fileRef = 12ED243D1AE1B5770058B003 /* Specie.m */; };
 		202DF9361ACBA265002FABB4 /* GendersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 202DF9351ACBA265002FABB4 /* GendersViewController.m */; };
+		20320B751B0927D600276DCF /* AboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 20320B741B0927D600276DCF /* AboutUsViewController.m */; };
 		2036FF0A1AF6B384003CD1EE /* DetailPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2036FF091AF6B384003CD1EE /* DetailPhotoViewController.m */; };
 		203908091AD1DF59009E87EF /* SpeciesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 203908081AD1DF59009E87EF /* SpeciesViewController.m */; };
 		204B4B0E1AEDC9B600218B32 /* SearchMapTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 204B4B0D1AEDC9B600218B32 /* SearchMapTableViewController.m */; };
@@ -152,6 +153,8 @@
 		12ED243D1AE1B5770058B003 /* Specie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Specie.m; sourceTree = "<group>"; };
 		202DF9341ACBA265002FABB4 /* GendersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GendersViewController.h; sourceTree = "<group>"; };
 		202DF9351ACBA265002FABB4 /* GendersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GendersViewController.m; sourceTree = "<group>"; };
+		20320B731B0927D600276DCF /* AboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutUsViewController.h; sourceTree = "<group>"; };
+		20320B741B0927D600276DCF /* AboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutUsViewController.m; sourceTree = "<group>"; };
 		2036FF081AF6B383003CD1EE /* DetailPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailPhotoViewController.h; sourceTree = "<group>"; };
 		2036FF091AF6B384003CD1EE /* DetailPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailPhotoViewController.m; sourceTree = "<group>"; };
 		203908071AD1DF59009E87EF /* SpeciesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeciesViewController.h; sourceTree = "<group>"; };
@@ -330,6 +333,8 @@
 				12DA4B951ADC7E60006DFD91 /* UIKit+AFNetworking */,
 				122A03F51ACA27840086A2E4 /* Models */,
 				CCE740261A9FE8ED007374C4 /* AppDelegate.h */,
+				20320B731B0927D600276DCF /* AboutUsViewController.h */,
+				20320B741B0927D600276DCF /* AboutUsViewController.m */,
 				1269E1BA1AE1E27E008A4002 /* PlantViewController.h */,
 				1269E1BB1AE1E27E008A4002 /* PlantViewController.m */,
 				1269E1B71AE1DCEB008A4002 /* HeaderClass.h */,
@@ -508,6 +513,7 @@
 				12DA4BA71ADC7E60006DFD91 /* AFHTTPRequestOperation.m in Sources */,
 				12559FCF1AEC392800B94507 /* SetupViewController.swift in Sources */,
 				12DA4BA91ADC7E60006DFD91 /* AFHTTPSessionManager.m in Sources */,
+				20320B751B0927D600276DCF /* AboutUsViewController.m in Sources */,
 				12559FCA1AEC37F800B94507 /* Dot.swift in Sources */,
 				1269E1BF1AE1E3C8008A4002 /* Plant.m in Sources */,
 				12DA4BB21ADC7E60006DFD91 /* UIAlertView+AFNetworking.m in Sources */,
