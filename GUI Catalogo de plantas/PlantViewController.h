@@ -12,7 +12,7 @@
 #import "Gender.h"
 #import "Specie.h"
 
-@interface PlantViewController : UIViewController
+@interface PlantViewController : UIViewController 
 @property (weak, nonatomic) IBOutlet UIImageView *fotoPlanta;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
