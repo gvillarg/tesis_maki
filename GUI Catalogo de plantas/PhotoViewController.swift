@@ -90,6 +90,8 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
+        UIImageWriteToSavedPhotosAlbum(image, self, "image:didFinishSavingWithError:contextInfo:", nil)
+        
         self.image = image
         
         dismissViewControllerAnimated(true){
@@ -99,13 +101,19 @@ class PhotoViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
     }
     
+    func image(image: UIImage, didFinishSavingWithError error: NSErrorPointer, contextInfo: UnsafePointer<Void>) {
+        if error != nil {
+            println("Error saving image: \(error)")
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
         case StoryboardSegue.Setup:
-            var setupViewController = segue.destinationViewController as SetupViewController
+            var setupViewController = segue.destinationViewController as! SetupViewController
             setupViewController.image = image
         case "DetailPhoto":
-            var detailphotoViewController = segue.destinationViewController as DetailPhotoViewController
+            var detailphotoViewController = segue.destinationViewController as! DetailPhotoViewController
             detailphotoViewController.photoTaken = image
         default:
             println("Unsuported segue indentifier: \(segue.identifier)")

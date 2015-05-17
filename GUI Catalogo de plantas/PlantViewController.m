@@ -48,8 +48,19 @@
         self.fotoPlanta.image = self.plantSelected.smallImage;
     }
     
+    // Long Press gesture recognizer
+    UILongPressGestureRecognizer *longPressRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(showSaveImageMenu:)];
+    
+    longPressRecognizer.minimumPressDuration = 0;
+    
+    [self.fotoPlanta addGestureRecognizer:longPressRecognizer];
     
 }
+
+-(void) showSaveImageMenu: (UILongPressGestureRecognizer *)recognizer {
+    NSLog(@"imagen presionada %@", recognizer);
+}
+
 - (IBAction)MasInfoButton:(UIButton *)sender {
     NSString *miURLString = [[NSString alloc] initWithString:[self.plantSelected urlMasInfo]];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:miURLString]];
@@ -89,7 +100,7 @@
    
     if ([segue.identifier isEqualToString:@"plantToMapSegue"]){
         
-        CampusMapViewController *pv = [segue destinationViewController];
+        CampusMapViewController *pv = (CampusMapViewController *)[segue destinationViewController];
         
         pv.selectedPlant = self.plantSelected;
     }

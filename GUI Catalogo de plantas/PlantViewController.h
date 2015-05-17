@@ -33,4 +33,6 @@
 
 @property int vieneDelMapa;
 
+-(void) showSaveImageMenu: (UILongPressGestureRecognizer *)recognizer;
+
 @end

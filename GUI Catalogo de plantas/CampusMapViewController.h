@@ -18,6 +18,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 
 @property (nonatomic) Plant *selectedPlant;
+@property (weak, nonatomic) IBOutlet UIButton *plantButton;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 
 @end

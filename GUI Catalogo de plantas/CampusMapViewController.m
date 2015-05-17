@@ -15,6 +15,7 @@
 #import <math.h>
 #import "PlantViewController.h"
 #import "Cell.h"
+@import UIKit;
 
 #define ARC4RANDOM_MAX      0x100000
 @interface CampusMapViewController ()
@@ -56,30 +57,62 @@
     
     [self muestraMarkerPlants];
     
+    [self updateUIForSelectedPlant];
+    
    }
 
 -(void)setSelectedPlant:(Plant *)selectedPlant {
     _selectedPlant = selectedPlant;
-    
+    [self updateUIForSelectedPlant];
+}
+
+-(void) updateUIForSelectedPlant {
+
     self.selectedPlantImage.image = nil;
-    NSString *urlString = [[NSString alloc] initWithString:[self.selectedPlant urlImage]];
     
-    NSURL *url = [[NSURL alloc] initWithString:urlString];
+    if (self.selectedPlant) {
+        
+        self.nameLabel.text = self.selectedPlant.name;
+        NSString *urlString = [[NSString alloc] initWithString:[self.selectedPlant urlImage]];
+        
+        NSURL *url = [[NSURL alloc] initWithString:urlString];
+        
+        NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error==nil) {
+                    self.selectedPlantImage.image = [UIImage imageWithData:data];
+                    [self glowForView:self.selectedPlantImage];
+                }
+                [self.spinner stopAnimating];
+            });
+        }];
+        
+        [task resume];
+        [self.spinner startAnimating];
+        
+        mapView_.camera = [GMSCameraPosition cameraWithLatitude:((NSNumber *)self.selectedPlant.localidad_x).doubleValue longitude:((NSNumber *)self.selectedPlant.localidad_y).doubleValue zoom:16.60];
+    }
+}
+
+-(void)prepareGlowForView: (UIView *)view {
     
-    NSURLSessionDataTask* task = [[NSURLSession sharedSession] dataTaskWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error==nil) {
-                self.selectedPlantImage.image = [UIImage imageWithData:data];
-            }
-            //[cell.spinner stopAnimating];
-        });
-    }];
+    view.layer.shadowColor = [UIColor blueColor].CGColor;
+    view.layer.shadowOffset = CGSizeMake(0, 0);
+    view.layer.shadowOpacity = 1.0;
+    view.layer.shadowRadius = 20;
+}
+
+-(void)glowForView: (UIView *)view {
+    [self prepareGlowForView:view];
     
-    [task resume];
-    //[cell.spinner startAnimating];
-    self.nameLabel.text = [self.selectedPlant name];
+    CABasicAnimation *glowAnimation = [CABasicAnimation animationWithKeyPath:@"shadowOpacity"];
+    glowAnimation.fromValue = @0;
+    glowAnimation.toValue = @1;
+    glowAnimation.repeatCount = 10;
+    glowAnimation.duration = 2.0;
+    glowAnimation.autoreverses = YES;
     
-    
+    [view.layer addAnimation:glowAnimation forKey:@"glow"];
 }
 
 -(void)viewDidLayoutSubviews {

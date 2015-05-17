@@ -81,7 +81,7 @@
     int randomNumber = arc4random_uniform(7)+1;
     for (int i=0; i<=randomNumber; i++) {
         seRepite = 0;
-        int randomId = arc4random_uniform(70)+2;
+        int randomId = arc4random_uniform(110)+3;
         NSNumber *randomIDNumber = [NSNumber numberWithInt:randomId];
         NSMutableDictionary *randomIdDictionary = [[NSMutableDictionary alloc]initWithObjectsAndKeys:randomIDNumber, @"id", nil];
         
