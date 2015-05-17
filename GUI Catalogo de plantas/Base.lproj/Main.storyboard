@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="evw-rf-byo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -597,7 +597,6 @@
                                 <rect key="frame" x="64" y="68" width="20" height="20"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqC-r8-0dO">
-                                <rect key="frame" x="24" y="128" width="100" height="0.0"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -785,19 +784,153 @@
             </objects>
             <point key="canvasLocation" x="1657" y="1385"/>
         </scene>
-        <!--Manual de Usuario-->
+        <!--Contactanos-->
         <scene sceneID="Ab9-8L-3cI">
             <objects>
                 <navigationController id="mOE-Qa-gSc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Manual de Usuario" image="ManualTabBar" id="471-CA-Usy"/>
+                    <tabBarItem key="tabBarItem" title="Contactanos" image="ManualTabBar" id="471-CA-Usy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fsF-mO-tv2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <connections>
+                        <segue destination="Cd0-Fy-Jpq" kind="relationship" relationship="rootViewController" id="uug-l7-ky9"/>
+                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S4P-f8-Zuv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1256" y="2066"/>
+        </scene>
+        <!--Contactanos-->
+        <scene sceneID="Vge-PS-0qa">
+            <objects>
+                <viewController id="Cd0-Fy-Jpq" customClass="AboutUsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Msm-U2-WNd"/>
+                        <viewControllerLayoutGuide type="bottom" id="CCL-Af-op7"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gbu-Mb-nWf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Grupo de Reconocimiento de Patrones e Inteligencia Artificial Aplicada - Pontificia Universidad Católica del Perú (PUCP)" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmf-1v-9D9">
+                                <rect key="frame" x="95" y="96" width="438" height="96"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qv-E4-d6A">
+                                <rect key="frame" x="180" y="215" width="241" height="50"/>
+                                <color key="backgroundColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="apretoPaginaWeb:" destination="Cd0-Fy-Jpq" eventType="touchUpInside" id="wWn-td-3c4"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pagina Web" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jM-9b-9CL">
+                                <rect key="frame" x="245" y="226" width="139" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2e-Rp-Rc5">
+                                <rect key="frame" x="180" y="282" width="241" height="51"/>
+                                <color key="backgroundColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="apretoFacebook:" destination="Cd0-Fy-Jpq" eventType="touchUpInside" id="3JX-8K-mju"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="facebookLogo" translatesAutoresizingMaskIntoConstraints="NO" id="aoj-iD-4ln">
+                                <rect key="frame" x="180" y="282" width="52" height="51"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilK-7h-gUt">
+                                <rect key="frame" x="180" y="348" width="241" height="51"/>
+                                <color key="backgroundColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="apretoTwitter:" destination="Cd0-Fy-Jpq" eventType="touchUpInside" id="v9I-Fh-c3c"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="twitterLogo" translatesAutoresizingMaskIntoConstraints="NO" id="iSL-uS-bIq">
+                                <rect key="frame" x="180" y="348" width="52" height="51"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YFM-F3-SLI">
+                                <rect key="frame" x="245" y="294" width="139" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Twitter" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C5S-Ag-Qj5">
+                                <rect key="frame" x="245" y="360" width="139" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYW-Oc-cJo">
+                                <rect key="frame" x="180" y="417" width="241" height="51"/>
+                                <color key="backgroundColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="apretoCorreo:" destination="Cd0-Fy-Jpq" eventType="touchUpInside" id="gwc-kk-lI7"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="emailLogo" translatesAutoresizingMaskIntoConstraints="NO" id="OdY-jW-xb9">
+                                <rect key="frame" x="180" y="417" width="52" height="51"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Envianos un correo" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="24p-FM-9Nx">
+                                <rect key="frame" x="245" y="429" width="164" height="27"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygQ-i7-Vqm">
+                                <rect key="frame" x="180" y="484" width="241" height="51"/>
+                                <color key="backgroundColor" red="0.06196565221" green="0.067741121479999999" blue="0.27375315659999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="apretoCompartir:" destination="Cd0-Fy-Jpq" eventType="touchUpInside" id="NxC-dT-DGc"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shareLogo" translatesAutoresizingMaskIntoConstraints="NO" id="VXx-HY-MFi">
+                                <rect key="frame" x="180" y="484" width="52" height="51"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comparte esta aplicacion" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHd-hh-C7v">
+                                <rect key="frame" x="245" y="496" width="176" height="27"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="webPageLogo" translatesAutoresizingMaskIntoConstraints="NO" id="O86-0o-cP7">
+                                <rect key="frame" x="180" y="215" width="57" height="50"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bmf-1v-9D9" firstAttribute="top" secondItem="Msm-U2-WNd" secondAttribute="bottom" constant="32" id="cMs-Mu-bC9"/>
+                            <constraint firstItem="O86-0o-cP7" firstAttribute="top" secondItem="bmf-1v-9D9" secondAttribute="bottom" constant="23" id="jXF-K7-fyW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jXF-K7-fyW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Contactanos" id="FBq-dL-NUB"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvm-U0-e3S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2132" y="2402"/>
         </scene>
         <!--Photo View Controller-->
         <scene sceneID="6Ku-wQ-IP1">
@@ -1068,9 +1201,14 @@
         <image name="MapTabBar" width="26" height="26"/>
         <image name="SearchTabBar" width="26" height="26"/>
         <image name="cameraTabBar" width="32" height="32"/>
+        <image name="emailLogo" width="300" height="300"/>
+        <image name="facebookLogo" width="1600" height="1600"/>
         <image name="flecha4" width="1000" height="1000"/>
         <image name="searchIcon" width="36" height="36"/>
+        <image name="shareLogo" width="128" height="128"/>
         <image name="takePicture" width="1600" height="1200"/>
+        <image name="twitterLogo" width="512" height="512"/>
+        <image name="webPageLogo" width="300" height="300"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wJX-E1-9QI"/>
