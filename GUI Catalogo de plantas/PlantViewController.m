@@ -79,6 +79,12 @@
 {
     if (error != nil) {
         NSLog(@"Error saving image: %@", error);
+        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Ha ocurrido un error al intentar grabar la imagen. Intenta nuevamente!" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+        [alerta show];
+    }
+    else {
+        UIAlertView *alerta = [[UIAlertView alloc]initWithTitle:@"Éxito" message:@"Se ha grabado la imagen correctamente!" delegate:nil cancelButtonTitle:@"Aceptar" otherButtonTitles:nil];
+        [alerta show];
     }
 }
 

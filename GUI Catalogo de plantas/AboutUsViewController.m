@@ -39,7 +39,10 @@
 
 - (IBAction)apretoFacebook:(id)sender {
     NSString *miUrlString;
-    miUrlString = @"https://www.facebook.com/grpiaa";
+    miUrlString = @"fb://page/190332614427";
+    if(![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:miUrlString]]){
+        miUrlString = @"https://www.facebook.com/grpiaa";
+    }
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:miUrlString]];
 }
 
@@ -66,12 +69,12 @@
         
         [self presentViewController:miComposer animated:YES completion:nil];
     } else {
-        NSLog(@"No se encontro un correo electronico");
+        NSLog(@"No se encontró un correo electronico");
     }
     
 }
 - (IBAction)apretoCompartir:(UIButton *)sender {
-    UIActivityViewController *miActivity = [[UIActivityViewController alloc] initWithActivityItems:@[@"Me gusta mucho esta aplicacion!/"] applicationActivities:nil];
+    UIActivityViewController *miActivity = [[UIActivityViewController alloc] initWithActivityItems:@[@"Me gusta mucho esta aplicacion!"] applicationActivities:nil];
     
     miActivity.excludedActivityTypes = @[UIActivityTypeMail];
     
