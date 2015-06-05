@@ -24,6 +24,10 @@
     UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     self.view.backgroundColor = [UIColor colorWithPatternImage:image];
+    
+    UINavigationController *navController = self.navigationController;
+    self.navigationController.navigationBar.backgroundColor = [UIColor whiteColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,7 +43,7 @@
 
 - (IBAction)apretoFacebook:(id)sender {
     NSString *miUrlString;
-    miUrlString = @"fb://page/190332614427";
+    miUrlString = @"fb://profile/190332614427";
     if(![[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:miUrlString]]){
         miUrlString = @"https://www.facebook.com/grpiaa";
     }
@@ -74,7 +78,10 @@
     
 }
 - (IBAction)apretoCompartir:(UIButton *)sender {
-    UIActivityViewController *miActivity = [[UIActivityViewController alloc] initWithActivityItems:@[@"Me gusta mucho esta aplicacion!"] applicationActivities:nil];
+//    NSURL *url = [NSURL URLWithString:@"fb://page/190332614427"];
+    NSString *text = @"Me gusta mucho esta aplicacion!";
+    NSArray *items = @[text];
+    UIActivityViewController *miActivity = [[UIActivityViewController alloc] initWithActivityItems:items applicationActivities:nil];
     
     miActivity.excludedActivityTypes = @[UIActivityTypeMail];
     

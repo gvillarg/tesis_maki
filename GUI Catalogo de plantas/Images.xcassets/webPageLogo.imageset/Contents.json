@@ -3,7 +3,16 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "webPageLogo.png"
+      "filename" : "Domain-50-2.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "Domain-100.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {
